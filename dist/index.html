@@ -10,11 +10,19 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="apple-touch-icon" href="app-icon.png" />
     <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="nav.css" />
     <title>Deep Health AI</title>
   </head>
   <body>
     <main id="device" aria-label="Deep Health AI mobile prototype">
       <iframe id="screen" title="Deep Health AI" allow="camera; clipboard-write"></iframe>
+      <nav id="app-nav" class="app-nav" aria-label="Primary navigation" hidden>
+        <button data-route="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+        <button data-route="report"><span class="nav-icon pulse-icon">⌁</span><span>Reports</span></button>
+        <button data-route="position" class="scan-tab"><span class="scan-icon">▦</span><span>Scan</span></button>
+        <button data-route="plans"><span class="nav-icon">▣</span><span>Plans</span></button>
+        <button data-route="profile"><span class="nav-icon profile-icon">○</span><span>Profile</span></button>
+      </nav>
       <div id="loading" class="loading"><span></span><p>Loading secure health experience…</p></div>
       <div id="scrim" class="scrim" hidden></div>
       <section id="sheet" class="sheet" hidden aria-modal="true" role="dialog"></section>
