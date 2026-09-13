@@ -23,20 +23,11 @@
 <span class="w-2 h-2 rounded-full bg-confidence-high animate-pulse"></span>
 <span class="font-label-sm text-label-sm uppercase tracking-wider text-surface-bright">Step 2 of 3: Positioning</span>
 </div>
-<!-- Telemetry Toggle Actions -->
-<div class="flex items-center gap-space-xs">
-<button aria-label="Toggle Voice Calibration" class="w-10 h-10 rounded-full bg-surface-container-lowest/15 backdrop-blur-md text-surface-bright flex items-center justify-center hover:bg-surface-container-lowest/25 active:scale-95 transition-all" id="audio-toggle-btn">
-<span class="material-symbols-outlined text-[20px]" id="audio-icon">volume_up</span>
-</button>
-<button aria-label="Toggle Auxiliary Lighting" class="w-10 h-10 rounded-full bg-surface-container-lowest/15 backdrop-blur-md text-surface-bright flex items-center justify-center hover:bg-surface-container-lowest/25 active:scale-95 transition-all" id="torch-toggle-btn">
-<span class="material-symbols-outlined text-[20px]" id="torch-icon">light_mode</span>
-</button>
-</div>
 </div>
 <!-- Center Stage: Biometric Face Oval Target HUD & Alignment Ring -->
 <div class="relative z-10 flex flex-col items-center justify-center my-auto">
 <!-- Biometric Tracking Viewport System -->
-<div class="relative w-64 h-80 flex items-center justify-center">
+<div class="relative w-60 h-72 flex items-center justify-center">
 <!-- Outer Precision Gyro Ring (Rotational Telemetry) -->
 <div class="absolute inset-0 rounded-[48%] border-dashed border-2 border-primary-fixed/30 pointer-events-none animate-[spin_24s_linear_infinite]"></div>
 <!-- Corner Alignment Reticles (Scientific HUD Marks) -->
@@ -73,17 +64,17 @@
 </div>
 </div>
 <!-- HUD Real-Time Environmental Health Bar -->
-<div class="relative z-10 flex flex-col gap-space-xs">
+<div class="relative z-10 flex flex-col gap-1.5 mt-2">
 <!-- Primary Live Directive Card -->
-<div class="w-full bg-inverse-surface/90 backdrop-blur-xl px-space-md py-2.5 rounded-lg flex items-center justify-between shadow-lg transition-all duration-300" id="status-card">
+<div class="w-full bg-inverse-surface/90 backdrop-blur-xl px-space-md py-2 rounded-lg flex items-center justify-between shadow-lg transition-all duration-300" id="status-card">
 <div class="flex items-center gap-space-sm">
-<div class="w-3 h-3 rounded-full bg-clinical-success animate-ping" id="status-pulse"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-clinical-success animate-ping" id="status-pulse"></div>
 <div class="flex flex-col">
-<span class="font-headline-md text-title-lg text-surface-bright font-semibold tracking-tight" id="status-headline">Face Detected</span>
+<span class="font-headline-md text-title-md text-surface-bright font-semibold tracking-tight" id="status-headline">Face Detected</span>
 <span class="font-body-sm text-body-sm text-surface-container-highest" id="status-sub">Hold position for computational baseline</span>
 </div>
 </div>
-<div class="flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-lowest/10">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-lowest/10 shrink-0">
 <span class="material-symbols-outlined text-[16px] text-clinical-success">check_circle</span>
 <span class="font-code-metric text-code-metric text-surface-bright font-medium">98.4%</span>
 </div>
@@ -91,28 +82,28 @@
 <!-- Real-Time Telemetry Tri-Metric Panel -->
 <div class="grid grid-cols-3 gap-space-xs">
 <!-- Sensor 1: Light Quality -->
-<div class="bg-surface-container-lowest/15 backdrop-blur-md rounded px-2.5 py-2 flex flex-col gap-0.5">
+<div class="bg-surface-container-lowest/20 backdrop-blur-md rounded px-2 py-1.5 flex flex-col justify-center gap-0.5">
 <div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-surface-container-highest">Lux Index</span>
-<span class="w-1.5 h-1.5 rounded-full bg-clinical-success"></span>
+<span class="font-label-sm text-label-sm text-surface-container-highest truncate">Lux Index</span>
+<span class="w-1.5 h-1.5 rounded-full bg-clinical-success shrink-0"></span>
 </div>
-<span class="font-code-metric text-code-metric font-semibold text-surface-bright">Optimal</span>
+<span class="font-code-metric text-code-metric font-semibold text-surface-bright truncate">Optimal</span>
 </div>
 <!-- Sensor 2: Position Stability -->
-<div class="bg-surface-container-lowest/15 backdrop-blur-md rounded px-2.5 py-2 flex flex-col gap-0.5">
+<div class="bg-surface-container-lowest/20 backdrop-blur-md rounded px-2 py-1.5 flex flex-col justify-center gap-0.5">
 <div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-surface-container-highest">Motion</span>
-<span class="w-1.5 h-1.5 rounded-full bg-clinical-success"></span>
+<span class="font-label-sm text-label-sm text-surface-container-highest truncate">Motion</span>
+<span class="w-1.5 h-1.5 rounded-full bg-clinical-success shrink-0"></span>
 </div>
-<span class="font-code-metric text-code-metric font-semibold text-surface-bright">Stable 0.1°</span>
+<span class="font-code-metric text-code-metric font-semibold text-surface-bright truncate">Stable 0.1°</span>
 </div>
 <!-- Sensor 3: PPG Signal Clarity -->
-<div class="bg-surface-container-lowest/15 backdrop-blur-md rounded px-2.5 py-2 flex flex-col gap-0.5">
+<div class="bg-surface-container-lowest/20 backdrop-blur-md rounded px-2 py-1.5 flex flex-col justify-center gap-0.5">
 <div class="flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-surface-container-highest">Signal</span>
-<span class="w-1.5 h-1.5 rounded-full bg-confidence-high"></span>
+<span class="font-label-sm text-label-sm text-surface-container-highest truncate">Signal</span>
+<span class="w-1.5 h-1.5 rounded-full bg-confidence-high shrink-0"></span>
 </div>
-<span class="font-code-metric text-code-metric font-semibold text-surface-bright">Ready</span>
+<span class="font-code-metric text-code-metric font-semibold text-surface-bright truncate">Ready</span>
 </div>
 </div>
 </div>
@@ -125,9 +116,9 @@
 <span class="material-symbols-outlined text-[24px]">vital_signs</span>
 </div>
 <div class="flex flex-col gap-0.5 flex-1 min-w-0">
-<div class="flex items-center justify-between">
-<h2 class="font-title-lg text-title-lg text-on-surface">Hemodynamic Assessment</h2>
-<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">30s Duration</span>
+<div class="flex items-center justify-between gap-space-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface truncate">Hemodynamic Assessment</h2>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap shrink-0">30s Duration</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">
           Keep steady breathing and avoid speaking while the computer vision matrix records micro-vascular facial blood displacement.
@@ -179,32 +170,6 @@
 </div>
 <script>
   (function initBiometricHUD() {
-    // Interactive toggles for audio prompts and torch
-    const audioBtn = document.getElementById('audio-toggle-btn');
-    const audioIcon = document.getElementById('audio-icon');
-    let isAudioOn = true;
-
-    if (audioBtn && audioIcon) {
-      audioBtn.addEventListener('click', () => {
-        isAudioOn = !isAudioOn;
-        audioIcon.textContent = isAudioOn ? 'volume_up' : 'volume_off';
-        audioBtn.classList.toggle('bg-primary-fixed/40', isAudioOn);
-      });
-    }
-
-    const torchBtn = document.getElementById('torch-toggle-btn');
-    const torchIcon = document.getElementById('torch-icon');
-    let isTorchOn = false;
-
-    if (torchBtn && torchIcon) {
-      torchBtn.addEventListener('click', () => {
-        isTorchOn = !isTorchOn;
-        torchIcon.textContent = isTorchOn ? 'flashlight_on' : 'light_mode';
-        torchBtn.classList.toggle('bg-primary-fixed', isTorchOn);
-        torchBtn.classList.toggle('text-primary', isTorchOn);
-      });
-    }
-
     // Trigger Scan Interaction Simulation
     const scanBtn = document.getElementById('initiate-scan-btn');
     const statusHeadline = document.getElementById('status-headline');

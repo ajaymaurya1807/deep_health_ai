@@ -38,266 +38,89 @@
 </div>
 </div>
 <div class="flex flex-col gap-space-lg px-gutter pb-space-xl pt-space-xs" id="settingsContainer">
-<!-- 1. ACCOUNT & CREDENTIALS -->
-<section class="settings-group flex flex-col gap-space-xs" data-group-name="account credentials profile password face id biometrics">
+<!-- 1. ACCOUNT & SECURITY -->
+<section class="settings-group flex flex-col gap-space-xs" data-group-name="account credentials profile password">
 <div class="flex items-center justify-between px-space-xs">
 <div class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[18px]">manage_accounts</span>
-<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Account &amp; Credentials</span>
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Account &amp; Security</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Primary Record</span>
 </div>
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item 1: Edit Profile -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="edit profile information name biometrics contact phone email avatar" type="button">
+<!-- Item 1: Edit Profile Information -->
+<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="edit profile information name contact" type="button">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
 <span class="material-symbols-outlined text-[20px]">badge</span>
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-title-md text-title-md text-on-surface truncate">Edit Profile Information</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Name, biometrics, primary emergency contact</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Name, contact details, medical profile</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
 </button>
 <div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 2: Password -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="change password authentication credentials security pin update" type="button">
+<!-- Item 2: Change Password -->
+<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="change password security update" type="button">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
 <span class="material-symbols-outlined text-[20px]">key</span>
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-title-md text-title-md text-on-surface truncate">Change Password</span>
-<div class="flex items-center gap-1.5">
-<span class="w-1.5 h-1.5 rounded-full bg-clinical-success"></span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Last updated 45 days ago</span>
-</div>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
-</button>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 3: Face ID / Biometrics (Toggle) -->
-<div class="settings-item flex items-center justify-between p-space-md" data-keywords="biometric sign-in face id touch finger recognition passkey local auth">
-<div class="flex items-center gap-space-md min-w-0 mr-space-sm">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[20px]">fingerprint</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Biometric Sign-In / Face ID</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Instant cryptographic hardware unlock</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggleBiometric" type="checkbox"/>
-<div class="w-12 h-7 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
-</label>
-</div>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 4: Active Devices -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="session active devices hardware mobile iphone ipad macbook logins" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">devices</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Session &amp; Active Devices</span>
-<div class="flex items-center gap-1.5">
-<span class="bg-clinical-success/15 text-clinical-success font-label-sm text-label-sm px-1.5 py-0.2 rounded">Current</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">iPhone 15 Pro • San Francisco, CA</span>
-</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Update your account password</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
 </button>
 </div>
 </section>
-<!-- 2. PREFERENCES -->
-<section class="settings-group flex flex-col gap-space-xs" data-group-name="preferences language localization notification units measurement metric">
+
+<!-- 2. PREFERENCES & PRIVACY -->
+<section class="settings-group flex flex-col gap-space-xs" data-group-name="preferences language privacy policy">
 <div class="flex items-center justify-between px-space-xs">
 <div class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-primary text-[18px]">tune</span>
-<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Preferences</span>
+<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Preferences &amp; Privacy</span>
 </div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">System Defaults</span>
 </div>
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item 1: Language & Localization -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="language localization regional english hindi spanish format translation" type="button">
+<!-- Item 3: Language Change -->
+<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="language change localization english hindi" type="button">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
 <span class="material-symbols-outlined text-[20px]">translate</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Language &amp; Localization</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">English (Standard) • Hindi available</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Language Change</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">English, Hindi</span>
 </div>
 </div>
 <div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="font-code-metric text-code-metric bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">EN-US</span>
+<span class="font-code-metric text-code-metric bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">English</span>
 <span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
 </div>
 </button>
 <div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 2: Notification Preferences -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="notifications preferences push alerts wellness updates reports rewards reminders sound vibration" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">notifications_active</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Notification Preferences</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Wellness updates, vital reports, AI rewards</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
-</button>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 3: Measurement Units -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="measurement units metric imperial cm kg lbs bpm celsius fahrenheit" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">straighten</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Measurement Units</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Metric system: cm / kg / bpm / mmol/L</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="font-code-metric text-code-metric bg-surface-container px-2 py-0.5 rounded text-on-surface-variant">Metric</span>
-<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
-</div>
-</button>
-</div>
-</section>
-<!-- 3. PRIVACY & COMPLIANCE -->
-<section class="settings-group flex flex-col gap-space-xs" data-group-name="privacy compliance biometric telemetry storage export personal health data research">
-<div class="flex items-center justify-between px-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
-<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Privacy &amp; Compliance</span>
-</div>
-<span class="font-label-sm text-label-sm text-clinical-success font-code-metric">ENCLAVE SECURE</span>
-</div>
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item 1: Biometric Storage Toggle -->
-<div class="settings-item flex items-center justify-between p-space-md" data-keywords="biometric telemetry storage ephemeral local processing enclave on-device privacy">
-<div class="flex items-center gap-space-md min-w-0 mr-space-sm">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[20px]">enhanced_encryption</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-space-xs">
-<span class="font-title-md text-title-md text-on-surface truncate">Biometric Telemetry Storage</span>
-<span class="bg-surface-container text-primary font-label-sm text-label-sm px-1.5 py-0.2 rounded">Zero Cloud Raw</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Ephemeral local processing on safe enclave</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
-<input checked="" class="sr-only peer" id="toggleTelemetry" type="checkbox"/>
-<div class="w-12 h-7 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
-</label>
-</div>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 2: Data Sharing Toggle -->
-<div class="settings-item flex items-center justify-between p-space-md" data-keywords="data sharing diagnostics research clinical trials aggregate anonymized opt-out">
-<div class="flex items-center gap-space-md min-w-0 mr-space-sm">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[20px]">hub</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Data Sharing &amp; Diagnostics</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Controlled anonymized sharing for medical AI research</span>
-</div>
-</div>
-<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
-<input class="sr-only peer" id="toggleDataSharing" type="checkbox"/>
-<div class="w-12 h-7 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm peer-checked:bg-primary"></div>
-</label>
-</div>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 3: Export Health Data -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="export personal health data download json pdf archive ehr fhir records backup" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">file_download</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-space-xs">
-<span class="font-title-md text-title-md text-on-surface truncate">Export Personal Health Data</span>
-<span class="bg-confidence-high/15 text-confidence-high font-label-sm text-label-sm px-1.5 py-0.2 rounded font-code-metric">FHIR R4</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Generate encrypted JSON &amp; clinical PDF dossier</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- 4. LEGAL & POLICIES -->
-<section class="settings-group flex flex-col gap-space-xs" data-group-name="legal policies terms conditions privacy disclaimer refund cancellation">
-<div class="flex items-center justify-between px-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[18px]">policy</span>
-<span class="font-label-md text-label-md text-primary tracking-wider uppercase">Legal &amp; Policies</span>
-</div>
-<span class="font-label-sm text-label-sm text-on-surface-variant">v2025.1</span>
-</div>
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item 1: Terms -->
-<a class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors group" data-keywords="terms conditions legal agreement user license service contract" href="#terms">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">gavel</span>
-</div>
-<span class="font-title-md text-title-md text-on-surface truncate">Terms &amp; Conditions</span>
-</div>
-<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs flex-shrink-0">open_in_new</span>
-</a>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 2: Privacy Policy -->
-<a class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors group" data-keywords="privacy policy gdpr hipaa security confidentiality protection rights" href="#privacy">
+<!-- Item 4: Privacy Policy -->
+<a class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors group" data-keywords="privacy policy gdpr security protection" href="#privacy">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
 <span class="material-symbols-outlined text-[20px]">privacy_tip</span>
 </div>
-<span class="font-title-md text-title-md text-on-surface truncate">Privacy Policy</span>
-</div>
-<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs flex-shrink-0">open_in_new</span>
-</a>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 3: Refund & Cancellation Policy -->
-<a class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors group" data-keywords="refund cancellation policy payment billing subscription subscription cancel return" href="#refund">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">receipt_long</span>
-</div>
-<span class="font-title-md text-title-md text-on-surface truncate">Refund &amp; Cancellation Policy</span>
-</div>
-<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs flex-shrink-0">open_in_new</span>
-</a>
-<div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 4: Wellness Disclaimer -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left group" data-keywords="wellness disclaimer medical clinical non-diagnostic lifestyle technology fda notice" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-fixed transition-colors">
-<span class="material-symbols-outlined text-[20px]">info</span>
-</div>
 <div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Wellness Disclaimer</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Non-diagnostic lifestyle technology &amp; AI boundaries</span>
+<span class="font-title-md text-title-md text-on-surface truncate">Privacy Policy</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Data protection &amp; privacy guidelines</span>
 </div>
 </div>
-<span class="material-symbols-outlined text-outline text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
-</button>
+<span class="material-symbols-outlined text-outline text-[18px] ml-space-xs flex-shrink-0">open_in_new</span>
+</a>
 </div>
 </section>
-<!-- 5. DANGER ZONE / ACCOUNT MANAGEMENT -->
-<section class="settings-group flex flex-col gap-space-xs" data-group-name="danger zone delete account removal erase purge terminate logout sign out">
+
+<!-- 3. ACCOUNT MANAGEMENT & DANGER ZONE -->
+<section class="settings-group flex flex-col gap-space-xs" data-group-name="account delete danger logout">
 <div class="flex items-center justify-between px-space-xs">
 <div class="flex items-center gap-space-xs">
 <span class="material-symbols-outlined text-clinical-critical text-[18px]">warning</span>
@@ -305,49 +128,29 @@
 </div>
 </div>
 <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item 1: Request Account Deletion -->
-<button class="settings-item flex items-center justify-between p-space-md hover:bg-error-container/20 transition-colors text-left group" data-keywords="request account deletion erase my data purge right to be forgotten terminate remove" type="button">
+<!-- Item 5: Delete Account -->
+<button class="settings-item flex items-center justify-between p-space-md hover:bg-error-container/20 transition-colors text-left group" data-keywords="delete account erase data terminate remove" type="button">
 <div class="flex items-center gap-space-md min-w-0">
 <div class="w-9 h-9 rounded-lg bg-error-container/40 flex items-center justify-center text-clinical-critical">
 <span class="material-symbols-outlined text-[20px]">delete_forever</span>
 </div>
 <div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-clinical-critical truncate">Request Account Deletion</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Permanent biometric sanitization &amp; record purge</span>
+<span class="font-title-md text-title-md text-clinical-critical truncate">Delete Account</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Permanently remove your account &amp; data</span>
 </div>
 </div>
 <span class="material-symbols-outlined text-clinical-critical text-[20px] ml-space-xs flex-shrink-0">chevron_right</span>
 </button>
 <div class="h-px bg-surface-container-low mx-space-md"></div>
-<!-- Item 2: Log Out Container -->
-<div class="p-space-md bg-surface-container-low/40 settings-item" data-keywords="logout sign out end session lock exit switch user">
+<!-- Log Out -->
+<div class="p-space-md bg-surface-container-low/40 settings-item" data-keywords="logout sign out end session">
 <button class="w-full h-12 rounded-lg bg-error-container/70 text-on-error-container hover:bg-error-container flex items-center justify-center gap-space-sm font-title-md text-title-md active:scale-[0.99] transition-all shadow-sm" onclick="confirmLogout()" type="button">
 <span class="material-symbols-outlined text-[20px]">logout</span>
-<span>Log Out of Session</span>
+<span>Log Out</span>
 </button>
 </div>
 </div>
 </section>
-<!-- Visual Compliance Showcase Badge -->
-<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-low gap-space-xs text-center">
-<div class="flex items-center gap-2 text-primary">
-<span class="material-symbols-outlined text-[20px]">lock</span>
-<span class="font-title-md text-title-md text-primary">256-Bit Hardware Cryptography</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
-        Your physiological waveforms, models, and personal identity remain siloed inside your secure medical profile.
-      </p>
-</div>
-<!-- App Version & Compliance Footer -->
-<footer class="flex flex-col items-center justify-center text-center gap-1 pt-space-xs pb-space-lg">
-<p class="font-code-metric text-code-metric text-on-surface-variant">
-        Deep Health AI Mobile v4.2.0 (Build 8924)
-      </p>
-<div class="flex items-center gap-1.5 font-label-sm text-label-sm text-outline">
-<span class="material-symbols-outlined text-[14px] text-clinical-success">shield</span>
-<span>ISO 27001 • HIPAA Aligned • SOC2 Type II</span>
-</div>
-</footer>
 </div>
 <!-- Empty state for search -->
 <div class="hidden flex-col items-center justify-center text-center p-space-xl my-space-lg" id="noResultsState">

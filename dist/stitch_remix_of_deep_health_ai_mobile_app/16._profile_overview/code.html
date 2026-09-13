@@ -142,16 +142,18 @@
             <div class="bg-primary-fixed h-full rounded-full transition-all duration-500" style="width: 80%;"></div>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-space-xs">
-          <p class="font-body-sm text-body-sm text-on-primary-container leading-tight">
+        <div class="flex flex-col gap-space-xs pt-space-xs">
+          <p class="font-body-sm text-body-sm text-on-primary-container leading-snug">
             Personal wellness baselining auto-renews Oct 2025.
           </p>
-          <button
-            class="inline-flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-on-primary text-primary hover:bg-surface-bright transition-colors font-label-md text-label-md flex-shrink-0 shadow-sm"
-            type="button">
-            <span>Manage Plan</span>
-            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-          </button>
+          <div class="flex justify-end pt-1">
+            <button
+              class="inline-flex items-center justify-center gap-1.5 px-space-md py-2 rounded-lg bg-on-primary text-primary hover:bg-surface-bright transition-colors font-label-md text-label-md font-semibold shadow-sm"
+              type="button">
+              <span>Manage Plan</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
         </div>
       </section>
       <!-- Personal Biomarker Baseline -->
@@ -209,7 +211,7 @@
                   <span class="font-body-md text-body-md text-on-surface truncate">+91 98765 43210</span>
                 </div>
               </div>
-              <button class="text-primary font-label-sm text-label-sm hover:underline" type="button">Change</button>
+              <span class="material-symbols-outlined text-clinical-success text-[18px]">check_circle</span>
             </div>
           </div>
         </div>
@@ -265,7 +267,7 @@
       <section class="flex flex-col gap-space-xs">
         <span
           class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
-          Subscription &amp; Rewards
+          Subscription &amp; Referrals
         </span>
         <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
           <!-- Item: Plans & Invoices -->
@@ -285,25 +287,6 @@
             </div>
             <div class="flex items-center gap-space-xs flex-shrink-0">
               <span class="font-label-sm text-label-sm text-confidence-high">Active</span>
-              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-            </div>
-          </button>
-          <!-- Item: Points Wallet -->
-          <button
-            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
-            type="button">
-            <div class="flex items-center gap-space-md min-w-0">
-              <div
-                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-                <span class="material-symbols-outlined text-[20px]">toll</span>
-              </div>
-              <div class="flex flex-col min-w-0">
-                <span class="font-title-md text-title-md text-on-surface truncate">Points Wallet</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">Wellness telemetry score credits</span>
-              </div>
-            </div>
-            <div class="flex items-center gap-space-xs flex-shrink-0">
-              <span class="font-code-metric text-code-metric font-semibold text-primary">650 Pts</span>
               <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
             </div>
           </button>

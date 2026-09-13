@@ -77,9 +77,6 @@
 <span class="material-symbols-outlined text-primary text-[20px]">monitor_heart</span>
 <h2 class="font-title-lg text-title-lg text-primary">Vital Signs Telemetry</h2>
 </div>
-<button class="font-label-sm text-label-sm text-primary hover:text-on-primary-fixed-variant px-2 py-1 rounded bg-surface-container-low transition-colors" id="toggleNullState" title="Toggle data simulation" type="button">
-        Simulate Missing
-      </button>
 </div>
 <div class="grid grid-cols-2 gap-space-sm">
 <!-- Heart Rate Card -->
@@ -99,9 +96,9 @@
 <span class="font-code-metric text-code-metric text-on-surface-variant">BPM</span>
 </div>
 </div>
-<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Zone</span>
-<span class="font-code-metric text-code-metric text-clinical-success font-semibold">Normal</span>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1 gap-1 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Zone</span>
+<span class="font-code-metric text-code-metric text-clinical-success font-semibold whitespace-nowrap shrink-0">Normal</span>
 </div>
 </div>
 <!-- Respiration Card -->
@@ -121,9 +118,9 @@
 <span class="font-code-metric text-code-metric text-on-surface-variant">RPM</span>
 </div>
 </div>
-<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Pattern</span>
-<span class="font-code-metric text-code-metric text-primary font-semibold">Steady</span>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1 gap-1 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Pattern</span>
+<span class="font-code-metric text-code-metric text-primary font-semibold whitespace-nowrap shrink-0">Steady</span>
 </div>
 </div>
 <!-- HRV Card -->
@@ -143,9 +140,9 @@
 <span class="font-code-metric text-code-metric text-on-surface-variant">ms</span>
 </div>
 </div>
-<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant">ANS Status</span>
-<span class="font-code-metric text-code-metric text-primary font-semibold">Calibrated</span>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1 gap-1 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">ANS Status</span>
+<span class="font-code-metric text-code-metric text-primary font-semibold whitespace-nowrap shrink-0">Calibrated</span>
 </div>
 </div>
 <!-- Stress Index Card -->
@@ -164,9 +161,9 @@
 <span class="metric-val font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight">Low</span>
 </div>
 </div>
-<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Sympathetic</span>
-<span class="font-code-metric text-code-metric text-clinical-success font-semibold">Suppressed</span>
+<div class="mt-2 pt-2 flex items-center justify-between bg-surface-clinical rounded px-2 py-1 gap-1 min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">SNS Tone</span>
+<span class="font-code-metric text-code-metric text-clinical-success font-semibold whitespace-nowrap shrink-0">Suppressed</span>
 </div>
 </div>
 </div>
@@ -306,13 +303,6 @@
 </div>
 </div>
 </div>
-</div>
-<!-- Primary Interactive Actions -->
-<div class="flex flex-col gap-space-sm pt-2">
-<button class="w-full h-12 min-h-[48px] rounded-lg bg-primary-container text-on-primary font-title-md text-title-md font-semibold flex items-center justify-center gap-2 shadow-sm active:opacity-90 transition-opacity" type="button">
-<span>View Detailed Vital Signs &amp; Trends</span>
-<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-</button>
 </div>
 <!-- Mandatory Regulatory Non-Diagnostic Disclaimer -->
 <div class="p-space-md rounded-lg bg-surface-clinical flex items-start gap-2.5">
