@@ -1,0 +1,12 @@
+{
+  "name":"Deep Health AI Interactive Prototype",
+  "short_name":"Deep Health AI",
+  "description":"AI-powered biometric wellness prototype",
+  "start_url":"./#/splash",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#f9f9ff",
+  "theme_color":"#0d5c75",
+  "orientation":"portrait-primary",
+  "icons":[{"src":"app-icon.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]
+}

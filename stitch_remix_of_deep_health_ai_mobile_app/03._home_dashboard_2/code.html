@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Inter:wght@500;600&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary-fixed": "#001e2f", "on-secondary-container": "#2e3a87", "background": "#f9f9ff", "on-error-container": "#93000a", "secondary": "#4c58a6", "on-primary": "#ffffff", "secondary-container": "#9ca8fd", "tertiary-fixed": "#c9e6ff", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline": "#70787d", "secondary-fixed": "#dfe0ff", "primary-fixed-dim": "#90cfec", "primary-fixed": "#bde9ff", "inverse-surface": "#263142", "on-secondary-fixed": "#000d60", "tertiary-fixed-dim": "#89ceff", "outline-variant": "#bfc8cd", "on-tertiary": "#ffffff", "clinical-warning": "#D97706", "brand-indigo": "#7052FB", "surface-clinical": "#F4F6FC", "surface-container-highest": "#d8e3f9", "on-tertiary-fixed-variant": "#004c6e", "on-secondary-fixed-variant": "#343f8d", "inverse-on-surface": "#ebf1ff", "on-background": "#111c2c", "error": "#ba1a1a", "on-primary-fixed": "#001f2a", "on-primary-container": "#93d3ef", "surface-container": "#e7eeff", "on-tertiary-container": "#93d2ff", "on-surface-variant": "#40484c", "primary-container": "#0d5c75", "surface-dim": "#cfdaf1", "surface-container-lowest": "#ffffff", "primary": "#004357", "surface-tint": "#1e667f", "error-container": "#ffdad6", "tertiary": "#004261", "on-error": "#ffffff", "surface-container-high": "#dee9ff", "surface": "#f9f9ff", "on-primary-fixed-variant": "#004d64", "tertiary-container": "#005b83", "clinical-success": "#059669", "confidence-high": "#0284C7", "surface-container-low": "#f0f3ff", "secondary-fixed-dim": "#bcc3ff", "on-surface": "#111c2c", "surface-variant": "#d8e3f9", "clinical-critical": "#DC2626", "on-secondary": "#ffffff" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-xs": "0.25rem", "margin": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1rem", "space-xl": "2rem" }, fontFamily: { "headline-md": ["Manrope"], "headline-xl-mobile": ["Manrope"], "title-lg": ["Manrope"], "headline-xl": ["Manrope"], "label-md": ["Inter"], "body-md": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "label-sm": ["Inter"], "title-md": ["\"Source Sans 3\""], "body-sm": ["\"Source Sans 3\""], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"] }, fontSize: { "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Deep Health AI Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><div class="flex flex-col"><span class="font-label-sm text-label-sm text-primary-container uppercase tracking-wider">Deep Health AI</span><span class="font-title-lg text-title-lg text-on-surface leading-tight">Home</span></div></div><div class="flex items-center gap-space-sm"><button class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface active:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span></button><div class="w-8 h-8 rounded-full overflow-hidden shadow-[0_1px_4px_rgba(13,92,117,0.12)]"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVwtDnYX8YZTEvNVaC2cZ460msTF9LSV80u8NfzRtUODkyvewF0icbV3hJ0DTAWAjVl0OBcsbXwiHTy46oh8ApTMLTa80kLsJ7aG8OWWP1qPG4sVPoXX6x-W-aRCHZkPbX4amvq-x9EhTlUzvdM_MX9rQ-vINGUb3GNeV7kkxmsl3z8KD7aygJUzT_gZEBqXSw8-laJmBavx5u5Rw8b3uhRmRpcXJ8pw64lUdyFPQZ4oqi6pwwfFdu"/></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface"><div class="flex flex-col w-full px-margin pb-6 gap-space-lg">
+<!-- Greeting Header & Status Capsule -->
+<div class="flex flex-col gap-space-xs mt-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight">Good morning, Rahul</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Your vitals and biometric wellness summary</span>
+</div>
+<div class="relative flex items-center justify-center w-10 h-10 rounded-full bg-surface-container-high text-primary-container">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-clinical-critical"></span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-clinical-success font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-clinical-success animate-pulse"></span>
+        Neural Telemetry Active
+      </span>
+<span class="font-label-sm text-label-sm text-outline">Synced via SensorLink</span>
+</div>
+</div>
+<!-- Hero Card: AI Wellness Score -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest p-space-lg shadow-[0_4px_20px_rgba(30,42,120,0.05)]">
+<div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-primary-fixed/20 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">auto_awesome</span>
+<span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-semibold">AI Biometric Index</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Today, 08:30 AM</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-xl text-headline-xl font-extrabold text-on-surface tracking-tight">84</span>
+<span class="font-title-md text-title-md text-outline">/100</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-primary-container font-label-sm text-label-sm font-semibold">
+              Optimal Health State
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[190px] mt-1">
+            Autonomic tone shows steady parasympathetic balance.
+          </p>
+</div>
+<!-- Telemetry Circular Visualization Inspired by Biometric Logo -->
+<div class="relative w-28 h-28 flex items-center justify-center flex-shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Outer Track -->
+<circle class="text-surface-container-high" cx="50" cy="50" fill="none" r="42" stroke="currentColor" stroke-dasharray="3 3" stroke-width="4"></circle>
+<!-- Active Radial Gauge -->
+<circle class="text-primary-fixed-dim" cx="50" cy="50" fill="none" r="35" stroke="currentColor" stroke-width="5"></circle>
+<circle class="text-primary-container" cx="50" cy="50" fill="none" r="35" stroke="currentColor" stroke-dasharray="220" stroke-dashoffset="35" stroke-linecap="round" stroke-width="5"></circle>
+<!-- Anchor Nodes -->
+<circle class="text-primary-container" cx="50" cy="15" fill="currentColor" r="3"></circle>
+<circle class="text-primary-container" cx="85" cy="50" fill="currentColor" r="3"></circle>
+<circle class="text-primary-container" cx="50" cy="85" fill="currentColor" r="3"></circle>
+<circle class="text-primary-container" cx="15" cy="50" fill="currentColor" r="3"></circle>
+</svg>
+<!-- Center Pulse Icon -->
+<div class="absolute inset-0 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">ecg_heart</span>
+</div>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline">Confidence: 98.4% (DeepWave v4)</span>
+<button class="inline-flex items-center gap-1 font-label-md text-label-md text-primary-container font-semibold hover:opacity-80 transition-opacity">
+<span>View Full Report</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Scan CTA Card -->
+<div class="relative overflow-hidden rounded-xl bg-primary-container text-on-primary p-space-lg shadow-[0_8px_24px_rgba(13,92,117,0.22)] active:scale-[0.99] transition-transform cursor-pointer">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/15 w-fit">
+<span class="material-symbols-outlined text-[14px]">radiology</span>
+<span class="font-label-sm text-label-sm tracking-wide text-primary-fixed">Express Biometrics</span>
+</div>
+<span class="font-title-lg text-title-lg font-bold tracking-tight text-white mt-1">Start New Scan</span>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim line-clamp-2">
+          Get your 30-second AI-powered wellness insights via facial photoplethysmography.
+        </p>
+</div>
+<div class="flex-shrink-0 w-14 h-14 rounded-full bg-white/20 flex items-center justify-center shadow-[inset_0_1px_2px_rgba(255,255,255,0.4)]">
+<span class="material-symbols-outlined text-[28px] text-white animate-pulse">qr_code_scanner</span>
+</div>
+</div>
+</div>
+<!-- Quick Navigation Pills -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline font-semibold">Quick Actions</span>
+</div>
+<div class="grid grid-cols-4 gap-2.5">
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] active:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container mb-1.5">
+<span class="material-symbols-outlined text-[20px]">instant_mix</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate w-full">Fast Scan</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] active:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container mb-1.5">
+<span class="material-symbols-outlined text-[20px]">clinical_notes</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate w-full">Reports</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] active:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container mb-1.5">
+<span class="material-symbols-outlined text-[20px]">healing</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate w-full">Care Plan</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] active:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary-container mb-1.5">
+<span class="material-symbols-outlined text-[20px]">share_location</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold text-center truncate w-full">Referrals</span>
+</button>
+</div>
+</div>
+<!-- Compact Vital Indicators (2x2 Grid) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline font-semibold">Vital Indicators</span>
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">Real-Time Continuous</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Heart Rate -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] justify-between">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-clinical-success font-label-sm text-label-sm font-semibold">
+            Normal
+          </span>
+</div>
+<div class="mt-3 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Heart Rate</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">72</span>
+<span class="font-code-metric text-code-metric text-outline">BPM</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="w-full h-5 mt-2 flex items-end">
+<svg class="w-full h-4 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path class="text-primary-container" d="M0 12 Q 15 12, 25 6 T 45 14 T 65 3 T 85 10 L 100 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Respiration Rate -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] justify-between">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">air</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-confidence-high font-label-sm text-label-sm font-semibold">
+            Optimal
+          </span>
+</div>
+<div class="mt-3 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Respiration</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">16</span>
+<span class="font-code-metric text-code-metric text-outline">RPM</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="w-full h-5 mt-2 flex items-end">
+<svg class="w-full h-4 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path class="text-confidence-high" d="M0 10 C 20 2, 30 18, 50 10 C 70 2, 80 18, 100 10" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Heart Rate Variability -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] justify-between">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">stacked_line_chart</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-clinical-success font-label-sm text-label-sm font-semibold">
+            Normal
+          </span>
+</div>
+<div class="mt-3 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">HRV (rMSSD)</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">58</span>
+<span class="font-code-metric text-code-metric text-outline">ms</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="w-full h-5 mt-2 flex items-end">
+<svg class="w-full h-4 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 20">
+<path class="text-primary-container" d="M0 14 L 20 10 L 35 15 L 50 4 L 70 12 L 85 8 L 100 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- Stress Index -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)] justify-between">
+<div class="flex items-center justify-between">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-clinical-success font-label-sm text-label-sm font-semibold">
+            Stable
+          </span>
+</div>
+<div class="mt-3 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Stress Index</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Low</span>
+<span class="font-code-metric text-code-metric text-outline">Level 2</span>
+</div>
+</div>
+<!-- Level Bar -->
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden mt-3">
+<div class="w-1/4 h-full bg-clinical-success rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Biometric Report Card -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-0.5">
+<span class="font-label-md text-label-md uppercase tracking-wider text-outline font-semibold">Recent Analysis</span>
+<button class="font-label-sm text-label-sm text-primary-container font-semibold">History</button>
+</div>
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-lowest shadow-[0_2px_8px_rgba(30,42,120,0.03)]">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">vital_signs</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface truncate">Full Spectrum Diagnostics</span>
+<span class="font-code-metric text-code-metric font-semibold text-primary-container">84/100</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Today, 08:30 AM</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-clinical-success font-medium">Verified by AI</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction: Active tab styling adherence & tactile response
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.active\\:scale-\\[0\\.99\\]');
+    cards.forEach(card => {
+      card.addEventListener('touchstart', () => {}, {passive: true});
+    });
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_16px_rgba(30,42,120,0.06)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-between items-center h-20 px-space-sm relative"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-12 transition-colors text-primary-container font-semibold" data-path="home" href="#"><span class="material-symbols-outlined text-[24px]">home</span><span class="font-label-sm text-label-sm mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="reports" href="#"><span class="material-symbols-outlined text-[24px]">vital_signs</span><span class="font-label-sm text-label-sm mt-0.5">Reports</span></a><div class="relative -top-5 flex flex-col items-center"><a aria-label="Biometric Scan" class="flex items-center justify-center w-14 h-14 rounded-full bg-primary-container text-on-primary shadow-[0_8px_20px_rgba(13,92,117,0.3)] active:scale-95 transition-transform" data-path="scan" href="#"><span class="material-symbols-outlined text-[28px]">qr_code_scanner</span></a><span class="font-label-sm text-label-sm text-primary-container mt-1 font-semibold">Scan</span></div><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="plans" href="#"><span class="material-symbols-outlined text-[24px]">assignment</span><span class="font-label-sm text-label-sm mt-0.5">Plans</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-12 text-on-surface-variant hover:text-on-surface transition-colors" data-path="profile" href="#"><span class="material-symbols-outlined text-[24px]">account_circle</span><span class="font-label-sm text-label-sm mt-0.5">Profile</span></a></div></nav></body></html>

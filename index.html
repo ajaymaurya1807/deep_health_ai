@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#0d5c75" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Deep Health AI" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="app-icon.png" />
+    <link rel="stylesheet" href="app.css" />
+    <title>Deep Health AI</title>
+  </head>
+  <body>
+    <main id="device" aria-label="Deep Health AI mobile prototype">
+      <iframe id="screen" title="Deep Health AI" allow="camera; clipboard-write"></iframe>
+      <div id="loading" class="loading"><span></span><p>Loading secure health experience…</p></div>
+      <div id="scrim" class="scrim" hidden></div>
+      <section id="sheet" class="sheet" hidden aria-modal="true" role="dialog"></section>
+      <div id="toast" class="toast" role="status" hidden></div>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

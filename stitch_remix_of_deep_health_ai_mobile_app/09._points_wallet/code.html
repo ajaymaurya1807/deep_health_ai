@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI brand logo mark: modern clinical biometric healthcare mark with subtle geometric pulse/hexagonal heart node in teal #0d5c75 and luminous cyan, minimalist and medical grade. Brand logo. - Primary color: #0d5c75
+- Font: manrope
+- Mode: light
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Plan Editor</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Profile Account" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-10">
+<!-- Interactive Top Action / Notification Bar -->
+<div class="px-margin pt-space-md pb-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-clinical-success animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Rewards Tier: Vitality Plus</span>
+</div>
+<button aria-label="Points rules" class="flex items-center gap-1 text-primary hover:text-primary-container transition-colors py-1 px-2 rounded-lg hover:bg-surface-container" onclick="togglePerksModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">info</span>
+<span class="font-label-sm text-label-sm">Perks Guide</span>
+</button>
+</div>
+<!-- Hero Points Balance Card -->
+<div class="px-margin">
+<div class="relative overflow-hidden bg-gradient-to-br from-primary via-primary-container to-secondary text-on-primary rounded-xl p-space-lg shadow-md">
+<!-- Decorative Biometric Neural Radiance -->
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-white/5 blur-2xl pointer-events-none"></div>
+<div class="absolute -left-10 -bottom-10 w-40 h-40 rounded-full bg-confidence-high/15 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs bg-white/10 backdrop-blur-md px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">token</span>
+<span class="font-label-sm text-label-sm text-primary-fixed tracking-wide uppercase">AI Health Balance</span>
+</div>
+<span class="font-code-metric text-code-metric text-on-primary/80">Active</span>
+</div>
+<div class="flex items-baseline gap-space-xs my-space-xs">
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-primary tracking-tight" id="pointsDisplay">650</span>
+<span class="font-title-lg text-title-lg text-primary-fixed font-semibold">Points</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary/90 flex items-center gap-1.5 mb-space-md">
+<span class="material-symbols-outlined text-[15px] text-primary-fixed-dim">verified</span>
+          Equivalent to ₹ 325.00 for scan renewals
+        </p>
+<!-- Dynamic Micro-Tier Progress -->
+<div class="w-full bg-white/15 rounded-full h-1.5 mb-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-primary-fixed to-confidence-high h-full rounded-full w-[65%] transition-all duration-700"></div>
+</div>
+<div class="flex justify-between items-center font-label-sm text-label-sm text-on-primary/70 mb-space-md">
+<span>Current: 650 pts</span>
+<span>Next tier voucher at 1,000 pts</span>
+</div>
+<!-- Metric Capsules -->
+<div class="grid grid-cols-3 gap-space-xs pt-space-xs">
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary/70 truncate">Earned</span>
+<span class="font-code-metric text-code-metric text-on-primary font-semibold mt-0.5">1,150 pts</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary/70 truncate">Redeemed</span>
+<span class="font-code-metric text-code-metric text-on-primary font-semibold mt-0.5">500 pts</span>
+</div>
+<div class="bg-white/10 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary/70 truncate">Expiring</span>
+<span class="font-code-metric text-code-metric text-primary-fixed-dim font-semibold mt-0.5">0 pts</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Action Buttons -->
+<div class="px-margin mt-space-md grid grid-cols-2 gap-space-sm">
+<button class="flex items-center justify-center gap-space-xs bg-primary text-on-primary h-12 px-space-md rounded-lg shadow-sm active:scale-[0.98] transition-transform" onclick="showReferralToast()" type="button">
+<span class="material-symbols-outlined text-[20px]">card_giftcard</span>
+<span class="font-label-md text-label-md truncate">Refer &amp; Earn</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs bg-surface-container-high text-primary hover:bg-surface-container-highest h-12 px-space-md rounded-lg active:scale-[0.98] transition-all" onclick="openRedeemSheet()" type="button">
+<span class="material-symbols-outlined text-[20px]">local_offer</span>
+<span class="font-label-md text-label-md truncate">Redeem in Plans</span>
+</button>
+</div>
+<!-- Visual Delight: Health Streak Micro-Card -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">vital_signs</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<p class="font-title-md text-title-md text-on-surface truncate">Telemetry Streak</p>
+<span class="font-label-sm text-label-sm bg-confidence-high/15 text-confidence-high px-1.5 py-0.5 rounded">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">4 of 7 scans logged this week</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 pl-space-xs">
+<span class="font-code-metric text-code-metric text-clinical-success font-semibold">+100 pts</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">at day 7</p>
+</div>
+</div>
+</div>
+<!-- How to Earn Points Section -->
+<div class="px-margin mt-space-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">bolt</span>
+<h2 class="font-title-lg text-title-lg text-on-surface">Ways to Earn</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Instant AI Sync</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">radiology</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Complete 30-Day Baseline Scan</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Calibrate biological models</p>
+</div>
+</div>
+<span class="inline-flex items-center justify-center bg-clinical-success/10 text-clinical-success px-2.5 py-1 rounded-full font-code-metric text-code-metric whitespace-nowrap flex-shrink-0 font-medium">
+          +50 pts
+        </span>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">group_add</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Invite Colleague or Peer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Credited after their first scan</p>
+</div>
+</div>
+<span class="inline-flex items-center justify-center bg-clinical-success/10 text-clinical-success px-2.5 py-1 rounded-full font-code-metric text-code-metric whitespace-nowrap flex-shrink-0 font-medium">
+          +250 pts
+        </span>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">health_metrics</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Wellness Consistency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Hit your 14-day biometric target</p>
+</div>
+</div>
+<span class="inline-flex items-center justify-center bg-clinical-success/10 text-clinical-success px-2.5 py-1 rounded-full font-code-metric text-code-metric whitespace-nowrap flex-shrink-0 font-medium">
+          +100 pts
+        </span>
+</div>
+</div>
+</div>
+<!-- Diagnostic Scan Renewal Voucher Showcase Card -->
+<div class="px-margin mt-space-lg">
+<div class="bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[26px]">credit_score</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Redemption Ready</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface truncate">Auto-Apply to AI Annual Scan</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Save ₹ 325 off your next invoice</p>
+</div>
+<button class="h-9 px-3 bg-primary text-on-primary font-label-sm text-label-sm rounded-lg flex-shrink-0" onclick="openRedeemSheet()" type="button">
+        Apply
+      </button>
+</div>
+</div>
+<!-- Transaction History Section -->
+<div class="px-margin mt-space-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Transaction Activity</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Past 90 Days</span>
+</div>
+<!-- Filter Control Pills -->
+<div class="flex items-center gap-space-xs mb-space-md overflow-x-auto pb-1">
+<button class="tx-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all" id="filter-all" onclick="filterTransactions('all')" type="button">
+        All
+      </button>
+<button class="tx-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" id="filter-earned" onclick="filterTransactions('earned')" type="button">
+        Earned
+      </button>
+<button class="tx-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all" id="filter-redeemed" onclick="filterTransactions('redeemed')" type="button">
+        Redeemed
+      </button>
+</div>
+<!-- Transactions List Container -->
+<div class="flex flex-col gap-space-xs" id="txList">
+<!-- Item 1: Referral -->
+<div class="tx-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm transition-all" data-type="earned">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full bg-clinical-success/10 text-clinical-success flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">person_check</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Friend Referral Reward — Dr. Priya S.</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 22, 2024 • Biometric baseline verified</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-block bg-clinical-success/10 text-clinical-success px-2 py-0.5 rounded font-code-metric text-code-metric font-semibold">
+            +250 Points
+          </span>
+</div>
+</div>
+<!-- Item 2: Plan Purchase Redemption -->
+<div class="tx-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm transition-all" data-type="redeemed">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">Plan Purchase Redemption — Pro Health</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 18, 2024 • Inv #DH-99214</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-block bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded font-code-metric text-code-metric font-semibold">
+            -400 Points
+          </span>
+</div>
+</div>
+<!-- Item 3: Consistency Reward -->
+<div class="tx-card bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between gap-space-sm transition-all" data-type="earned">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-full bg-clinical-success/10 text-clinical-success flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-title-md text-title-md text-on-surface truncate">7-Day Scan Consistency Reward</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Oct 14, 2024 • Genomic &amp; ECG stream</p>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="inline-block bg-clinical-success/10 text-clinical-success px-2 py-0.5 rounded font-code-metric text-code-metric font-semibold">
+            +100 Points
+          </span>
+</div>
+</div>
+</div>
+<!-- Empty State Container (Controlled by filter when empty) -->
+<div class="hidden bg-surface-container-lowest rounded-xl p-space-lg text-center flex-col items-center justify-center my-space-xs" id="emptyState">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[26px]">receipt_long</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">No transactions found</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-xs">You have no records in this view yet. Keep completing clinical scans to see updates.</p>
+</div>
+</div>
+<!-- Medical Rewards Footnote -->
+<div class="px-margin mt-space-xl text-center">
+<div class="inline-flex items-center gap-1.5 text-on-surface-variant/70">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span class="font-label-sm text-label-sm">Deep Health Ledger Encryption • ISO 27001 Compliant</span>
+</div>
+</div>
+<!-- Delight Micro-Modal / Sheet: Perks Guide -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-end justify-center transition-opacity" id="perksSheet" onclick="togglePerksModal(event)">
+<div class="w-full max-w-lg bg-surface-container-lowest rounded-t-2xl p-space-lg shadow-xl" onclick="event.stopPropagation()">
+<div class="w-12 h-1.5 bg-surface-container-highest rounded-full mx-auto mb-space-md"></div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">health_and_safety</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">Deep Health Rewards Policy</h3>
+</div>
+<button aria-label="Close perks guide" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container" onclick="togglePerksModal()" type="button">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">close</span>
+</button>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+        Points represent clinical loyalty credits earned through verified telemetry compliance, medical screenings, and specialist network expansion.
+      </p>
+<div class="space-y-space-xs mb-space-lg">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">currency_rupee</span>
+<div>
+<p class="font-title-md text-title-md text-on-surface">Conversion Value</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 Points = ₹ 1.00 valid directly toward AI Diagnostic Reports and annual scanner kits.</p>
+</div>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">calendar_month</span>
+<div>
+<p class="font-title-md text-title-md text-on-surface">No Expiry While Active</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Points remain evergreen as long as you log at least one baseline scan every 180 days.</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-md text-label-md" onclick="togglePerksModal()" type="button">
+        Understood
+      </button>
+</div>
+</div>
+<!-- Referral Toast / Feedback -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-xl flex items-center gap-2 pointer-events-none opacity-0 transition-opacity duration-300 z-50" id="toastAlert">
+<span class="material-symbols-outlined text-[20px] text-confidence-high">link</span>
+<span class="font-body-sm text-body-sm" id="toastMessage">Referral link copied to clipboard!</span>
+</div>
+</div>
+<script>
+  function filterTransactions(filterType) {
+    const buttons = {
+      all: document.getElementById('filter-all'),
+      earned: document.getElementById('filter-earned'),
+      redeemed: document.getElementById('filter-redeemed')
+    };
+
+    Object.keys(buttons).forEach(key => {
+      const btn = buttons[key];
+      if (key === filterType) {
+        btn.className = 'tx-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all';
+      } else {
+        btn.className = 'tx-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all';
+      }
+    });
+
+    const cards = document.querySelectorAll('.tx-card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const cardType = card.getAttribute('data-type');
+      if (filterType === 'all' || cardType === filterType) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    const empty = document.getElementById('emptyState');
+    if (visibleCount === 0) {
+      empty.classList.remove('hidden');
+      empty.classList.add('flex');
+    } else {
+      empty.classList.add('hidden');
+      empty.classList.remove('flex');
+    }
+  }
+
+  function togglePerksModal(e) {
+    const sheet = document.getElementById('perksSheet');
+    if (sheet.classList.contains('hidden')) {
+      sheet.classList.remove('hidden');
+      sheet.classList.add('flex');
+    } else {
+      sheet.classList.add('hidden');
+      sheet.classList.remove('flex');
+    }
+  }
+
+  function showReferralToast() {
+    const toast = document.getElementById('toastAlert');
+    const msg = document.getElementById('toastMessage');
+    msg.textContent = 'Unique invite code #DH-MED650 ready to share!';
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 2800);
+  }
+
+  function openRedeemSheet() {
+    const toast = document.getElementById('toastAlert');
+    const msg = document.getElementById('toastMessage');
+    msg.textContent = '650 points applied to your next diagnostic checkout!';
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0');
+    }, 3000);
+  }
+</script></main></body></html>

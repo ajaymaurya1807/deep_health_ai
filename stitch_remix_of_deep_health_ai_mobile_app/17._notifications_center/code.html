@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI brand logo mark: modern clinical biometric healthcare mark with subtle geometric pulse/hexagonal heart node in teal #0d5c75 and luminous cyan, minimalist and medical grade. Brand logo. - Primary color: #0d5c75
+- Font: manrope
+- Mode: light
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Plan Editor</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Profile Account" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-12">
+<!-- Interactive Sub-Header Actions -->
+<section class="px-gutter pt-space-md pb-space-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-confidence-high animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Live Telemetry Feed</span>
+</div>
+<button class="font-label-md text-label-md text-primary font-semibold hover:opacity-80 active:scale-95 transition-all" id="mark-all-read-btn" type="button">
+      Mark all as read
+    </button>
+</section>
+<!-- Filter Carousel (Scrollable) -->
+<nav aria-label="Notification Categories" class="px-gutter pb-space-md pt-space-xs flex items-center gap-space-xs overflow-x-auto no-scrollbar scroll-smooth">
+<button class="filter-pill flex-shrink-0 px-space-md py-1.5 rounded-full font-label-md text-label-md bg-primary text-on-primary transition-all shadow-sm" data-filter="all" type="button">
+      All (5)
+    </button>
+<button class="filter-pill flex-shrink-0 px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-filter="telemetry" type="button">
+      Telemetry &amp; Reports (2)
+    </button>
+<button class="filter-pill flex-shrink-0 px-space-md py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all" data-filter="rewards" type="button">
+      Plans &amp; Rewards (3)
+    </button>
+</nav>
+<!-- Notification Feed Stack -->
+<div class="px-gutter flex flex-col gap-space-sm" id="notifications-container">
+<!-- Item 1: Unread Wellness Report -->
+<article class="notification-item unread group relative bg-surface-container-low/80 hover:bg-surface-container transition-all rounded-xl p-space-md shadow-sm overflow-hidden" data-category="telemetry">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container"></div>
+<div class="flex items-start gap-space-sm pl-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">ecg_heart</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed font-semibold tracking-wide">
+              WELLNESS REPORT READY
+            </span>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+<span class="font-code-metric text-code-metric text-outline">10 mins ago</span>
+</div>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface truncate">Optimal Wellness State Detected</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 line-clamp-2">
+            Your 30-second biometric scan completed at 09:42 AM IST is ready. Overall wellness index: <strong class="text-primary font-semibold">86/100</strong>.
+          </p>
+<div class="mt-space-sm flex items-center justify-between pt-space-xs">
+<button class="inline-flex items-center gap-1 font-label-md text-label-md text-primary font-semibold hover:opacity-80 active:translate-x-0.5 transition-transform" type="button">
+<span>View Wellness Report</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-md bg-surface-container text-primary font-code-metric text-code-metric">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>AI Verified</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 2: Unread Points Credited -->
+<article class="notification-item unread group relative bg-surface-container-low/80 hover:bg-surface-container transition-all rounded-xl p-space-md shadow-sm overflow-hidden" data-category="rewards">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-brand-indigo"></div>
+<div class="flex items-start gap-space-sm pl-1">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold tracking-wide">
+              POINTS CREDITED
+            </span>
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<span class="w-2 h-2 rounded-full bg-brand-indigo flex-shrink-0"></span>
+<span class="font-code-metric text-code-metric text-outline">2 hours ago</span>
+</div>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface truncate">+250 Health Points Added</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            Dr. Rajesh Varma completed their initial biometric baseline scan using your referral link.
+          </p>
+<div class="mt-space-sm flex items-center justify-between pt-space-xs">
+<button class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary font-semibold hover:opacity-80 active:translate-x-0.5 transition-transform" type="button">
+<span>View Points Wallet</span>
+<span class="material-symbols-outlined text-[16px]">account_balance_wallet</span>
+</button>
+<span class="font-code-metric text-code-metric text-clinical-success font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span> +250 PTS
+            </span>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 3: Read Entitlement Updated -->
+<article class="notification-item group relative bg-surface-container-lowest hover:bg-surface-container-low transition-all rounded-xl p-space-md shadow-sm" data-category="rewards">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-container flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-semibold tracking-wide">
+              ENTITLEMENT UPDATED
+            </span>
+<span class="font-code-metric text-code-metric text-outline flex-shrink-0">Yesterday, 10:15 AM</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface truncate">Pro Health Matrix Activated</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            5 new wellness scans added to your profile. Invoice <span class="font-code-metric text-code-metric text-primary">#DH-TXN-984210</span> confirmed.
+          </p>
+<div class="mt-space-xs pt-space-xs flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-clinical-success flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">check_circle</span> Active Tier
+            </span>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 4: Read Streak Logged -->
+<article class="notification-item group relative bg-surface-container-lowest hover:bg-surface-container-low transition-all rounded-xl p-space-md shadow-sm" data-category="telemetry">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-confidence-high flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">vital_signs</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-semibold tracking-wide">
+              CONSISTENCY STREAK
+            </span>
+<span class="font-code-metric text-code-metric text-outline flex-shrink-0">2 days ago</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface truncate">Day 4 Telemetry Logged</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            Keep up your regular morning baseline readings to unlock your consistency reward.
+          </p>
+<!-- Streak Metric Mini Bar -->
+<div class="mt-space-sm p-space-xs rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-clinical-warning text-[18px]">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">4 / 7 Days Completed</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-clinical-success"></span>
+<span class="w-2 h-2 rounded-full bg-clinical-success"></span>
+<span class="w-2 h-2 rounded-full bg-clinical-success"></span>
+<span class="w-2 h-2 rounded-full bg-clinical-success"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest"></span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Item 5: Read Security Notice -->
+<article class="notification-item group relative bg-surface-container-lowest hover:bg-surface-container-low transition-all rounded-xl p-space-md shadow-sm" data-category="rewards">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-outline flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">lock_reset</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-space-xs mb-1">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-semibold tracking-wide">
+              SECURITY NOTICE
+            </span>
+<span class="font-code-metric text-code-metric text-outline flex-shrink-0">3 days ago</span>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface truncate">New Sign-in Detected</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            Session initialized on iPhone 15 Pro, Bangalore, India.
+          </p>
+<div class="mt-space-xs pt-space-xs flex items-center gap-2">
+<span class="font-code-metric text-code-metric text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">devices</span> iOS • 106.51.24.88
+            </span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Micro Footer Information -->
+<footer class="mt-space-xl px-gutter text-center flex flex-col items-center gap-space-xs">
+<div class="w-8 h-1 rounded-full bg-surface-container-highest mb-1"></div>
+<p class="font-body-sm text-body-sm text-outline max-w-xs leading-relaxed">
+      Notifications are stored for 30 days. You can customize telemetry alerts &amp; push preferences in
+      <button class="text-primary font-semibold underline underline-offset-2" type="button">Settings</button>.
+    </p>
+</footer>
+</div>
+<script>
+  (function initNotificationFeed() {
+    const markAllBtn = document.getElementById('mark-all-read-btn');
+    const filterButtons = document.querySelectorAll('.filter-pill');
+    const items = document.querySelectorAll('.notification-item');
+
+    // Filter toggles
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-primary', 'text-on-primary');
+          b.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+        });
+
+        btn.classList.add('bg-primary', 'text-on-primary');
+        btn.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+
+        items.forEach(item => {
+          const category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Mark all as read micro-interaction
+    if (markAllBtn) {
+      markAllBtn.addEventListener('click', () => {
+        const unreadItems = document.querySelectorAll('.notification-item.unread');
+        unreadItems.forEach(item => {
+          item.classList.remove('unread', 'bg-surface-container-low/80');
+          item.classList.add('bg-surface-container-lowest');
+          
+          // Remove left strip accent
+          const strip = item.querySelector('.absolute.left-0');
+          if (strip) strip.remove();
+
+          // Remove glowing unread dot indicator
+          const dot = item.querySelector('.w-2.h-2.rounded-full.bg-primary, .w-2.h-2.rounded-full.bg-brand-indigo');
+          if (dot) dot.remove();
+        });
+
+        markAllBtn.textContent = 'All read';
+        markAllBtn.classList.add('text-outline', 'cursor-default');
+        markAllBtn.classList.remove('hover:opacity-80', 'text-primary');
+      });
+    }
+  })();
+</script></main></body></html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI brand logo mark: modern clinical biometric healthcare mark with subtle geometric pulse/hexagonal heart node in teal #0d5c75 and luminous cyan, minimalist and medical grade. Brand logo. - Primary color: #0d5c75
+- Font: manrope
+- Mode: light
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Plan Editor</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Profile Account" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full">
+<!-- Interactive Ambient Banner & Search -->
+<section class="relative px-gutter pt-space-lg pb-space-xl bg-surface-container-low overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-primary-fixed/30 blur-2xl pointer-events-none"></div>
+<div class="absolute left-1/4 -bottom-8 w-40 h-40 rounded-full bg-tertiary-fixed/40 blur-2xl pointer-events-none"></div>
+<div class="relative flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-clinical-success animate-pulse"></span>
+          Clinical Ops Online
+        </span>
+</div>
+<div class="space-y-1">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight">
+          How can we assist your wellness journey?
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Find diagnostic scan protocols, telemetry guides, and account assistance.
+        </p>
+</div>
+<!-- Search Input Unit -->
+<div class="relative mt-space-xs">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full h-12 pl-11 pr-10 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant font-body-md text-body-md shadow-sm outline-none focus:bg-surface-container-lowest transition-all" id="faqSearchInput" placeholder="Search guides, FAQs, or troubleshooting..." type="text"/>
+<button aria-label="Clear search" class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-on-surface-variant hover:text-on-surface" id="clearSearchBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Quick Action Grid -->
+<section class="px-gutter pt-space-lg">
+<div class="flex items-center justify-between mb-space-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface">Direct Assistance</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">4 Channels</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Card 1 -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex flex-col justify-between" type="button">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Live Chat Desk</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-clinical-success"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Avg: 3 mins</span>
+</div>
+</div>
+</button>
+<!-- Card 2 -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex flex-col justify-between" type="button">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">mail</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Email Support</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant truncate">support@deephealth.io</div>
+</div>
+</button>
+<!-- Card 3 -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex flex-col justify-between" type="button">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center mb-space-sm group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[22px]">document_scanner</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Scan Troubleshoot</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Camera &amp; Lighting</div>
+</div>
+</button>
+<!-- Card 4 -->
+<button class="group text-left p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all active:scale-[0.98] flex flex-col justify-between" type="button">
+<div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-space-sm group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Billing &amp; Plans</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Invoices &amp; Points</div>
+</div>
+</button>
+</div>
+</section>
+<!-- Visual Diagnostic Tip Featurette -->
+<section class="px-gutter pt-space-lg">
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Close up of an Indian patient's facial contour illuminated by natural diffused medical window lighting for rPPG optical biometric heart rate scanning, clean calm composition with teal undertones, high clinical precision aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGzErA-iz-jIDqDkVnfkE5_f0NkSbGpGGqu7IS9y5hUed2f2df7TLGcd7clDezBQSqSOBRNCGec-55_HP3wyo39WDEdtLfQ4rWI_p9Jvu2eiYohUMGn9kw0WdGyVS0XeyTUpStpE_Ry7JGeXx19E1d4Ylys7Ek5GbIwRdTavDYrGyJ4z9CM3qMWcjlJ5W8s86P_Fb1WH1nD5rE1jvvBysHt-gS1ousM2Sfc2nwXhUGMm8Ophgp4yG9"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">Calibration Tip</span>
+<h4 class="font-title-md text-title-md text-on-surface truncate">Optimize 30s Face Scanning</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Rest face within the oval reticle under uniform illumination.</p>
+</div>
+<button aria-label="Learn scan technique" class="w-8 h-8 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center text-primary flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- FAQ Accordion Section -->
+<section class="px-gutter pt-space-xl">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="space-y-0.5">
+<h3 class="font-title-lg text-title-lg text-on-surface">Frequently Asked Questions</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated clinical &amp; computational guidance</p>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2 py-0.5 rounded-full font-medium">5 Articles</span>
+</div>
+<!-- Accordion List -->
+<div class="flex flex-col gap-space-sm" id="faqContainer">
+<!-- Item 1 (Open by default) -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" data-keywords="accuracy optical rppg facial biometric scan heart rate hrv photoplethysmography">
+<button class="faq-toggle w-full p-space-md flex items-start justify-between gap-space-sm text-left select-none" type="button">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">csv</span>
+<span class="font-title-md text-title-md text-on-surface">How accurate is the 30-second facial biometric scan?</span>
+</div>
+<span class="faq-icon material-symbols-outlined text-[20px] text-on-surface-variant transition-transform duration-200 rotate-180 flex-shrink-0">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+<div class="p-space-sm rounded-lg bg-surface-container-low mb-2 text-on-surface font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-confidence-high">verified</span>
+            Validated 98.4% correlation against clinical ECG telemetry
+          </div>
+          Our rPPG (remote photoplethysmography) computer vision algorithms analyze subtle optical absorption changes on facial tissue to extract heart rate, HRV, and respiratory cadence without physical contact.
+        </div>
+</div>
+<!-- Item 2 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" data-keywords="lighting conditions lux backlighting camera shadows sun setup">
+<button class="faq-toggle w-full p-space-md flex items-start justify-between gap-space-sm text-left select-none" type="button">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">wb_sunny</span>
+<span class="font-title-md text-title-md text-on-surface">What lighting conditions work best for the scan?</span>
+</div>
+<span class="faq-icon material-symbols-outlined text-[20px] text-on-surface-variant transition-transform duration-200 flex-shrink-0">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+          Ensure diffuse, direct lighting (approx. 400+ lux). Avoid strong backlighting, moving shadows, or heavy direct sunlight which can saturate the sensor and reduce rPPG precision.
+        </div>
+</div>
+<!-- Item 3 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" data-keywords="video frames stored servers privacy security ephemeral recording cloud hipaa">
+<button class="faq-toggle w-full p-space-md flex items-start justify-between gap-space-sm text-left select-none" type="button">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">lock</span>
+<span class="font-title-md text-title-md text-on-surface">Are my video frames stored on your servers?</span>
+</div>
+<span class="faq-icon material-symbols-outlined text-[20px] text-on-surface-variant transition-transform duration-200 flex-shrink-0">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+          No. Video frames are processed in ephemeral memory on your device/session and discarded immediately following feature extraction. Deep Health AI operates on strict zero-retention biometric policies.
+        </div>
+</div>
+<!-- Item 4 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" data-keywords="redeem health points plan discounts billing subscription pro annual checkout coupon">
+<button class="faq-toggle w-full p-space-md flex items-start justify-between gap-space-sm text-left select-none" type="button">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">loyalty</span>
+<span class="font-title-md text-title-md text-on-surface">How do I redeem my Health Points for plan discounts?</span>
+</div>
+<span class="faq-icon material-symbols-outlined text-[20px] text-on-surface-variant transition-transform duration-200 flex-shrink-0">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+          Points can be applied during checkout on any Pro or Annual plan for up to ₹200–500 off. Navigate to Membership &gt; Apply Rewards prior to final UPI/Card confirmation.
+        </div>
+</div>
+<!-- Item 5 -->
+<div class="faq-item rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200" data-keywords="export wellness report physician doctor pdf summary download share medical record">
+<button class="faq-toggle w-full p-space-md flex items-start justify-between gap-space-sm text-left select-none" type="button">
+<div class="flex items-start gap-space-sm min-w-0">
+<span class="material-symbols-outlined text-[20px] text-primary flex-shrink-0 mt-0.5">picture_as_pdf</span>
+<span class="font-title-md text-title-md text-on-surface">Can I export my wellness report for my physician?</span>
+</div>
+<span class="faq-icon material-symbols-outlined text-[20px] text-on-surface-variant transition-transform duration-200 flex-shrink-0">expand_more</span>
+</button>
+<div class="faq-content hidden px-space-md pb-space-md pt-0 text-on-surface-variant font-body-md text-body-md leading-relaxed">
+          Yes, every completed scan report can be exported as a clinical PDF summary directly from the Reports tab. It aggregates autonomic stability indices, average pulse, and respiratory rhythms formatted for rapid clinical appraisal.
+        </div>
+</div>
+<!-- Empty state when searching with no results -->
+<div class="hidden p-space-lg text-center rounded-xl bg-surface-container-lowest shadow-sm" id="noResultsState">
+<div class="w-12 h-12 mx-auto rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-sm">
+<span class="material-symbols-outlined text-[24px]">search_off</span>
+</div>
+<p class="font-title-md text-title-md text-on-surface">No clinical answers found</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Try keywords like 'camera', 'lighting', 'subscription', or submit a ticket below.</p>
+</div>
+</div>
+</section>
+<!-- Support Team Help Desk Banner -->
+<section class="px-gutter pt-space-xl pb-space-lg">
+<div class="relative rounded-2xl bg-surface-container-lowest p-space-lg shadow-md overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 via-transparent to-transparent pointer-events-none"></div>
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[26px]">support_agent</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-confidence-high">Clinical Technical Team</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mt-0.5">Still need assistance?</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+            Our medical engineers and triage specialists are available Mon–Sat, 9 AM – 7 PM IST.
+          </p>
+</div>
+</div>
+<!-- Primary Action CTA -->
+<div class="mt-space-lg">
+<button class="w-full h-12 rounded-lg bg-primary-container text-on-primary font-title-md text-title-md flex items-center justify-center gap-2 shadow-sm hover:opacity-90 active:scale-[0.99] transition-all" id="ticketBtn" type="button">
+<span>Submit Support Ticket</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Regulatory & Clinical Disclaimer -->
+<footer class="px-gutter pb-space-xl pt-space-xs text-center">
+<div class="flex items-center justify-center gap-1.5 mb-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Clinical Guidance Advisory</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mx-auto leading-relaxed">
+      Deep Health AI provides physiological wellness indicators for lifestyle awareness and does not replace emergency medical services or acute diagnostic interventions.
+    </p>
+</footer>
+</div>
+<script>
+  (function() {
+    // FAQ Accordion Toggle Interaction
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+
+      toggle.addEventListener('click', () => {
+        const isHidden = content.classList.contains('hidden');
+        
+        // Optional accordion folding: close siblings
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            const otherContent = otherItem.querySelector('.faq-content');
+            const otherIcon = otherItem.querySelector('.faq-icon');
+            if (otherContent && !otherContent.classList.contains('hidden')) {
+              otherContent.classList.add('hidden');
+              if (otherIcon) otherIcon.classList.remove('rotate-180');
+            }
+          }
+        });
+
+        if (isHidden) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        } else {
+          content.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+        }
+      });
+    });
+
+    // Realtime Search Filtering
+    const searchInput = document.getElementById('faqSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    const noResults = document.getElementById('noResultsState');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toLowerCase();
+        if (query.length > 0) {
+          clearBtn.classList.remove('hidden');
+        } else {
+          clearBtn.classList.add('hidden');
+        }
+
+        let visibleCount = 0;
+        faqItems.forEach(item => {
+          const text = (item.textContent || '').toLowerCase();
+          const keywords = item.getAttribute('data-keywords') || '';
+          if (text.includes(query) || keywords.toLowerCase().includes(query)) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        faqItems.forEach(item => item.classList.remove('hidden'));
+        noResults.classList.add('hidden');
+        searchInput.focus();
+      });
+    }
+
+    // Button feedback micro-interaction
+    const ticketBtn = document.getElementById('ticketBtn');
+    if (ticketBtn) {
+      ticketBtn.addEventListener('click', () => {
+        const originalText = ticketBtn.innerHTML;
+        ticketBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Preparing Dispatch...</span>';
+        setTimeout(() => {
+          ticketBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>Ticket Desk Opened</span>';
+          setTimeout(() => {
+            ticketBtn.innerHTML = originalText;
+          }, 2000);
+        }, 600);
+      });
+    }
+  })();
+</script></main></body></html>

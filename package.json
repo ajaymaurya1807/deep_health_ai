@@ -1,0 +1,11 @@
+{
+  "name": "deep-health-ai-prototype",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "powershell -ExecutionPolicy Bypass -File ./serve.ps1",
+    "build": "powershell -ExecutionPolicy Bypass -File ./build.ps1",
+    "preview": "powershell -ExecutionPolicy Bypass -File ./serve.ps1 -Root ./dist"
+  }
+}

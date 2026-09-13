@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI brand logo mark: modern clinical biometric healthcare mark with subtle geometric pulse/hexagonal heart node in teal #0d5c75 and luminous cyan, minimalist and medical grade. Brand logo. - Primary color: #0d5c75
+- Font: manrope
+- Mode: light
+- Roundness: rounded-md
+" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Plan Editor</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Profile Account" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-safe">
+<!-- Toast Feedback Overlay -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform translate-y-3" id="toast-notif">
+<div class="flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-full shadow-xl">
+<span class="material-symbols-outlined text-[18px] text-primary-fixed" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-text">Referral code copied!</span>
+</div>
+</div>
+<!-- Top Action Sub-bar -->
+<div class="px-gutter pt-space-sm pb-space-xs flex items-center justify-between">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-clinical-success animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Clinical Cohort Cycle II</span>
+</div>
+<button class="group flex items-center gap-1.5 py-1.5 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-highest transition-all" onclick="navigateToHistory()" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary-container group-hover:scale-110 transition-transform">receipt_long</span>
+<span class="font-label-md text-label-md text-primary-container font-semibold">Reward History</span>
+</button>
+</div>
+<div class="px-gutter space-y-space-lg pt-space-xs">
+<!-- Hero Visual Section -->
+<div class="relative overflow-hidden rounded-xl bg-surface-clinical p-space-lg shadow-sm">
+<!-- Ambient Glow Vector -->
+<div class="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-primary-fixed-dim/30 blur-2xl pointer-events-none"></div>
+<div class="absolute -left-8 -bottom-8 w-36 h-36 rounded-full bg-secondary-fixed/40 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Elegant Biometric Sharing Visual Badge -->
+<div class="relative mb-space-md flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[32px] text-primary-container" style="font-variation-settings: 'FILL' 1;">featured_seasonal_and_gifts</span>
+</div>
+<div class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[15px]">vital_signs</span>
+</div>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">Invite Friends &amp; Colleagues</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xs">
+          Share Deep Health AI with your network. Both you and your friend earn rewards when they complete their first biometric wellness scan.
+        </p>
+<!-- Live Rewards Pill -->
+<div class="mt-space-md inline-flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-clinical-success" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-code-metric text-code-metric text-on-surface font-semibold">+250 Points / Validated Scan</span>
+</div>
+</div>
+</div>
+<!-- Referral Code Interactive Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold">Your Unique Referral Code</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-medium">Active</span>
+</div>
+<!-- Prominent Code Container -->
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-clinical">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary-container font-mono tracking-wider select-all" id="ref-code">DEEPHEALTH-8924</span>
+<span class="font-body-sm text-body-sm text-outline mt-0.5">Biometric Identity verified tier</span>
+</div>
+<button aria-label="Copy Referral Code" class="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary-container active:scale-95 transition-transform hover:bg-surface-container-high" onclick="copyReferralCode()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="copy-icon">content_copy</span>
+</button>
+</div>
+<!-- Action Button Duo -->
+<div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+<button class="h-12 px-space-md rounded-lg bg-surface-container text-primary-container font-title-md text-title-md flex items-center justify-center gap-space-xs active:bg-surface-container-high transition-colors" onclick="copyReferralCode()" type="button">
+<span class="material-symbols-outlined text-[18px]">file_copy</span>
+<span>Copy Code</span>
+</button>
+<button class="h-12 px-space-md rounded-lg bg-primary-container text-on-primary font-title-md text-title-md flex items-center justify-center gap-space-xs active:opacity-90 shadow-sm transition-opacity" onclick="handleNativeShare()" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share Link</span>
+</button>
+</div>
+</div>
+<!-- Referral Link Box -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold">Direct Clinical Access Link</span>
+<span class="font-label-sm text-label-sm text-confidence-high">SSL Encrypted</span>
+</div>
+<div class="flex items-center justify-between gap-space-sm p-space-sm pl-space-md rounded-lg bg-surface-clinical">
+<span class="font-code-metric text-code-metric text-on-surface truncate" id="ref-link">https://deephealthindia.io/invite/dh8924</span>
+<button class="flex-shrink-0 px-space-md py-2 rounded-md bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm hover:bg-surface-container active:scale-95 transition-all" onclick="copyLink()" type="button">
+          Copy
+        </button>
+</div>
+</div>
+<!-- Native Quick Share Options -->
+<div class="space-y-space-sm">
+<span class="font-label-sm text-label-sm text-outline tracking-wider uppercase font-semibold block px-1">Quick Share Via</span>
+<div class="grid grid-cols-4 gap-space-xs">
+<!-- WhatsApp Pill -->
+<button class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm min-h-[72px] active:scale-95" onclick="shareWhatsApp()" type="button">
+<div class="w-10 h-10 rounded-full bg-clinical-success/15 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px] text-clinical-success" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">WhatsApp</span>
+</button>
+<!-- SMS Pill -->
+<button class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm min-h-[72px] active:scale-95" onclick="shareSMS()" type="button">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px] text-primary-container" style="font-variation-settings: 'FILL' 1;">sms</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Messages</span>
+</button>
+<!-- Email Pill -->
+<button class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm min-h-[72px] active:scale-95" onclick="shareEmail()" type="button">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px] text-secondary" style="font-variation-settings: 'FILL' 1;">mail</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Email</span>
+</button>
+<!-- More System Share -->
+<button class="flex flex-col items-center justify-center p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-colors shadow-sm min-h-[72px] active:scale-95" onclick="handleNativeShare()" type="button">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">ios_share</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">More</span>
+</button>
+</div>
+</div>
+<!-- Referral Rules & Protocol Transparency -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-primary-container">verified_user</span>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Protocol &amp; Credit Criteria</h3>
+</div>
+<div class="relative space-y-space-md pl-4">
+<!-- Connecting Line -->
+<div class="absolute left-[27px] top-4 bottom-4 w-0.5 bg-surface-container-highest"></div>
+<!-- Step 1 -->
+<div class="relative flex items-start gap-space-md">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-code-metric text-code-metric font-semibold flex-shrink-0 z-10 shadow-sm">
+            1
+          </div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Share Invitation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Send your clinical code or secure link to colleagues and friends.</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex items-start gap-space-md">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-code-metric text-code-metric font-semibold flex-shrink-0 z-10 shadow-sm">
+            2
+          </div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Initial 30s Biometric Scan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Your referee registers and completes their baseline facial vitals telemetry screening.</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex items-start gap-space-md">
+<div class="w-7 h-7 rounded-full bg-clinical-success text-on-primary flex items-center justify-center font-code-metric text-code-metric font-semibold flex-shrink-0 z-10 shadow-sm">
+            3
+          </div>
+<div class="flex flex-col min-w-0 pt-0.5">
+<span class="font-title-md text-title-md text-on-surface font-semibold">Direct Credit: 250 Points</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Both profiles immediately receive 250 Health Points redeemable toward lab panels.</span>
+</div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-clinical flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-outline">info</span>
+<span class="font-body-sm text-body-sm text-outline">Compliant with non-incentivized medical diagnostic ethics.</span>
+</div>
+</div>
+<!-- Recent Referrals Quick Preview Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-on-surface font-semibold">Recent Referrals</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">2 Invitations dispatched</span>
+</div>
+<div class="px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-code-metric text-code-metric font-semibold">
+          +250 Pts Earned
+        </div>
+</div>
+<!-- List Items -->
+<div class="space-y-space-sm">
+<!-- Referral 1: Completed -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-clinical">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary-container font-label-md text-label-md font-semibold flex-shrink-0">
+              DR
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Dr. Rajesh Varma</span>
+<span class="font-body-sm text-body-sm text-outline">Scan verified on Oct 24</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-clinical-success bg-clinical-success/10 px-2 py-0.5 rounded-full font-medium">
+<span class="material-symbols-outlined text-[12px]">check</span> Completed
+            </span>
+<span class="font-code-metric text-code-metric text-clinical-success font-semibold mt-1">+250 pts</span>
+</div>
+</div>
+<!-- Referral 2: Pending Scan -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-clinical">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary-container font-label-md text-label-md font-semibold flex-shrink-0">
+              AK
+            </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface truncate">Ananya Kapoor</span>
+<span class="font-body-sm text-body-sm text-outline">App installed • Scan pending</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-clinical-warning bg-clinical-warning/10 px-2 py-0.5 rounded-full font-medium">
+<span class="material-symbols-outlined text-[12px]">hourglass_top</span> Pending
+            </span>
+<span class="font-code-metric text-code-metric text-outline mt-1">0 pts</span>
+</div>
+</div>
+</div>
+<!-- Deep History Link -->
+<button class="w-full pt-space-xs flex items-center justify-center gap-space-xs text-primary font-label-md text-label-md hover:text-primary-container transition-colors py-2" onclick="navigateToHistory()" type="button">
+<span>View Complete Referral History</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function showToast(message) {
+    const toast = document.getElementById('toast-notif');
+    const toastText = document.getElementById('toast-text');
+    if (!toast || !toastText) return;
+    toastText.textContent = message;
+    toast.classList.remove('opacity-0', 'translate-y-3');
+    toast.classList.add('opacity-100', 'translate-y-0');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'translate-y-0');
+      toast.classList.add('opacity-0', 'translate-y-3');
+    }, 2400);
+  }
+
+  function copyReferralCode() {
+    const code = document.getElementById('ref-code').innerText.trim();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('Referral code copied: ' + code);
+      }).catch(() => {
+        fallbackCopy(code);
+      });
+    } else {
+      fallbackCopy(code);
+    }
+  }
+
+  function copyLink() {
+    const link = document.getElementById('ref-link').innerText.trim();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(link).then(() => {
+        showToast('Invite link copied to clipboard');
+      }).catch(() => {
+        fallbackCopy(link);
+      });
+    } else {
+      fallbackCopy(link);
+    }
+  }
+
+  function fallbackCopy(text) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    showToast('Copied to clipboard');
+  }
+
+  function handleNativeShare() {
+    const shareData = {
+      title: 'Deep Health AI Referral',
+      text: 'Join me on Deep Health AI for precision biometric screening. Use my invite code DEEPHEALTH-8924 to unlock 250 Health Points!',
+      url: 'https://deephealthindia.io/invite/dh8924'
+    };
+    if (navigator.share) {
+      navigator.share(shareData).catch((err) => {
+        if (err.name !== 'AbortError') {
+          copyLink();
+        }
+      });
+    } else {
+      copyLink();
+    }
+  }
+
+  function shareWhatsApp() {
+    const text = encodeURIComponent('Join me on Deep Health AI for instant biometric screening! Use code DEEPHEALTH-8924 or link: https://deephealthindia.io/invite/dh8924');
+    window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+  }
+
+  function shareSMS() {
+    const body = encodeURIComponent('Track your cardiovascular and genomic indicators with Deep Health AI. Use my referral code DEEPHEALTH-8924: https://deephealthindia.io/invite/dh8924');
+    window.location.href = `sms:?&body=${body}`;
+  }
+
+  function shareEmail() {
+    const subject = encodeURIComponent('Exclusive Invitation to Deep Health AI');
+    const body = encodeURIComponent('Hello,\n\nI invite you to explore Deep Health AI for precision cellular and hemodynamic screening. When you complete your baseline 30s scan, we both receive 250 clinical points.\n\nUse Code: DEEPHEALTH-8924\nAccess Link: https://deephealthindia.io/invite/dh8924');
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  }
+
+  function navigateToHistory() {
+    showToast('Loading full referral history ledger...');
+  }
+</script></main></body></html>
