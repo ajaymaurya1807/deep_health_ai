@@ -3,21 +3,73 @@ const screens={
   splash:'01._splash_screen',language:'02._language_selection',onboarding1:'onboarding_01_understand_your_wellness',onboarding2:'onboarding_02_scan._understand._track',onboarding3:'onboarding_03_see_your_wellness_journey',signin:'sign_in_deep_health_ai',register:'registration_deep_health_ai',forgot:'forgot_password_deep_health_ai',otp:'otp_verification_deep_health_ai',reset:'reset_password_deep_health_ai',home:'03._home_dashboard_1',plans:'01._plans_subscriptions',purchase:'03._purchase_confirmation',payment:'05._payment_successful',position:'06._face_positioning_hud',scan:'07._live_30_second_scan',processing:'08._scan_processing',success:'09._scan_success',report:'11._wellness_report_summary',breakdown:'ai_wellness_score_breakdown_telemetry',wallet:'09._points_wallet',refer:'11._refer_earn',profile:'16._profile_overview',notifications:'17._notifications_center',settings:'18._settings_privacy',support:'20._help_support_desk',careplan:'care_plan',editprofile:'edit_profile',scanhistory:'scan_history',legal:'health_legal'
 };
 const rules={
- language:[['Continue','onboarding1']],onboarding1:[['Continue','onboarding2'],['Skip','signin']],onboarding2:[['Continue','onboarding3'],['arrow_back','back']],onboarding3:[['Get Started','signin']],
- signin:[['Create Account','register'],['Forgot Password','forgot'],['Sign In','home'],['arrow_back','back']],register:[['Create Account','otp'],['Sign In','signin'],['arrow_back','back']],forgot:[['Send Verification','otp'],['arrow_back','back']],otp:[['Verify','home'],['Continue','home'],['arrow_back','back']],reset:[['Reset','signin'],['arrow_back','back']],
- home:[['Start New Scan','position'],['Express Biometrics','position'],['Fast Scan','position'],['View Full Report','report'],['History','scanhistory'],['Reports','report'],['Care Plan','careplan'],['Referrals','refer'],['notifications','notifications'],['Profile','profile'],['Home','home'],['Scan','position'],['Plans','plans']],
- position:[['Begin Scan','scan'],['arrow_back','back']],success:[['View Report','report'],['Back to Dashboard','home']],report:[['Score Breakdown','breakdown'],['arrow_back','back'],['Home','home'],['Reports','report'],['Scan','position'],['Profile','profile']],breakdown:[['arrow_back','back'],['Export','sheet:export']],
- plans:[['Pro Health Matrix','purchase'],['Annual Vitality Guard','purchase'],['selectPlan','purchase'],['Choose Pro','purchase'],['arrow_back','back']],purchase:[['Proceed','payment'],['Cancel','plans'],['arrow_back','back']],payment:[['Start Wellness Scan','position'],['Go to Dashboard','home']],
- wallet:[['Refer','refer'],['Redeem','plans'],['arrow_back','back']],refer:[['Copy','toast:Referral code copied'],['arrow_back','back']],
- profile:[['Edit Profile','editprofile'],['Manage Plan','plans'],['Change','plans'],['My Wellness Reports','report'],['Scan History','scanhistory'],['My Plans & Invoices','plans'],['Points Wallet','wallet'],['Referrals & Rewards','refer'],['Notifications','notifications'],['Settings & Privacy','settings'],['Help, FAQ','support'],['Health Disclaimer','legal'],['Log Out','sheet:logout'],['arrow_back','back']],
- careplan:[['arrow_back','back']],editprofile:[['Save Changes','toast:Profile changes saved'],['arrow_back','back']],scanhistory:[['View Report','report'],['arrow_back','back']],legal:[['arrow_back','back']],
- notifications:[['wellness report','report'],['points wallet','wallet'],['Settings','settings'],['arrow_back','back']],settings:[['Help','support'],['Log Out','signin'],['arrow_back','back']],support:[['Submit','sheet:ticket'],['arrow_back','back']]
+ language:[['Continue','onboarding1']],
+ onboarding1:[['Continue','onboarding2'],['Skip','signin']],
+ onboarding2:[['Continue','onboarding3'],['arrow_back','back']],
+ onboarding3:[['Get Started','signin']],
+ signin:[['Create Account','register'],['Forgot Password','forgot'],['Sign In','home'],['arrow_back','back']],
+ register:[['Create Account','otp'],['Sign In','signin'],['arrow_back','back']],
+ forgot:[['Send Verification','otp'],['arrow_back','back']],
+ otp:[['Verify','home'],['Continue','home'],['arrow_back','back']],
+ reset:[['Reset','signin'],['arrow_back','back']],
+ home:[
+   ['Start New Scan','position'],['Express Biometrics','position'],['Fast Scan','position'],['Scan','position'],
+   ['View Full Report','report'],['Full Spectrum Diagnostics','report'],['Diagnostics','report'],['AI Biometric Index','report'],['Biometric Index','report'],['Reports','report'],
+   ['History','scanhistory'],['Recent Analysis','scanhistory'],
+   ['Care Plan','careplan'],
+   ['Referrals','refer'],['Referral','refer'],
+   ['notifications','notifications'],
+   ['Profile','profile'],['Rahul','profile'],
+   ['Home','home'],
+   ['Plans','plans']
+ ],
+ position:[['Begin Scan','scan'],['Begin Biometric Scan','scan'],['Start Scan','scan'],['arrow_back','back']],
+ success:[['View Report','report'],['Back to Dashboard','home']],
+ report:[['Score Breakdown','breakdown'],['arrow_back','back'],['Home','home'],['Reports','report'],['Scan','position'],['Profile','profile']],
+ breakdown:[['arrow_back','back'],['Export','sheet:export']],
+ plans:[['Pro Health Matrix','purchase'],['Annual Vitality Guard','purchase'],['selectPlan','purchase'],['Choose Pro','purchase'],['Choose Pro Matrix','purchase'],['arrow_back','back']],
+ purchase:[['Proceed','payment'],['Cancel','plans'],['arrow_back','back']],
+ payment:[['Start Wellness Scan','position'],['Go to Dashboard','home']],
+ wallet:[['Refer','refer'],['Redeem','plans'],['arrow_back','back']],
+ refer:[['Copy','toast:Referral code copied'],['arrow_back','back']],
+ profile:[
+   ['Edit Profile','editprofile'],['Dr. Ananya Rao','editprofile'],['Profile Account','editprofile'],['Profile','editprofile'],
+   ['Manage Plan','plans'],['Pro Health Matrix','plans'],['Current Subscription','plans'],['Change','plans'],['My Plans & Invoices','plans'],
+   ['My Wellness Reports','report'],['Wellness Reports','report'],['Biomarker Baseline','report'],
+   ['Scan History','scanhistory'],
+   ['Points Wallet','wallet'],
+   ['Referrals & Rewards','refer'],['Referrals','refer'],
+   ['Notifications','notifications'],
+   ['Settings & Privacy','settings'],['Settings','settings'],
+   ['Help, FAQ','support'],['Support','support'],
+   ['Health Disclaimer','legal'],['Legal','legal'],
+   ['Log Out','sheet:logout'],
+   ['arrow_back','back']
+ ],
+ careplan:[['arrow_back','back']],
+ editprofile:[['Save Changes','toast:Profile changes saved'],['arrow_back','back']],
+ scanhistory:[['View Report','report'],['arrow_back','back']],
+ legal:[['arrow_back','back']],
+ notifications:[['wellness report','report'],['points wallet','wallet'],['Settings','settings'],['arrow_back','back']],
+ settings:[['Help','support'],['Log Out','signin'],['arrow_back','back']],
+ support:[['Submit','sheet:ticket'],['arrow_back','back']]
 };
 const frame=document.querySelector('#screen'),loader=document.querySelector('#loading'),sheet=document.querySelector('#sheet'),scrim=document.querySelector('#scrim'),toast=document.querySelector('#toast'),appNav=document.querySelector('#app-nav');
 const preAuthScreens=['splash','language','onboarding1','onboarding2','onboarding3','signin','register','forgot','otp','reset'];
 const scanScreens=['position','scan','processing','success'];
-let current='',timer,openedFromTab=false,navContext='home';
+let current='',timer,openedFromTab=false,navContext='home',frameScreen='';
 const tabRoute={home:'home',report:'report',position:'scan',plans:'plans',profile:'profile'};
+
+function loadScreen(name){
+  if(frameScreen===name){
+    loader.classList.add('done');
+    wire();
+    return;
+  }
+  frameScreen=name;
+  frame.contentWindow.location.replace(`${base}/${screens[name]}/code.html`);
+}
+
 function route(name,replace=false,origin='flow'){
   if(!screens[name])name='splash';
   const previous=current;
@@ -37,18 +89,137 @@ function route(name,replace=false,origin='flow'){
   const hash='#/'+name,state={screen:name,openedFromTab,navContext};
   if(location.hash!==hash)history[replace?'replaceState':'pushState'](state,'',hash);
   else history.replaceState(state,'',hash);
-  frame.src=`${base}/${screens[name]}/code.html`;
+
+  loadScreen(name);
   clearTimeout(timer);
 }
-function textOf(el){return `${el.innerText||''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('title')||''} ${el.getAttribute?.('onclick')||''} ${el.getAttribute?.('data-path')||''} ${el.querySelector?.('.material-symbols-outlined')?.textContent||''} ${el.querySelector?.('img')?.getAttribute('alt')||''}`.trim().toLowerCase()}
-function wire(){const doc=frame.contentDocument;if(!doc)return;doc.documentElement.style.webkitTapHighlightColor='transparent';const showNav=!preAuthScreens.includes(current);appNav.hidden=!showNav;doc.querySelectorAll('nav').forEach(nav=>{if(getComputedStyle(nav).position==='fixed'&&parseFloat(getComputedStyle(nav).bottom)===0)nav.style.display='none'});if(preAuthScreens.includes(current)){doc.querySelectorAll('header').forEach(header=>header.style.display='none');doc.querySelectorAll('main').forEach(main=>main.style.paddingTop='0')}if(current==='onboarding3')[...doc.querySelectorAll('button')].filter(button=>button.textContent.trim()==='Sign In').forEach(button=>button.style.display='none');[...doc.querySelectorAll('button')].filter(button=>textOf(button).includes('more_vert')).forEach(button=>button.style.display='none');if(current==='scan'){const scanStatus=[...doc.querySelectorAll('p')].find(el=>el.textContent.includes('Scanning in progress'));if(scanStatus)scanStatus.textContent='Step 3 of 3 · Scanning in progress — please hold still'}if(showNav)doc.body.style.paddingBottom='82px';if(current==='home'){const notices=[...doc.querySelectorAll('.material-symbols-outlined')].filter(el=>el.textContent.trim()==='notifications'&&!el.closest('header'));if(notices[0]){const duplicate=notices[0].closest('div.relative');if(duplicate)duplicate.style.display='none'}}const backButtons=[...doc.querySelectorAll('button')].filter(button=>/go back|arrow_back/.test(textOf(button)));if(current==='home'||openedFromTab)backButtons.forEach(button=>button.style.display='none');if(current==='report'){const header=doc.querySelector('header'),share=doc.querySelector('#shareBtn'),download=doc.querySelector('button[aria-label*="Download"]');if(header&&share&&download){const bar=header.firstElementChild,right=bar?.lastElementChild;if(right){right.replaceChildren(share,download);right.style.display='flex'}const mainBack=backButtons.find(button=>button.closest('main'));if(mainBack&&!openedFromTab){const left=bar?.firstElementChild;left?.prepend(mainBack)}}}appNav.querySelectorAll('button').forEach(button=>button.classList.toggle('active',button.dataset.route===navContext));const fix=doc.createElement('style');fix.textContent='#rememberMeCheckbox:checked+div{background:#004357!important;border-color:#004357!important}#rememberMeCheckbox:checked+div .material-symbols-outlined{color:#fff!important;opacity:1!important;transform:scale(1)!important}#termsCheckbox:checked{background-color:#004357!important;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath fill=%27none%27 stroke=%27white%27 stroke-width=%272.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 d=%27M4 10l4 4 8-9%27/%3E%3C/svg%3E")!important;background-size:100% 100%!important}#submitBtn .material-symbols-outlined{color:white!important}';doc.head.appendChild(fix);doc.querySelectorAll('button,a,[role=button],.cursor-pointer').forEach(el=>el.style.cursor='pointer');doc.addEventListener('click',e=>{const el=e.target.closest('button,a,[role=button],.cursor-pointer');if(!el)return;const text=textOf(el);const match=(rules[current]||[]).find(([needle])=>text.includes(needle.toLowerCase()));if(match){e.preventDefault();e.stopImmediatePropagation();act(match[1])}},true);if(current==='splash')timer=setTimeout(()=>route('language'),1800);if(current==='scan')timer=setTimeout(()=>route('processing'),30000);if(current==='processing')timer=setTimeout(()=>route('success'),3500)}
-function act(action){if(action==='back'){history.back()}else if(action.startsWith('toast:'))showToast(action.slice(6));else if(action.startsWith('sheet:'))showSheet(action.slice(6));else route(action)}
-function showToast(message){toast.textContent=message;toast.hidden=false;setTimeout(()=>toast.hidden=true,2200)}
-function showSheet(kind){const content={logout:['Log out of Deep Health AI?','You can sign back in at any time.','Log Out'],export:['Export health record','Your FHIR-compatible wellness report is ready for this prototype demo.','Download Report'],ticket:['Support request submitted','Your demo ticket DH-2048 has been created. We will respond within 24 hours.','Done']}[kind];sheet.innerHTML=`<h2>${content[0]}</h2><p>${content[1]}</p><button>${content[2]}</button><button class="secondary">Cancel</button>`;sheet.hidden=scrim.hidden=false;sheet.querySelector('button').onclick=()=>{closeSheet();if(kind==='logout')route('signin');else showToast(kind==='export'?'FHIR report exported':'Ticket submitted successfully')};sheet.querySelector('.secondary').onclick=closeSheet;scrim.onclick=closeSheet}
-function closeSheet(){sheet.hidden=scrim.hidden=true}
-function restore(name,state={}){if(!screens[name])return;openedFromTab=!!state.openedFromTab;navContext=state.navContext||'home';current=name;appNav.hidden=preAuthScreens.includes(name);loader.classList.remove('done');frame.src=`${base}/${screens[name]}/code.html`;clearTimeout(timer)}
+
+function textOf(el){
+  if(!el)return '';
+  return `${el.innerText||''} ${el.textContent||''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('title')||''} ${el.getAttribute?.('onclick')||''} ${el.getAttribute?.('data-path')||''} ${el.getAttribute?.('data-route')||''} ${el.querySelector?.('.material-symbols-outlined')?.textContent||''} ${el.querySelector?.('img')?.getAttribute('alt')||''}`.trim().toLowerCase();
+}
+
+function wire(){
+  const doc=frame.contentDocument;
+  if(!doc)return;
+  doc.documentElement.style.webkitTapHighlightColor='transparent';
+  const showNav=!preAuthScreens.includes(current);
+  appNav.hidden=!showNav;
+  doc.querySelectorAll('nav').forEach(nav=>{if(getComputedStyle(nav).position==='fixed'&&parseFloat(getComputedStyle(nav).bottom)===0)nav.style.display='none'});
+  if(preAuthScreens.includes(current)){
+    doc.querySelectorAll('header').forEach(header=>header.style.display='none');
+    doc.querySelectorAll('main').forEach(main=>main.style.paddingTop='0');
+  }
+  if(current==='onboarding3')[...doc.querySelectorAll('button')].filter(button=>button.textContent.trim()==='Sign In').forEach(button=>button.style.display='none');
+  [...doc.querySelectorAll('button')].filter(button=>textOf(button).includes('more_vert')).forEach(button=>button.style.display='none');
+  if(current==='scan'){
+    const scanStatus=[...doc.querySelectorAll('p')].find(el=>el.textContent.includes('Scanning in progress'));
+    if(scanStatus)scanStatus.textContent='Step 3 of 3 · Scanning in progress — please hold still';
+  }
+  if(showNav)doc.body.style.paddingBottom='82px';
+  if(current==='home'){
+    const notices=[...doc.querySelectorAll('.material-symbols-outlined')].filter(el=>el.textContent.trim()==='notifications'&&!el.closest('header'));
+    if(notices[0]){
+      const duplicate=notices[0].closest('div.relative');
+      if(duplicate)duplicate.style.display='none';
+    }
+  }
+  const backButtons=[...doc.querySelectorAll('button')].filter(button=>/go back|arrow_back/.test(textOf(button)));
+  if(current==='home'||preAuthScreens.includes(current)||openedFromTab){
+    backButtons.forEach(button=>button.style.display='none');
+  }else{
+    backButtons.forEach(button=>button.style.display='');
+  }
+  if(current==='report'){
+    const header=doc.querySelector('header'),share=doc.querySelector('#shareBtn'),download=doc.querySelector('button[aria-label*="Download"]');
+    if(header&&share&&download){
+      const bar=header.firstElementChild,right=bar?.lastElementChild;
+      if(right){
+        right.replaceChildren(share,download);
+        right.style.display='flex';
+      }
+      const mainBack=backButtons.find(button=>button.closest('main'));
+      if(mainBack&&!openedFromTab){
+        const left=bar?.firstElementChild;
+        left?.prepend(mainBack);
+      }
+    }
+  }
+  appNav.querySelectorAll('button').forEach(button=>button.classList.toggle('active',button.dataset.route===navContext));
+  const fix=doc.createElement('style');
+  fix.textContent='#rememberMeCheckbox:checked+div{background:#004357!important;border-color:#004357!important}#rememberMeCheckbox:checked+div .material-symbols-outlined{color:#fff!important;opacity:1!important;transform:scale(1)!important}#termsCheckbox:checked{background-color:#004357!important;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath fill=%27none%27 stroke=%27white%27 stroke-width=%272.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 d=%27M4 10l4 4 8-9%27/%3E%3C/svg%3E")!important;background-size:100% 100%!important}#submitBtn .material-symbols-outlined{color:white!important}';
+  doc.head.appendChild(fix);
+  doc.querySelectorAll('button,a,[role=button],.cursor-pointer').forEach(el=>el.style.cursor='pointer');
+
+  if(doc._clickWired) doc.removeEventListener('click', doc._clickWired, true);
+  doc._clickWired = function(e){
+    const el=e.target.closest('button,a,[role=button],.cursor-pointer') || e.target.closest('section,article,div[class*="rounded"]');
+    if(!el)return;
+    const text=textOf(el);
+    const match=(rules[current]||[]).find(([needle])=>text.includes(needle.toLowerCase()));
+    if(match){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      act(match[1]);
+    }
+  };
+  doc.addEventListener('click', doc._clickWired, true);
+
+  if(current==='splash')timer=setTimeout(()=>route('language'),1800);
+  if(current==='scan')timer=setTimeout(()=>route('processing'),30000);
+  if(current==='processing')timer=setTimeout(()=>route('success'),3500);
+}
+
+function act(action){
+  if(action==='back'){
+    history.back();
+  }else if(action.startsWith('toast:')){
+    showToast(action.slice(6));
+  }else if(action.startsWith('sheet:')){
+    showSheet(action.slice(6));
+  }else{
+    route(action);
+  }
+}
+
+function showToast(message){
+  toast.textContent=message;
+  toast.hidden=false;
+  setTimeout(()=>toast.hidden=true,2200);
+}
+
+function showSheet(kind){
+  const content={logout:['Log out of Deep Health AI?','You can sign back in at any time.','Log Out'],export:['Export health record','Your FHIR-compatible wellness report is ready for this prototype demo.','Download Report'],ticket:['Support request submitted','Your demo ticket DH-2048 has been created. We will respond within 24 hours.','Done']}[kind];
+  sheet.innerHTML=`<h2>${content[0]}</h2><p>${content[1]}</p><button>${content[2]}</button><button class="secondary">Cancel</button>`;
+  sheet.hidden=scrim.hidden=false;
+  sheet.querySelector('button').onclick=()=>{closeSheet();if(kind==='logout')route('signin');else showToast(kind==='export'?'FHIR report exported':'Ticket submitted successfully')};
+  sheet.querySelector('.secondary').onclick=closeSheet;
+  scrim.onclick=closeSheet;
+}
+
+function closeSheet(){
+  sheet.hidden=scrim.hidden=true;
+}
+
+function restore(name,state={}){
+  if(!screens[name])return;
+  openedFromTab=!!state.openedFromTab;
+  navContext=state.navContext||'home';
+  current=name;
+  appNav.hidden=preAuthScreens.includes(name);
+  loader.classList.remove('done');
+  loadScreen(name);
+  clearTimeout(timer);
+}
+
 frame.addEventListener('load',()=>{loader.classList.add('done');wire()});
 addEventListener('popstate',event=>restore(location.hash.slice(2),event.state||{}));
-appNav.addEventListener('click',event=>{const button=event.target.closest('button[data-route]');if(!button)return;event.preventDefault();event.stopPropagation();route(button.dataset.route,false,'tab')});
+appNav.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-route]');
+  if(!button)return;
+  event.preventDefault();
+  event.stopPropagation();
+  route(button.dataset.route,false,'tab');
+});
 route(location.hash.slice(2)||'splash',true);
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));

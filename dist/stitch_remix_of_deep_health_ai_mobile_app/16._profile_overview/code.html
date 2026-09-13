@@ -1,341 +1,481 @@
 <!DOCTYPE html>
 
-<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script><style>@layer base{html,body{width:100%;margin:0;padding:0;min-height:100%;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI brand logo mark: modern clinical biometric healthcare mark with subtle geometric pulse/hexagonal heart node in teal #0d5c75 and luminous cyan, minimalist and medical grade. Brand logo. - Primary color: #0d5c75
-- Font: manrope
-- Mode: light
-- Roundness: rounded-md
-" class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw"/><h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Profile</h1></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button aria-label="Profile Account" class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity" type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full px-gutter pb-28 gap-y-space-lg">
-<!-- Top Hero Identity Card -->
-<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
-<div class="absolute -right-12 -top-12 w-36 h-36 rounded-full bg-primary-fixed-dim/20 pointer-events-none blur-2xl"></div>
-<div class="flex items-center gap-space-md min-w-0">
-<div class="relative flex-shrink-0">
-<img alt="Dr. Ananya Rao Profile" class="w-16 h-16 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw"/>
-<span class="absolute bottom-0 right-0 w-4 h-4 bg-clinical-success rounded-full ring-2 ring-surface-container-lowest" title="Active Synced Node"></span>
-</div>
-<div class="flex flex-col min-w-0 flex-1">
-<div class="flex items-center gap-space-xs">
-<h2 class="font-headline-md text-headline-md text-on-surface truncate">Dr. Ananya Rao</h2>
-<span class="material-symbols-outlined text-confidence-high text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-</div>
-<p class="font-code-metric text-code-metric text-on-surface-variant truncate mt-0.5">
-          Bio-Telemetry ID: <span class="text-on-surface font-semibold">#DH-8924</span>
-</p>
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mt-1">
-          Standard Cohort • Tier 1
+<html class="h-full" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&amp;family=Manrope:wght@600;700&amp;family=Source+Sans+3:wght@400;600&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#d8e3f9", "surface-clinical": "#F4F6FC", "on-secondary": "#ffffff", "on-error": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a", "on-surface": "#111c2c", "primary-container": "#0d5c75", "surface-container": "#e7eeff", "surface-container-high": "#dee9ff", "error": "#ba1a1a", "primary-fixed": "#bde9ff", "primary": "#004357", "tertiary-fixed": "#c9e6ff", "tertiary-container": "005b83", "on-tertiary-fixed-variant": "#004c6e", "outline": "#70787d", "on-primary-fixed": "#001f2a", "on-secondary-fixed-variant": "#343f8d", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004d64", "secondary-fixed-dim": "#bcc3ff", "surface-container-lowest": "#ffffff", "surface": "#f9f9ff", "on-tertiary-container": "#93d2ff", "secondary-container": "#9ca8fd", "brand-indigo": "#7052FB", "secondary": "#4c58a6", "on-secondary-fixed": "#000d60", "background": "#f9f9ff", "inverse-on-surface": "#ebf1ff", "clinical-critical": "#DC2626", "surface-dim": "#cfdaf1", "clinical-warning": "#D97706", "clinical-success": "#059669", "surface-container-low": "#f0f3ff", "surface-variant": "#d8e3f9", "on-secondary-container": "#2e3a87", "inverse-surface": "#263142", "on-tertiary": "#ffffff", "tertiary": "#004261", "on-primary-container": "#93d3ef", "surface-tint": "#1e667f", "secondary-fixed": "#dfe0ff", "on-tertiary-fixed": "#001e2f", "tertiary-fixed-dim": "#89ceff", "primary-fixed-dim": "#90cfec", "surface-bright": "#f9f9ff", "inverse-primary": "#90cfec", "outline-variant": "#bfc8cd", "on-background": "#111c2c", "on-surface-variant": "#40484c", "confidence-high": "#0284C7" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "gutter": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "space-xs": "0.25rem", "space-xl": "2rem" }, fontFamily: { "headline-xl-mobile": ["Manrope"], "headline-md": ["Manrope"], "headline-lg": ["Manrope"], "headline-lg-mobile": ["Manrope"], "code-metric": ["Inter"], "headline-xl": ["Manrope"], "label-sm": ["Inter"], "title-lg": ["Manrope"], "body-sm": ["\"Source Sans 3\""], "body-lg": ["\"Source Sans 3\""], "title-md": ["\"Source Sans 3\""], "body-md": ["\"Source Sans 3\""], "label-md": ["Inter"] }, fontSize: { "headline-xl-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "code-metric": ["13px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600" }], "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }] } } } }</script>
+  <style>
+    @layer base {
+
+      html,
+      body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+      }
+
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-full antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 px-gutter flex items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-sm min-w-0 flex-1"><button aria-label="Go back"
+          class="w-11 h-11 -ml-space-xs flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container/60 transition-colors flex-shrink-0"
+          onclick="history.back();" type="button"><span
+            class="material-symbols-outlined text-[24px]">arrow_back</span></button><img alt="Deep Health AI Logo"
+          class="h-7 w-auto object-contain flex-shrink-0 hidden sm:block"
+          src="https://lh3.googleusercontent.com/aida/AEtjO1X9Mxd5iaGGSz2urHI2kXTviq9rEkY16Vwqp8pUgFxexwPQKEzsn3QgDYNQw94EmLPpTN3hif3fx-gWPJkvS62oHUJPQ0gpUucaY1UOZW5o8ANjpR7UqWfH2TqzTgd2LT7KnrwLS7IzQWuDhqsEhOFUGe7k1Onl-q1YtNghWBBbY-jC4uPjZmA-LRxxkaRfK7br_OYCOxHPY_ZvRWN-tKyKRpMz4zuE73RkOm8NaCjGoUlfPa94rXJMlw" />
+        <h1 class="font-title-lg text-title-lg text-on-surface truncate leading-tight">Profile</h1>
+      </div>
+      <div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="More clinical options"
+          class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container/60 transition-colors"
+          type="button"><span class="material-symbols-outlined text-[22px]">more_vert</span></button><button
+          aria-label="Profile Account"
+          class="w-11 h-11 flex items-center justify-center rounded-full hover:opacity-90 transition-opacity"
+          type="button"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/20"
+            src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw" /></button>
+      </div>
+    </div>
+  </header>
+  <main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface">
+    <div class="flex flex-col w-full px-gutter pb-28 gap-y-space-lg">
+      <!-- Top Hero Identity Card -->
+      <section
+        class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden cursor-pointer">
+        <div
+          class="absolute -right-12 -top-12 w-36 h-36 rounded-full bg-primary-fixed-dim/20 pointer-events-none blur-2xl">
+        </div>
+        <div class="flex items-center gap-space-md min-w-0">
+          <div class="relative flex-shrink-0">
+            <img alt="Dr. Ananya Rao Profile" class="w-16 h-16 rounded-full object-cover shadow-sm"
+              src="https://lh3.googleusercontent.com/aida/AEtjO1Wl4xT0vT9j5EI64UpsTsmC13Klj4NYBnC1dTrkKoeGuhHigD9I3kaQmOUbBALtCVAyVUMXU9G-5LBuWI7aanJDF6YWA2gweX8dlu3Z3x9IaNPbG3F0OdYEdPFovhZa3G_gykWwMCr0FECXl8LVgndZp4rDhy_U1pmcbb7KD6q_Y6ZyJpkBOa3X23pfwESqPbMwVb0-ZatexW4VQDH3kap8WtDWU9pb2nNZVR9tJh6U5dhCaUxCYfQjsw" />
+            <span
+              class="absolute bottom-0 right-0 w-4 h-4 bg-clinical-success rounded-full ring-2 ring-surface-container-lowest"
+              title="Active Synced Node"></span>
+          </div>
+          <div class="flex flex-col min-w-0 flex-1">
+            <div class="flex items-center gap-space-xs">
+              <h2 class="font-headline-md text-headline-md text-on-surface truncate">Dr. Ananya Rao</h2>
+              <span class="material-symbols-outlined text-confidence-high text-[18px]"
+                style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+            <p class="font-code-metric text-code-metric text-on-surface-variant truncate mt-0.5">
+              Bio-Telemetry ID: <span class="text-on-surface font-semibold">#DH-8924</span>
+            </p>
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mt-1">
+              Standard Cohort • Tier 1
+            </span>
+          </div>
+        </div>
+        <!-- Quick Actions Row -->
+        <div class="flex items-center justify-between pt-space-xs gap-space-sm">
+          <button
+            class="inline-flex items-center justify-center gap-space-xs px-space-md h-9 rounded-full bg-surface-container-low text-primary hover:bg-surface-container transition-colors min-w-[120px]"
+            type="button">
+            <span class="material-symbols-outlined text-[16px]">edit</span>
+            <span class="font-label-md text-label-md">Edit Profile</span>
+          </button>
+          <div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-low">
+            <span class="w-2 h-2 rounded-full bg-confidence-high animate-pulse"></span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Node Synced</span>
+          </div>
+        </div>
+      </section>
+      <!-- Active Entitlement Status Card (Deep Medical Accent) -->
+      <section
+        class="bg-primary-container text-on-primary rounded-xl p-space-lg shadow-md relative overflow-hidden flex flex-col gap-space-md cursor-pointer">
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-primary-fixed/10 pointer-events-none"></div>
+        <div class="flex items-start justify-between gap-space-sm">
+          <div class="flex flex-col gap-1 min-w-0">
+            <span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container">Current
+              Subscription</span>
+            <h3 class="font-title-lg text-title-lg text-on-primary truncate">Pro Health Matrix</h3>
+          </div>
+          <span
+            class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-on-primary/15 text-on-primary font-label-sm text-label-sm flex-shrink-0">
+            <span class="material-symbols-outlined text-[14px]">bolt</span>
+            Active
+          </span>
+        </div>
+        <!-- Telemetry Capacity Meter -->
+        <div class="flex flex-col gap-1.5">
+          <div class="flex justify-between items-center text-on-primary-container font-body-sm text-body-sm">
+            <span>4 of 5 Scans Available</span>
+            <span class="font-code-metric text-code-metric">Valid for 72 days</span>
+          </div>
+          <div class="w-full bg-on-primary/20 h-2 rounded-full overflow-hidden flex">
+            <div class="bg-primary-fixed h-full rounded-full transition-all duration-500" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs">
+          <p class="font-body-sm text-body-sm text-on-primary-container leading-tight">
+            Personal wellness baselining auto-renews Oct 2025.
+          </p>
+          <button
+            class="inline-flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-on-primary text-primary hover:bg-surface-bright transition-colors font-label-md text-label-md flex-shrink-0 shadow-sm"
+            type="button">
+            <span>Manage Plan</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+      </section>
+      <!-- Personal Biomarker Baseline -->
+      <section class="flex flex-col gap-space-xs">
+        <div class="flex items-center justify-between px-space-xs">
+          <h3 class="font-title-md text-title-md text-on-surface flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary text-[20px]">vital_signs</span>
+            Personal Biomarker Baseline
+          </h3>
+          <span class="font-code-metric text-code-metric text-on-surface-variant">Validated</span>
+        </div>
+        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+          <!-- Grid metrics -->
+          <div class="grid grid-cols-2 gap-space-sm">
+            <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Age / DOB</span>
+              <span class="font-title-md text-title-md text-on-surface">32 yrs</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">14 Mar 1992</span>
+            </div>
+            <div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Gender</span>
+              <span class="font-title-md text-title-md text-on-surface">Female</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Cohort Balanced</span>
+            </div>
+          </div>
+          <!-- Biological metrics row -->
+          <div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Biological Baseline</span>
+              <span class="font-code-metric text-code-metric text-on-surface font-semibold mt-0.5">
+                Height: 168 cm • Weight: 62 kg
+              </span>
+            </div>
+            <span
+              class="font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container text-primary font-semibold">BMI:
+              22.0</span>
+          </div>
+          <!-- Contact details -->
+          <div class="pt-space-xs flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between py-1.5 px-space-xs">
+              <div class="flex items-center gap-space-sm min-w-0">
+                <span class="material-symbols-outlined text-outline text-[18px]">mail</span>
+                <div class="flex flex-col min-w-0">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">Registered Email</span>
+                  <span class="font-body-md text-body-md text-on-surface truncate">dr.ananya.rao@deephealth.ai</span>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-clinical-success text-[18px]">check_circle</span>
+            </div>
+            <div class="flex items-center justify-between py-1.5 px-space-xs">
+              <div class="flex items-center gap-space-sm min-w-0">
+                <span class="material-symbols-outlined text-outline text-[18px]">call</span>
+                <div class="flex flex-col min-w-0">
+                  <span class="font-label-sm text-label-sm text-on-surface-variant">Mobile Contact</span>
+                  <span class="font-body-md text-body-md text-on-surface truncate">+91 98765 43210</span>
+                </div>
+              </div>
+              <button class="text-primary font-label-sm text-label-sm hover:underline" type="button">Change</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Account & Navigation Hub: Group 1 -->
+      <section class="flex flex-col gap-space-xs">
+        <span
+          class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
+          Clinical Records &amp; Telemetry
         </span>
-</div>
-</div>
-<!-- Quick Actions Row -->
-<div class="flex items-center justify-between pt-space-xs gap-space-sm">
-<button class="inline-flex items-center justify-center gap-space-xs px-space-md h-9 rounded-full bg-surface-container-low text-primary hover:bg-surface-container transition-colors min-w-[120px]" type="button">
-<span class="material-symbols-outlined text-[16px]">edit</span>
-<span class="font-label-md text-label-md">Edit Profile</span>
-</button>
-<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-lg bg-surface-container-low">
-<span class="w-2 h-2 rounded-full bg-confidence-high animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Node Synced</span>
-</div>
-</div>
-</section>
-<!-- Active Entitlement Status Card (Deep Medical Accent) -->
-<section class="bg-primary-container text-on-primary rounded-xl p-space-lg shadow-md relative overflow-hidden flex flex-col gap-space-md">
-<div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-primary-fixed/10 pointer-events-none"></div>
-<div class="flex items-start justify-between gap-space-sm">
-<div class="flex flex-col gap-1 min-w-0">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-primary-container">Current Subscription</span>
-<h3 class="font-title-lg text-title-lg text-on-primary truncate">Pro Health Matrix</h3>
-</div>
-<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-on-primary/15 text-on-primary font-label-sm text-label-sm flex-shrink-0">
-<span class="material-symbols-outlined text-[14px]">bolt</span>
-        Active
-      </span>
-</div>
-<!-- Telemetry Capacity Meter -->
-<div class="flex flex-col gap-1.5">
-<div class="flex justify-between items-center text-on-primary-container font-body-sm text-body-sm">
-<span>4 of 5 Scans Available</span>
-<span class="font-code-metric text-code-metric">Valid for 72 days</span>
-</div>
-<div class="w-full bg-on-primary/20 h-2 rounded-full overflow-hidden flex">
-<div class="bg-primary-fixed h-full rounded-full transition-all duration-500" style="width: 80%;"></div>
-</div>
-</div>
-<div class="flex items-center justify-between pt-space-xs">
-<p class="font-body-sm text-body-sm text-on-primary-container leading-tight">
-        Personal wellness baselining auto-renews Oct 2025.
-      </p>
-<button class="inline-flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-on-primary text-primary hover:bg-surface-bright transition-colors font-label-md text-label-md flex-shrink-0 shadow-sm" type="button">
-<span>Manage Plan</span>
-<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-</button>
-</div>
-</section>
-<!-- Personal Biomarker Baseline -->
-<section class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between px-space-xs">
-<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[20px]">vital_signs</span>
-        Personal Biomarker Baseline
-      </h3>
-<span class="font-code-metric text-code-metric text-on-surface-variant">Validated</span>
-</div>
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
-<!-- Grid metrics -->
-<div class="grid grid-cols-2 gap-space-sm">
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Age / DOB</span>
-<span class="font-title-md text-title-md text-on-surface">32 yrs</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">14 Mar 1992</span>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-0.5">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Gender</span>
-<span class="font-title-md text-title-md text-on-surface">Female</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Cohort Balanced</span>
-</div>
-</div>
-<!-- Biological metrics row -->
-<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
-<div class="flex flex-col">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Biological Baseline</span>
-<span class="font-code-metric text-code-metric text-on-surface font-semibold mt-0.5">
-            Height: 168 cm • Weight: 62 kg
-          </span>
-</div>
-<span class="font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container text-primary font-semibold">BMI: 22.0</span>
-</div>
-<!-- Contact details -->
-<div class="pt-space-xs flex flex-col gap-space-xs">
-<div class="flex items-center justify-between py-1.5 px-space-xs">
-<div class="flex items-center gap-space-sm min-w-0">
-<span class="material-symbols-outlined text-outline text-[18px]">mail</span>
-<div class="flex flex-col min-w-0">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Registered Email</span>
-<span class="font-body-md text-body-md text-on-surface truncate">dr.ananya.rao@deephealth.ai</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-clinical-success text-[18px]">check_circle</span>
-</div>
-<div class="flex items-center justify-between py-1.5 px-space-xs">
-<div class="flex items-center gap-space-sm min-w-0">
-<span class="material-symbols-outlined text-outline text-[18px]">call</span>
-<div class="flex flex-col min-w-0">
-<span class="font-label-sm text-label-sm text-on-surface-variant">Mobile Contact</span>
-<span class="font-body-md text-body-md text-on-surface truncate">+91 98765 43210</span>
-</div>
-</div>
-<button class="text-primary font-label-sm text-label-sm hover:underline" type="button">Change</button>
-</div>
-</div>
-</div>
-</section>
-<!-- Account & Navigation Hub: Group 1 -->
-<section class="flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
-      Clinical Records &amp; Telemetry
-    </span>
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item: My Wellness Reports -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">assignment</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">My Wellness Reports</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Telemetry trends &amp; biomarkers</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-clinical-success/10 text-clinical-success font-label-sm text-label-sm">
-            86 Optimal
-          </span>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</div>
-</button>
-<!-- Item: Scan History -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">history</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Scan History &amp; Baselines</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Sequential biometric chronograms</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- Account & Navigation Hub: Group 2 -->
-<section class="flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
-      Subscription &amp; Rewards
-    </span>
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item: Plans & Invoices -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">receipt_long</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">My Plans &amp; Invoices</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Tier management &amp; billing receipts</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="font-label-sm text-label-sm text-confidence-high">Active</span>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</div>
-</button>
-<!-- Item: Points Wallet -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">toll</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Points Wallet</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Wellness telemetry score credits</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="font-code-metric text-code-metric font-semibold text-primary">650 Pts</span>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</div>
-</button>
-<!-- Item: Referrals -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">group_add</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Referrals &amp; Rewards</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Invite clinical cohort members</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-clinical-warning/10 text-clinical-warning font-label-sm text-label-sm">
-            2 Pending
-          </span>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</div>
-</button>
-</div>
-</section>
-<!-- Account & Navigation Hub: Group 3 -->
-<section class="flex flex-col gap-space-xs">
-<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
-      Preferences &amp; Governance
-    </span>
-<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
-<!-- Item: Notifications -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">notifications</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Notifications</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Telemetry sync alerts &amp; weekly insights</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs flex-shrink-0">
-<span class="w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-label-sm font-semibold">
-            2
-          </span>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</div>
-</button>
-<!-- Item: Settings & Privacy -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">security</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Settings &amp; Privacy</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Biometric encryption &amp; device access</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</button>
-<!-- Item: Help & Support -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">support_agent</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Help, FAQ &amp; Support Desk</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Contact clinical intelligence specialists</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</button>
-<!-- Item: Disclaimer & Legal -->
-<button class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest" type="button">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-[20px]">gavel</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-md text-title-md text-on-surface truncate">Health Disclaimer &amp; Legal</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Non-diagnostic wellness metrics compliance</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- Health Regulatory Framing Banner -->
-<div class="rounded-xl p-space-md bg-surface-container-low flex items-start gap-space-sm">
-<span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">info</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-      Deep Health AI metrics represent algorithmic wellness baselines and are intended solely for physiological trend tracking. They do not constitute diagnostic medical conclusions.
-    </p>
-</div>
-<!-- Non-Alarming Logout Action -->
-<div class="flex justify-center pt-space-xs pb-space-md">
-<button class="inline-flex items-center gap-space-xs text-on-surface-variant hover:text-error transition-colors px-space-md py-space-sm rounded-lg hover:bg-error-container/20" type="button">
-<span class="material-symbols-outlined text-[20px]">logout</span>
-<span class="font-title-md text-title-md">Log Out of Deep Health</span>
-</button>
-</div>
-<!-- Bottom Navigation Bar (Fixed Bottom Matrix) -->
-<nav class="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-lg shadow-[0_-2px_12px_rgba(0,0,0,0.04)] pb-safe">
-<div class="max-w-md mx-auto h-16 px-gutter flex items-center justify-between">
-<!-- Home -->
-<button class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[22px]">home</span>
-<span class="font-label-sm text-label-sm mt-0.5">Home</span>
-</button>
-<!-- Reports -->
-<button class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[22px]">analytics</span>
-<span class="font-label-sm text-label-sm mt-0.5">Reports</span>
-</button>
-<!-- Center Elevated Scan Action -->
-<div class="relative flex items-center justify-center -mt-5">
-<button aria-label="Start Biometric Scan" class="w-13 h-13 rounded-full bg-primary-container text-on-primary shadow-lg flex items-center justify-center active:scale-95 transition-transform" type="button">
-<span class="material-symbols-outlined text-[26px]">center_focus_strong</span>
-</button>
-</div>
-<!-- Plans -->
-<button class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined text-[22px]">workspace_premium</span>
-<span class="font-label-sm text-label-sm mt-0.5">Plans</span>
-</button>
-<!-- Profile (Active) -->
-<button class="flex flex-col items-center justify-center w-14 h-full text-primary transition-colors relative" type="button">
-<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">account_circle</span>
-<span class="font-label-sm text-label-sm font-semibold mt-0.5">Profile</span>
-<span class="w-1.5 h-1.5 rounded-full bg-primary absolute bottom-1"></span>
-</button>
-</div>
-</nav>
-</div></main></body></html>
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+          <!-- Item: My Wellness Reports -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">assignment</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">My Wellness Reports</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Telemetry trends &amp; biomarkers</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs flex-shrink-0">
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded-full bg-clinical-success/10 text-clinical-success font-label-sm text-label-sm">
+                86 Optimal
+              </span>
+              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+            </div>
+          </button>
+          <!-- Item: Scan History -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">history</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Scan History &amp; Baselines</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Sequential biometric chronograms</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+          </button>
+        </div>
+      </section>
+      <!-- Account & Navigation Hub: Group 2 -->
+      <section class="flex flex-col gap-space-xs">
+        <span
+          class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
+          Subscription &amp; Rewards
+        </span>
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+          <!-- Item: Plans & Invoices -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">receipt_long</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">My Plans &amp; Invoices</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Tier management &amp; billing
+                  receipts</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs flex-shrink-0">
+              <span class="font-label-sm text-label-sm text-confidence-high">Active</span>
+              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+            </div>
+          </button>
+          <!-- Item: Points Wallet -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">toll</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Points Wallet</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Wellness telemetry score credits</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs flex-shrink-0">
+              <span class="font-code-metric text-code-metric font-semibold text-primary">650 Pts</span>
+              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+            </div>
+          </button>
+          <!-- Item: Referrals -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">group_add</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Referrals &amp; Rewards</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Invite clinical cohort members</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs flex-shrink-0">
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded-full bg-clinical-warning/10 text-clinical-warning font-label-sm text-label-sm">
+                2 Pending
+              </span>
+              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+            </div>
+          </button>
+        </div>
+      </section>
+      <!-- Account & Navigation Hub: Group 3 -->
+      <section class="flex flex-col gap-space-xs">
+        <span
+          class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant px-space-xs font-semibold">
+          Preferences &amp; Governance
+        </span>
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+          <!-- Item: Notifications -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">notifications</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Notifications</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Telemetry sync alerts &amp; weekly
+                  insights</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-xs flex-shrink-0">
+              <span
+                class="w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                2
+              </span>
+              <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+            </div>
+          </button>
+          <!-- Item: Settings & Privacy -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">security</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Settings &amp; Privacy</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Biometric encryption &amp; device
+                  access</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+          </button>
+          <!-- Item: Help & Support -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">support_agent</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Help, FAQ &amp; Support Desk</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Contact clinical intelligence
+                  specialists</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+          </button>
+          <!-- Item: Disclaimer & Legal -->
+          <button
+            class="w-full flex items-center justify-between p-space-md hover:bg-surface-container-low transition-colors text-left bg-surface-container-lowest"
+            type="button">
+            <div class="flex items-center gap-space-md min-w-0">
+              <div
+                class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+                <span class="material-symbols-outlined text-[20px]">gavel</span>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span class="font-title-md text-title-md text-on-surface truncate">Health Disclaimer &amp; Legal</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Non-diagnostic wellness metrics
+                  compliance</span>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-outline-variant text-[20px]">chevron_right</span>
+          </button>
+        </div>
+      </section>
+      <!-- Health Regulatory Framing Banner -->
+      <div class="rounded-xl p-space-md bg-surface-container-low flex items-start gap-space-sm">
+        <span class="material-symbols-outlined text-primary text-[20px] flex-shrink-0 mt-0.5">info</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Deep Health AI metrics represent algorithmic wellness baselines and are intended solely for physiological
+          trend tracking. They do not constitute diagnostic medical conclusions.
+        </p>
+      </div>
+      <!-- Non-Alarming Logout Action -->
+      <div class="flex justify-center pt-space-xs pb-space-md">
+        <button
+          class="inline-flex items-center gap-space-xs text-on-surface-variant hover:text-error transition-colors px-space-md py-space-sm rounded-lg hover:bg-error-container/20"
+          type="button">
+          <span class="material-symbols-outlined text-[20px]">logout</span>
+          <span class="font-title-md text-title-md">Log Out of Deep Health</span>
+        </button>
+      </div>
+      <!-- Bottom Navigation Bar (Fixed Bottom Matrix) -->
+      <nav
+        class="fixed bottom-0 left-0 right-0 z-40 bg-surface/90 backdrop-blur-lg shadow-[0_-2px_12px_rgba(0,0,0,0.04)] pb-safe">
+        <div class="max-w-md mx-auto h-16 px-gutter flex items-center justify-between">
+          <!-- Home -->
+          <button
+            class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors"
+            type="button">
+            <span class="material-symbols-outlined text-[22px]">home</span>
+            <span class="font-label-sm text-label-sm mt-0.5">Home</span>
+          </button>
+          <!-- Reports -->
+          <button
+            class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors"
+            type="button">
+            <span class="material-symbols-outlined text-[22px]">analytics</span>
+            <span class="font-label-sm text-label-sm mt-0.5">Reports</span>
+          </button>
+          <!-- Center Elevated Scan Action -->
+          <div class="relative flex items-center justify-center -mt-5">
+            <button aria-label="Start Biometric Scan"
+              class="w-13 h-13 rounded-full bg-primary-container text-on-primary shadow-lg flex items-center justify-center active:scale-95 transition-transform"
+              type="button">
+              <span class="material-symbols-outlined text-[26px]">center_focus_strong</span>
+            </button>
+          </div>
+          <!-- Plans -->
+          <button
+            class="flex flex-col items-center justify-center w-14 h-full text-on-surface-variant hover:text-primary transition-colors"
+            type="button">
+            <span class="material-symbols-outlined text-[22px]">workspace_premium</span>
+            <span class="font-label-sm text-label-sm mt-0.5">Plans</span>
+          </button>
+          <!-- Profile (Active) -->
+          <button class="flex flex-col items-center justify-center w-14 h-full text-primary transition-colors relative"
+            type="button">
+            <span class="material-symbols-outlined text-[22px]"
+              style="font-variation-settings: 'FILL' 1;">account_circle</span>
+            <span class="font-label-sm text-label-sm font-semibold mt-0.5">Profile</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-primary absolute bottom-1"></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </main>
+</body>
+
+</html>
