@@ -28,15 +28,13 @@
       <span>Home</span>
     </a>
 
-    <a href="#scanner" class="bottom-tab-scan" data-route="scanner">
-      <div class="scan-button-circle">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="9"/>
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
-        </svg>
-      </div>
-      <span class="scan-tab-label">AI Scan</span>
+    <a href="#scanner" class="bottom-tab" data-route="scanner">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+      </svg>
+      <span>AI Scan</span>
     </a>
 
     <a href="#pricing" class="bottom-tab" data-route="pricing">
@@ -208,12 +206,12 @@
           </div>
 
           <!-- Control Buttons -->
-          <div style="display:flex; gap:12px; margin-top:10px;">
-            <button class="btn btn-accent btn-block" id="btn-start-scan" style="flex:2; font-size:1.05rem;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Start 30-Second Scan
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <button class="btn btn-accent btn-block" id="btn-start-scan" style="flex:1; font-size:0.92rem; font-weight:700; white-space:nowrap; padding:12px 14px; display:inline-flex; align-items:center; justify-content:center; gap:8px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Start Scan (30s)</span>
             </button>
-            <button class="btn" id="btn-toggle-camera" style="background:#1e293b; color:#00bcd4; border:1px solid #334155; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+            <button class="btn" id="btn-toggle-camera" style="background:#1e293b; color:#00bcd4; border:1px solid #334155; font-weight:700; font-size:0.88rem; white-space:nowrap; padding:12px 14px; display:inline-flex; align-items:center; justify-content:center; gap:6px; cursor:pointer; flex-shrink:0;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
               <span>Cam</span>
             </button>
@@ -267,12 +265,14 @@
             </div>
           </div>
 
-          <div style="display:flex; gap:12px;">
-            <button class="btn btn-primary" id="btn-download-pdf" style="flex:1;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download PDF Report
+          <div style="display:flex; gap:10px; flex-wrap:nowrap;">
+            <button class="btn btn-primary" id="btn-download-pdf" style="flex:1; font-size:0.85rem; font-weight:600; white-space:nowrap; padding:12px 10px; display:inline-flex; align-items:center; justify-content:center; gap:6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download PDF</span>
             </button>
-            <a href="#profile" class="btn btn-secondary" style="flex:1;">View in Profile</a>
+            <a href="#profile" class="btn btn-secondary" style="flex:1; font-size:0.85rem; font-weight:600; white-space:nowrap; padding:12px 10px; display:inline-flex; align-items:center; justify-content:center; text-align:center;">
+              <span>View Profile</span>
+            </a>
           </div>
         </div>
       </div>
@@ -570,15 +570,15 @@
               <span>→</span>
             </a>
 
-            <div class="profile-menu-item" style="cursor:pointer;" id="btn-copy-referral">
-              <div class="profile-menu-left">
-                <div class="profile-menu-icon">🎁</div>
-                <div>
-                  <div>Referral Program (Code: DHP6LDPD)</div>
-                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">Share link to earn reward points</div>
+            <div class="profile-menu-item" style="cursor:pointer; gap:10px;" id="btn-copy-referral">
+              <div class="profile-menu-left" style="min-width:0; flex:1; gap:12px;">
+                <div class="profile-menu-icon" style="flex-shrink:0;">🎁</div>
+                <div style="min-width:0;">
+                  <div style="font-size:0.92rem; font-weight:700; color:var(--text-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Refer & Earn 50 Pts</div>
+                  <div style="font-size:0.75rem; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Code: <strong style="color:var(--primary);">DHP6LDPD</strong></div>
                 </div>
               </div>
-              <span style="font-size:0.85rem; font-weight:600; color:var(--primary);">Copy Link</span>
+              <button type="button" class="btn btn-sm btn-primary" style="padding:6px 12px; font-size:0.75rem; font-weight:700; white-space:nowrap; border-radius:6px; flex-shrink:0; pointer-events:none;">Copy Link</button>
             </div>
 
             <a href="#about" class="profile-menu-item">

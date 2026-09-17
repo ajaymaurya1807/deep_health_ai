@@ -259,7 +259,7 @@ function triggerScan() {
   if (reportCard) reportCard.style.display = 'none';
   if (btnStart) {
     btnStart.disabled = true;
-    btnStart.innerHTML = `<span>Scanning in progress…</span>`;
+    btnStart.innerHTML = `<span>Scanning (30s)…</span>`;
   }
 
   showToast('Scan initiated. Please hold still and look at the camera.', 'default');
@@ -305,7 +305,7 @@ function finishScan() {
   if (scanLine) scanLine.classList.remove('active');
   if (btnStart) {
     btnStart.disabled = false;
-    btnStart.innerHTML = `<span>✔ Scan Complete · Scan Again</span>`;
+    btnStart.innerHTML = `<span>Scan Again</span>`;
   }
   if (statusText) statusText.textContent = 'Scan completed successfully';
 
