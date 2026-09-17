@@ -10,7 +10,7 @@ const defaultUser = {
   referralCode: 'DHP6LDPD',
   points: 25,
   freeScansRemaining: 1,
-  isLoggedIn: true,
+  isLoggedIn: false,
   scans: [
     {
       id: 'SC-9102',
@@ -28,7 +28,7 @@ const defaultUser = {
 // State Store
 let state = {
   user: null,
-  currentRoute: 'home',
+  currentRoute: 'login',
   cameraStream: null,
   isScanning: false,
   scanTimeLeft: 30,
@@ -44,14 +44,17 @@ function initAppState() {
       state.user = JSON.parse(saved);
       if (state.user.email === 'jockey7040@gmail.com') {
         state.user.email = 'maya.demo@deephealthindia.io';
-        saveUser();
       }
     } else {
       state.user = { ...defaultUser };
-      saveUser();
     }
+    // On app launch, start in logged-out state so login page appears first
+    if (!sessionStorage.getItem('dh_session_active')) {
+      state.user.isLoggedIn = false;
+    }
+    saveUser();
   } catch (e) {
-    state.user = { ...defaultUser };
+    state.user = { ...defaultUser, isLoggedIn: false };
   }
 }
 
@@ -129,10 +132,41 @@ function showToast(message, type = 'default') {
 
 // Router
 function handleRoute() {
-  const hash = window.location.hash.slice(1).toLowerCase() || 'home';
+  let hash = window.location.hash.slice(1).toLowerCase();
+
+  // Authentication & Launch Routing:
+  // If user is not logged in, redirect to login page (unless viewing register or forgot-password)
+  const isAuth = state.user && state.user.isLoggedIn;
+  if (!isAuth) {
+    if (hash !== 'register' && hash !== 'forgot-password') {
+      hash = 'login';
+      if (window.location.hash !== '#login') {
+        window.location.hash = '#login';
+      }
+    }
+  } else if (!hash || hash === 'login') {
+    // If logged in and at empty or login, route to home
+    hash = 'home';
+    if (window.location.hash !== '#home') {
+      window.location.hash = '#home';
+    }
+  }
+
   const validRoutes = ['home', 'scanner', 'pricing', 'login', 'register', 'forgot-password', 'profile', 'about', 'contact'];
-  const route = validRoutes.includes(hash) ? hash : 'home';
+  const route = validRoutes.includes(hash) ? hash : (isAuth ? 'home' : 'login');
   state.currentRoute = route;
+
+  // Show / Hide Bottom Navigation Bar based on auth screens
+  const bottomNav = document.getElementById('app-bottom-nav');
+  if (bottomNav) {
+    if (route === 'login' || route === 'register' || route === 'forgot-password') {
+      bottomNav.style.display = 'none';
+      document.body.style.paddingBottom = '0px';
+    } else {
+      bottomNav.style.display = 'flex';
+      document.body.style.paddingBottom = '76px';
+    }
+  }
 
   // Update Page Views
   document.querySelectorAll('.page-view').forEach(view => {
@@ -396,83 +430,21 @@ function finishScan() {
   showToast('Scan complete! Your health report is ready.', 'success');
 }
 
-// Profile Page Dual-State Renderer
+// Profile Page Renderer
 function renderProfile() {
   const loggedInView = document.getElementById('profile-logged-in-view');
-  const loggedOutView = document.getElementById('profile-logged-out-view');
+  if (loggedInView) loggedInView.style.display = 'block';
 
-  if (state.user && state.user.isLoggedIn) {
-    if (loggedInView) loggedInView.style.display = 'block';
-    if (loggedOutView) loggedOutView.style.display = 'none';
+  const u = state.user || defaultUser;
+  const nameEl = document.getElementById('profile-name');
+  const emailEl = document.getElementById('profile-email');
+  const phoneEl = document.getElementById('profile-phone');
+  const avatarEl = document.getElementById('profile-avatar');
 
-    const u = state.user;
-    const nameEl = document.getElementById('profile-name');
-    const emailEl = document.getElementById('profile-email');
-    const phoneEl = document.getElementById('profile-phone');
-    const avatarEl = document.getElementById('profile-avatar');
-    const scansLeftEl = document.getElementById('profile-scans-left');
-    const pointsEl = document.getElementById('profile-points');
-    const refCodeEl = document.getElementById('profile-ref-code');
-    const historyContainer = document.getElementById('scan-history-list');
-
-    if (nameEl) nameEl.textContent = u.name;
-    if (emailEl) emailEl.textContent = u.email;
-    if (phoneEl) phoneEl.textContent = u.phone;
-    if (avatarEl) avatarEl.textContent = (u.name || 'M')[0].toUpperCase();
-    if (scansLeftEl) scansLeftEl.textContent = u.freeScansRemaining;
-    if (pointsEl) pointsEl.textContent = u.points;
-    if (refCodeEl) refCodeEl.textContent = u.referralCode;
-
-    if (historyContainer) {
-      if (u.scans && u.scans.length > 0) {
-        historyContainer.innerHTML = u.scans.map(s => `
-          <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--border-color); flex-wrap:wrap; gap:10px;">
-            <div>
-              <div style="font-weight:700; color:var(--primary); font-size:1rem;">Scan #${s.id} · Score: <span style="color:#059669;">${s.wellnessScore}/100</span></div>
-              <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:3px;">
-                ${s.date} • BP: ${s.bp} • Pulse: ${s.heartRate} • HRV: ${s.hrv}
-              </div>
-            </div>
-            <button class="btn btn-secondary btn-sm" onclick="viewScanReport('${s.id}')">View Report</button>
-          </div>
-        `).join('');
-      } else {
-        historyContainer.innerHTML = `<p style="color:var(--text-secondary); font-size:0.9rem;">No previous scans recorded yet. Start your first scan above!</p>`;
-      }
-    }
-  } else {
-    // Show logged-out view with Sign In / Create Account tabs right on Profile
-    if (loggedInView) loggedInView.style.display = 'none';
-    if (loggedOutView) loggedOutView.style.display = 'block';
-  }
-}
-
-// Switch between Sign In and Create Account on Profile
-function switchProfileAuth(mode) {
-  const signinBtn = document.getElementById('profile-tab-signin-btn');
-  const registerBtn = document.getElementById('profile-tab-register-btn');
-  const signinPanel = document.getElementById('profile-signin-subpanel');
-  const registerPanel = document.getElementById('profile-register-subpanel');
-
-  if (mode === 'signin') {
-    if (signinBtn) signinBtn.classList.add('active');
-    if (registerBtn) registerBtn.classList.remove('active');
-    if (signinPanel) signinPanel.style.display = 'block';
-    if (registerPanel) registerPanel.style.display = 'none';
-  } else {
-    if (signinBtn) signinBtn.classList.remove('active');
-    if (registerBtn) registerBtn.classList.add('active');
-    if (signinPanel) signinPanel.style.display = 'none';
-    if (registerPanel) registerPanel.style.display = 'block';
-  }
-}
-
-function quickFillMaya() {
-  const emailInp = document.getElementById('prof-login-email');
-  const pwdInp = document.getElementById('prof-login-password');
-  if (emailInp) emailInp.value = 'maya.demo@deephealthindia.io';
-  if (pwdInp) pwdInp.value = 'f2a46be2';
-  showToast('Credentials filled for Maya', 'default');
+  if (nameEl) nameEl.textContent = u.name || 'Maya';
+  if (emailEl) emailEl.textContent = u.email || 'maya.demo@deephealthindia.io';
+  if (phoneEl) phoneEl.textContent = u.phone || '+919369118779';
+  if (avatarEl) avatarEl.textContent = (u.name || 'M')[0].toUpperCase();
 }
 
 function togglePwdVisibility(inputId) {
@@ -549,10 +521,11 @@ function logout() {
     state.user.isLoggedIn = false;
     saveUser();
   }
+  sessionStorage.removeItem('dh_session_active');
   updateNavbar();
   renderProfile();
   showToast('You have been signed out successfully.', 'default');
-  window.location.hash = '#profile';
+  window.location.hash = '#login';
 }
 
 function viewScanReport(scanId) {
@@ -562,65 +535,6 @@ function viewScanReport(scanId) {
 
 // Form Handlers
 function setupForms() {
-  // Embedded Profile Login Form
-  const profLoginForm = document.getElementById('profile-sub-login-form');
-  if (profLoginForm) {
-    profLoginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = document.getElementById('prof-login-email').value.trim();
-      const password = document.getElementById('prof-login-password').value.trim();
-
-      if (!email || !password) {
-        showToast('Please enter email and password.', 'error');
-        return;
-      }
-
-      state.user = {
-        ...defaultUser,
-        email: email.includes('@') ? email : 'maya.demo@deephealthindia.io',
-        isLoggedIn: true
-      };
-      saveUser();
-      updateNavbar();
-      renderProfile();
-      showToast(`Welcome back, ${state.user.name}!`, 'success');
-    });
-  }
-
-  // Embedded Profile Register Form
-  const profRegForm = document.getElementById('profile-sub-register-form');
-  if (profRegForm) {
-    profRegForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('prof-reg-name').value.trim();
-      const phone = document.getElementById('prof-reg-phone').value.trim();
-      const email = document.getElementById('prof-reg-email').value.trim();
-      const pwd = document.getElementById('prof-reg-password').value;
-      const ref = document.getElementById('prof-reg-ref').value.trim();
-
-      if (phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
-        showToast('Please enter a valid 10-digit Indian mobile number.', 'error');
-        return;
-      }
-
-      state.user = {
-        name: name || 'New Member',
-        email: email,
-        phone: `+91${phone}`,
-        referralCode: ref || 'DH' + Math.random().toString(36).substring(2, 8).toUpperCase(),
-        points: 25,
-        freeScansRemaining: 1,
-        isLoggedIn: true,
-        scans: []
-      };
-      saveUser();
-      updateNavbar();
-      renderProfile();
-
-      showToast('Account created! 1 Free Scan & 25 Points added.', 'success');
-    });
-  }
-
   // Main Login Form
   const loginForm = document.getElementById('login-form');
   const toggleLoginPwd = document.getElementById('toggle-login-pwd');
@@ -630,11 +544,6 @@ function setupForms() {
   const pwdInp = document.getElementById('login-password');
   if (emailInp && !emailInp.value) emailInp.value = 'maya.demo@deephealthindia.io';
   if (pwdInp && !pwdInp.value) pwdInp.value = 'f2a46be2';
-
-  const profEmailInp = document.getElementById('prof-login-email');
-  const profPwdInp = document.getElementById('prof-login-password');
-  if (profEmailInp && !profEmailInp.value) profEmailInp.value = 'maya.demo@deephealthindia.io';
-  if (profPwdInp && !profPwdInp.value) profPwdInp.value = 'f2a46be2';
 
   if (toggleLoginPwd) {
     toggleLoginPwd.addEventListener('click', () => {
@@ -661,10 +570,11 @@ function setupForms() {
         if (email.includes('@')) state.user.email = email;
         saveUser();
       }
+      sessionStorage.setItem('dh_session_active', '1');
       updateNavbar();
       renderProfile();
       showToast(`Welcome back, ${state.user.name}!`, 'success');
-      window.location.hash = '#profile';
+      window.location.hash = '#home';
     });
   }
 
@@ -700,12 +610,13 @@ function setupForms() {
         isLoggedIn: true,
         scans: []
       };
+      sessionStorage.setItem('dh_session_active', '1');
       saveUser();
       updateNavbar();
       renderProfile();
 
       showToast('Account created! 1 Free Scan & 25 Points added.', 'success');
-      window.location.hash = '#profile';
+      window.location.hash = '#home';
     });
   }
 
@@ -773,8 +684,6 @@ window.updateCheckoutTotal = updateCheckoutTotal;
 window.processPayment = processPayment;
 window.logout = logout;
 window.viewScanReport = viewScanReport;
-window.switchProfileAuth = switchProfileAuth;
-window.quickFillMaya = quickFillMaya;
 window.togglePwdVisibility = togglePwdVisibility;
 
 // Initialize on DOM Ready
