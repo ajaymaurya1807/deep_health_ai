@@ -5,7 +5,7 @@
 // Initial State (Populated with Maya's account details from deephealthindia.io)
 const defaultUser = {
   name: 'Maya',
-  email: 'jockey7040@gmail.com',
+  email: 'maya.demo@deephealthindia.io',
   phone: '+919369118779',
   referralCode: 'DHP6LDPD',
   points: 25,
@@ -42,6 +42,10 @@ function initAppState() {
     const saved = localStorage.getItem('dh_user');
     if (saved) {
       state.user = JSON.parse(saved);
+      if (state.user.email === 'jockey7040@gmail.com') {
+        state.user.email = 'maya.demo@deephealthindia.io';
+        saveUser();
+      }
     } else {
       state.user = { ...defaultUser };
       saveUser();
@@ -88,6 +92,23 @@ function handleRoute() {
   const targetView = document.getElementById(`${route === 'forgot-password' ? 'forgot' : route}-view`);
   if (targetView) {
     targetView.classList.add('active');
+  }
+
+  // Update Dynamic Header Page Title
+  const pageTitles = {
+    home: 'Deep Health AI',
+    scanner: 'AI Biometric Scanner',
+    pricing: 'Plans & Pricing',
+    profile: 'My Profile',
+    about: 'About Us',
+    contact: 'Contact Us',
+    login: 'Sign In',
+    register: 'Create Account',
+    'forgot-password': 'Reset Password'
+  };
+  const titleEl = document.getElementById('header-page-title');
+  if (titleEl) {
+    titleEl.textContent = pageTitles[route] || 'Deep Health AI';
   }
 
   // Update Top Navbar Active Links
@@ -399,7 +420,7 @@ function switchProfileAuth(mode) {
 function quickFillMaya() {
   const emailInp = document.getElementById('prof-login-email');
   const pwdInp = document.getElementById('prof-login-password');
-  if (emailInp) emailInp.value = 'jockey7040@gmail.com';
+  if (emailInp) emailInp.value = 'maya.demo@deephealthindia.io';
   if (pwdInp) pwdInp.value = 'f2a46be2';
   showToast('Credentials filled for Maya', 'default');
 }
@@ -506,7 +527,7 @@ function setupForms() {
 
       state.user = {
         ...defaultUser,
-        email: email.includes('@') ? email : 'jockey7040@gmail.com',
+        email: email.includes('@') ? email : 'maya.demo@deephealthindia.io',
         isLoggedIn: true
       };
       saveUser();
@@ -559,7 +580,7 @@ function setupForms() {
     btnQuickFill.addEventListener('click', () => {
       const emailInp = document.getElementById('login-email');
       const pwdInp = document.getElementById('login-password');
-      if (emailInp) emailInp.value = 'jockey7040@gmail.com';
+      if (emailInp) emailInp.value = 'maya.demo@deephealthindia.io';
       if (pwdInp) pwdInp.value = 'f2a46be2';
       showToast('Credentials filled for Maya', 'default');
     });

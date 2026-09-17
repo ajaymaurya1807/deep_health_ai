@@ -10,18 +10,10 @@
 </head>
 <body>
 
-  <!-- Clean Top App Bar (Only Brand Logo) -->
+  <!-- Clean Top App Bar (Displays Current Page Name) -->
   <header class="navbar">
-    <div class="container navbar-inner" style="justify-content: center;">
-      <a href="#home" class="brand-logo" id="nav-brand">
-        <div class="logo-badge">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-            <path d="M12 5v14"/>
-          </svg>
-        </div>
-        <span>Deep Health AI</span>
-      </a>
+    <div class="container navbar-inner" style="justify-content: center; text-align: center;">
+      <h1 id="header-page-title" style="font-size: 1.25rem; font-weight: 800; color: var(--primary); font-family: var(--font-heading); letter-spacing: -0.01em;">Deep Health AI</h1>
     </div>
   </header>
 
@@ -70,7 +62,7 @@
     <section id="home-view" class="page-view active">
       <!-- Hero Section -->
       <div class="hero">
-        <div class="container">
+        <div class="container" style="padding:0;">
           <div class="hero-tag">
             <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#059669;"></span>
             Camera-Based Biometric Intelligence
@@ -107,10 +99,10 @@
       </div>
 
       <!-- What AI Sees Section -->
-      <div class="section container">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
-          <h2 style="font-size: 2.2rem; margin-bottom: 12px;">What You See <span style="color:#00838f;">vs</span> What Our AI Sees</h2>
-          <p style="color: var(--text-secondary); font-size: 1.05rem;">
+      <div class="section container" style="padding-left:0; padding-right:0;">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 32px;">
+          <h2 style="font-size: 1.8rem; margin-bottom: 12px;">What You See <span style="color:#00838f;">vs</span> What Our AI Sees</h2>
+          <p style="color: var(--text-secondary); font-size: 0.95rem;">
             Your face reveals microscopic sub-dermal blood flow variations. Using computer vision and optical photoplethysmography (rPPG), Deep Health AI extracts real-time physiological indicators directly through your screen.
           </p>
         </div>
@@ -133,90 +125,26 @@
           </div>
         </div>
 
-        <!-- 10 Biometrics Display -->
-        <div style="margin-top: 60px;">
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:12px;">
-            <div>
-              <h3 style="font-size: 1.6rem; color: var(--primary);">Clinical Metrics Analyzed</h3>
-              <p style="color: var(--text-secondary); font-size: 0.95rem;">Evaluated simultaneously during your 30-second biometric scan</p>
-            </div>
-            <a href="#scanner" class="btn btn-primary btn-sm">Scan Now →</a>
-          </div>
-
-          <div class="vitals-grid">
-            <div class="vital-card">
-              <div class="vital-name">Blood Pressure</div>
-              <div class="vital-val">118/78 <span class="vital-unit">mmHg</span></div>
-              <span class="vital-status">Optimal</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Heart Rate</div>
-              <div class="vital-val">72 <span class="vital-unit">BPM</span></div>
-              <span class="vital-status">Normal</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Heart Rate Variability</div>
-              <div class="vital-val">48 <span class="vital-unit">ms</span></div>
-              <span class="vital-status">Healthy</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Breathing Rate</div>
-              <div class="vital-val">16 <span class="vital-unit">rpm</span></div>
-              <span class="vital-status">Regular</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Stress Index</div>
-              <div class="vital-val">32 <span class="vital-unit">/ 100</span></div>
-              <span class="vital-status">Low Stress</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Cardiac Workload</div>
-              <div class="vital-val">8.5 <span class="vital-unit">k</span></div>
-              <span class="vital-status">Efficient</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Vascular Age</div>
-              <div class="vital-val">28 <span class="vital-unit">yrs</span></div>
-              <span class="vital-status">Youthful</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Body Mass Index</div>
-              <div class="vital-val">22.4 <span class="vital-unit">kg/m²</span></div>
-              <span class="vital-status">Healthy Weight</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Parasympathetic Act.</div>
-              <div class="vital-val">68 <span class="vital-unit">%</span></div>
-              <span class="vital-status">High Recovery</span>
-            </div>
-            <div class="vital-card">
-              <div class="vital-name">Wellness Score</div>
-              <div class="vital-val" style="color:#059669;">88 <span class="vital-unit">/ 100</span></div>
-              <span class="vital-status">Excellent</span>
-            </div>
-          </div>
-        </div>
-
         <!-- 3 Step Process -->
-        <div style="margin-top: 80px;">
-          <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 8px;">How It Works in 3 Simple Steps</h3>
-          <p style="text-align: center; color: var(--text-secondary); max-width: 500px; margin: 0 auto;">No equipment needed. Test your vital signs in seconds from home or office.</p>
+        <div style="margin-top: 50px;">
+          <h3 style="text-align: center; font-size: 1.6rem; margin-bottom: 8px;">How It Works in 3 Simple Steps</h3>
+          <p style="text-align: center; color: var(--text-secondary); max-width: 500px; margin: 0 auto 24px;">No equipment needed. Test your vital signs in seconds from home or office.</p>
 
           <div class="steps-row">
             <div class="step-box">
               <div class="step-num">1</div>
               <h4 style="margin-bottom: 8px;">Align Face</h4>
-              <p style="color: var(--text-secondary); font-size: 0.95rem;">Position your face in the camera oval with uniform ambient room lighting.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Position your face in the camera oval with uniform ambient room lighting.</p>
             </div>
             <div class="step-box">
               <div class="step-num">2</div>
               <h4 style="margin-bottom: 8px;">Hold Still for 30s</h4>
-              <p style="color: var(--text-secondary); font-size: 0.95rem;">Our AI analyzes micro-vascular blood volume pulses with zero physical contact.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Our AI analyzes micro-vascular blood volume pulses with zero physical contact.</p>
             </div>
             <div class="step-box">
               <div class="step-num">3</div>
               <h4 style="margin-bottom: 8px;">Instant Health Report</h4>
-              <p style="color: var(--text-secondary); font-size: 0.95rem;">Receive comprehensive wellness metrics, risk factors, and actionable lifestyle advice.</p>
+              <p style="color: var(--text-secondary); font-size: 0.9rem;">Receive comprehensive wellness metrics, risk factors, and actionable advice.</p>
             </div>
           </div>
         </div>
@@ -284,9 +212,9 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
               Start 30-Second Scan
             </button>
-            <button class="btn btn-secondary" id="btn-toggle-camera" style="color:#fff; border-color:#334155;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              Cam
+            <button class="btn" id="btn-toggle-camera" style="background:#1e293b; color:#00bcd4; border:1px solid #334155; font-weight:700; display:inline-flex; align-items:center; gap:6px; cursor:pointer;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span>Cam</span>
             </button>
           </div>
         </div>
@@ -467,7 +395,7 @@
           <div class="quick-fill-box">
             <div>
               <strong>Quick Test Account:</strong>
-              <div style="font-size:0.8rem; color:var(--text-secondary);">jockey7040@gmail.com</div>
+              <div style="font-size:0.8rem; color:var(--text-secondary);">maya.demo@deephealthindia.io</div>
             </div>
             <button type="button" class="btn btn-sm btn-primary" id="btn-quick-fill">Auto Fill</button>
           </div>
@@ -601,7 +529,7 @@
               <label class="form-label" for="forgot-email">Registered Email</label>
               <div class="input-with-icon">
                 <span class="input-icon">✉</span>
-                <input type="email" id="forgot-email" class="form-input" placeholder="name@example.com" value="jockey7040@gmail.com" required />
+                <input type="email" id="forgot-email" class="form-input" placeholder="name@example.com" value="maya.demo@deephealthindia.io" required />
               </div>
             </div>
 
@@ -628,7 +556,7 @@
               <div>
                 <h2 class="profile-name" id="profile-name">Maya</h2>
                 <div class="profile-meta">
-                  <span id="profile-email">jockey7040@gmail.com</span> • <span id="profile-phone">+919369118779</span>
+                  <span id="profile-email">maya.demo@deephealthindia.io</span> • <span id="profile-phone">+919369118779</span>
                 </div>
                 <div style="margin-top:6px;">
                   <span style="background:#ecfdf5; color:#059669; font-size:0.75rem; font-weight:700; padding:2px 8px; border-radius:99px;">Verified Account</span>
@@ -745,7 +673,7 @@
             <div class="quick-fill-box">
               <div>
                 <strong>Test Account:</strong>
-                <div style="font-size:0.8rem; color:var(--text-secondary);">Maya (jockey7040@gmail.com)</div>
+                <div style="font-size:0.8rem; color:var(--text-secondary);">Maya (maya.demo@deephealthindia.io)</div>
               </div>
               <button type="button" class="btn btn-sm btn-primary" onclick="quickFillMaya()">Auto Fill</button>
             </div>
