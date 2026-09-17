@@ -61,18 +61,68 @@ function saveUser() {
   } catch (e) {}
 }
 
-// Toast System
+// Toast System (Guaranteed Top-Center Display)
 function showToast(message, type = 'default') {
-  const container = document.getElementById('toast-container');
-  if (!container) return;
+  let container = document.getElementById('toast-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  // Force top-center alignment via inline styles
+  container.style.position = 'fixed';
+  container.style.top = '16px';
+  container.style.bottom = 'auto';
+  container.style.left = '50%';
+  container.style.right = 'auto';
+  container.style.transform = 'translateX(-50%)';
+  container.style.zIndex = '99999';
+  container.style.display = 'flex';
+  container.style.flexDirection = 'column';
+  container.style.alignItems = 'center';
+  container.style.pointerEvents = 'none';
+  container.style.width = 'calc(100% - 32px)';
+  container.style.maxWidth = '460px';
+
   const toast = document.createElement('div');
   toast.className = `toast ${type}`;
-  toast.innerHTML = `<span>${type === 'success' ? '✔' : type === 'error' ? '✖' : 'ℹ'}</span> <span>${message}</span>`;
+  
+  const bg = type === 'success' ? '#065f46' : type === 'error' ? '#991b1b' : 'rgba(15, 23, 42, 0.94)';
+  const border = type === 'success' ? '#059669' : type === 'error' ? '#dc2626' : 'rgba(255, 255, 255, 0.15)';
+  
+  toast.style.cssText = `
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto 6px auto !important;
+    background: ${bg} !important;
+    color: #ffffff !important;
+    padding: 10px 18px !important;
+    border-radius: 99px !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid ${border} !important;
+    pointer-events: auto !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+    transform: translateY(-20px);
+    opacity: 0;
+  `;
+  
+  toast.innerHTML = `<span style="font-size:1.05rem; line-height:1;">${type === 'success' ? '✔' : type === 'error' ? '✖' : 'ℹ'}</span> <span>${message}</span>`;
   container.appendChild(toast);
+
+  // Trigger smooth drop down animation from top
+  requestAnimationFrame(() => {
+    toast.style.transform = 'translateY(0)';
+    toast.style.opacity = '1';
+  });
+
   setTimeout(() => {
     toast.style.opacity = '0';
     toast.style.transform = 'translateY(-20px)';
-    toast.style.transition = 'all 0.3s ease';
     setTimeout(() => toast.remove(), 300);
   }, 2800);
 }
