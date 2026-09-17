@@ -10,9 +10,9 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Clean Top App Bar (Only Brand Logo) -->
   <header class="navbar">
-    <div class="container navbar-inner">
+    <div class="container navbar-inner" style="justify-content: center;">
       <a href="#home" class="brand-logo" id="nav-brand">
         <div class="logo-badge">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -22,17 +22,6 @@
         </div>
         <span>Deep Health AI</span>
       </a>
-
-      <ul class="nav-menu" id="desktop-menu">
-        <li><a href="#home" class="nav-link active" data-route="home">Home</a></li>
-        <li><a href="#scanner" class="nav-link" data-route="scanner">AI Scanner</a></li>
-        <li><a href="#pricing" class="nav-link" data-route="pricing">Pricing</a></li>
-        <li><a href="#profile" class="nav-link" data-route="profile">Profile</a></li>
-      </ul>
-
-      <div class="nav-actions" id="nav-auth-actions">
-        <!-- Dynamically injected: Login/Register buttons or User Profile Pill -->
-      </div>
     </div>
   </header>
 
@@ -683,25 +672,14 @@
             </div>
           </div>
 
-          <!-- Profile Actions & Links Menu (Requested by User) -->
+          <!-- Profile Actions Menu (Exact options: Plans, About Us, Contact Us, Logout) -->
           <div class="card" style="padding:12px; margin-bottom:28px;">
             <a href="#pricing" class="profile-menu-item">
               <div class="profile-menu-left">
                 <div class="profile-menu-icon">💳</div>
                 <div>
-                  <div>Pricing & Subscriptions</div>
-                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">Single scan, 3-pack & monthly health plans</div>
-                </div>
-              </div>
-              <span>→</span>
-            </a>
-
-            <a href="#scanner" class="profile-menu-item">
-              <div class="profile-menu-left">
-                <div class="profile-menu-icon">⚡</div>
-                <div>
-                  <div>AI Facial Biometric Scan</div>
-                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">1 Free Scan remaining on your account</div>
+                  <div>Plans & Subscriptions</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">View all 5 plans starting at ₹35</div>
                 </div>
               </div>
               <span>→</span>
@@ -723,7 +701,7 @@
                 <div class="profile-menu-icon">📞</div>
                 <div>
                   <div>Contact Us & Support</div>
-                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">Assistance, corporate health & feedback</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">Customer support and inquiries</div>
                 </div>
               </div>
               <span>→</span>
@@ -738,14 +716,6 @@
                 </div>
               </div>
               <span style="color:var(--danger);">→</span>
-            </div>
-          </div>
-
-          <!-- Scan History Table / List -->
-          <div class="card">
-            <h3 style="font-size:1.3rem; margin-bottom:16px;">Recent Scan History</h3>
-            <div id="scan-history-list">
-              <!-- Dynamic scan history items injected here -->
             </div>
           </div>
         </div>
