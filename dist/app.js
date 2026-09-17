@@ -1,225 +1,716 @@
-const base='stitch_remix_of_deep_health_ai_mobile_app';
-const screens={
-  splash:'01._splash_screen',language:'02._language_selection',onboarding1:'onboarding_01_understand_your_wellness',onboarding2:'onboarding_02_scan._understand._track',onboarding3:'onboarding_03_see_your_wellness_journey',signin:'sign_in_deep_health_ai',register:'registration_deep_health_ai',forgot:'forgot_password_deep_health_ai',otp:'otp_verification_deep_health_ai',reset:'reset_password_deep_health_ai',home:'03._home_dashboard_1',plans:'01._plans_subscriptions',purchase:'03._purchase_confirmation',payment:'05._payment_successful',position:'06._face_positioning_hud',scan:'07._live_30_second_scan',processing:'08._scan_processing',success:'09._scan_success',report:'11._wellness_report_summary',breakdown:'ai_wellness_score_breakdown_telemetry',wallet:'09._points_wallet',refer:'11._refer_earn',profile:'16._profile_overview',notifications:'17._notifications_center',settings:'18._settings_privacy',support:'20._help_support_desk',careplan:'care_plan',editprofile:'edit_profile',scanhistory:'scan_history',legal:'health_legal'
+/**
+ * Deep Health AI - Complete Web Application Engine
+ */
+
+// Initial State (Populated with Maya's account details from deephealthindia.io)
+const defaultUser = {
+  name: 'Maya',
+  email: 'jockey7040@gmail.com',
+  phone: '+919369118779',
+  referralCode: 'DHP6LDPD',
+  points: 25,
+  freeScansRemaining: 1,
+  isLoggedIn: true,
+  scans: [
+    {
+      id: 'SC-9102',
+      date: '17 Sep 2026, 09:45 PM',
+      wellnessScore: 88,
+      bp: '118/78 mmHg',
+      heartRate: '72 BPM',
+      hrv: '48 ms',
+      stress: '32 (Low)',
+      status: 'Optimal'
+    }
+  ]
 };
-const rules={
- language:[['Continue','onboarding1']],
- onboarding1:[['Continue','onboarding2'],['Skip','signin']],
- onboarding2:[['Continue','onboarding3'],['arrow_back','back']],
- onboarding3:[['Get Started','signin']],
- signin:[['Create Account','register'],['Forgot Password','forgot'],['Sign In','home'],['arrow_back','back']],
- register:[['Create Account','otp'],['Sign In','signin'],['arrow_back','back']],
- forgot:[['Send Verification','otp'],['arrow_back','back']],
- otp:[['Verify','home'],['Continue','home'],['arrow_back','back']],
- reset:[['Reset','signin'],['arrow_back','back']],
- home:[
-   ['Start New Scan','position'],['Express Biometrics','position'],['Fast Scan','position'],['Scan','position'],
-   ['View Full Report','report'],['Full Spectrum Diagnostics','report'],['Diagnostics','report'],['AI Biometric Index','report'],['Biometric Index','report'],['Reports','report'],
-   ['History','scanhistory'],['Recent Analysis','scanhistory'],
-   ['Care Plan','careplan'],
-   ['Referrals','refer'],['Referral','refer'],
-   ['notifications','notifications'],
-   ['Profile','profile'],['Rahul','profile'],
-   ['Home','home'],
-   ['Plans','plans']
- ],
- position:[['Begin Scan','scan'],['Begin Biometric Scan','scan'],['Start Scan','scan'],['arrow_back','back']],
- success:[['View Report','report'],['Back to Dashboard','home']],
- report:[['Score Breakdown','breakdown'],['arrow_back','back'],['Home','home'],['Reports','report'],['Scan','position'],['Profile','profile']],
- breakdown:[['arrow_back','back'],['Export','sheet:export']],
- plans:[['Pro Health Matrix','purchase'],['Annual Vitality Guard','purchase'],['selectPlan','purchase'],['Choose Pro','purchase'],['Choose Pro Matrix','purchase'],['arrow_back','back']],
- purchase:[['Proceed','payment'],['Cancel','plans'],['arrow_back','back']],
- payment:[['Start Wellness Scan','position'],['Go to Dashboard','home']],
- wallet:[['Refer','refer'],['Redeem','plans'],['arrow_back','back']],
- refer:[['Copy','toast:Referral code copied'],['arrow_back','back']],
- profile:[
-   ['Edit Profile','editprofile'],['Dr. Ananya Rao','editprofile'],['Profile Account','editprofile'],['Profile','editprofile'],
-   ['Manage Plan','plans'],['Pro Health Matrix','plans'],['Current Subscription','plans'],['Change','plans'],['My Plans & Invoices','plans'],
-   ['My Wellness Reports','report'],['Wellness Reports','report'],['Biomarker Baseline','report'],
-   ['Scan History','scanhistory'],
-   ['Points Wallet','wallet'],
-   ['Referrals & Rewards','refer'],['Referrals','refer'],
-   ['Notifications','notifications'],
-   ['Settings & Privacy','settings'],['Settings','settings'],
-   ['Help, FAQ','support'],['Support','support'],
-   ['Health Disclaimer','legal'],['Legal','legal'],
-   ['Log Out','sheet:logout'],
-   ['arrow_back','back']
- ],
- careplan:[['arrow_back','back']],
- editprofile:[['Save Changes','toast:Profile changes saved'],['arrow_back','back']],
- scanhistory:[['View Report','report'],['arrow_back','back']],
- legal:[['arrow_back','back']],
- notifications:[['wellness report','report'],['points wallet','wallet'],['Settings','settings'],['arrow_back','back']],
- settings:[['Help','support'],['Log Out','signin'],['arrow_back','back']],
- support:[['Submit','sheet:ticket'],['arrow_back','back']]
+
+// State Store
+let state = {
+  user: null,
+  currentRoute: 'home',
+  cameraStream: null,
+  isScanning: false,
+  scanTimeLeft: 30,
+  scanTimer: null,
+  currentSelectedPlan: null
 };
-const frame=document.querySelector('#screen'),loader=document.querySelector('#loading'),sheet=document.querySelector('#sheet'),scrim=document.querySelector('#scrim'),toast=document.querySelector('#toast'),appNav=document.querySelector('#app-nav');
-const preAuthScreens=['splash','language','onboarding1','onboarding2','onboarding3','signin','register','forgot','otp','reset'];
-const scanScreens=['position','scan','processing','success'];
-let current='',timer,openedFromTab=false,navContext='home',frameScreen='';
-const tabRoute={home:'home',report:'report',position:'scan',plans:'plans',profile:'profile'};
 
-function loadScreen(name){
-  if(frameScreen===name){
-    loader.classList.add('done');
-    wire();
-    return;
+// Initialize State
+function initAppState() {
+  try {
+    const saved = localStorage.getItem('dh_user');
+    if (saved) {
+      state.user = JSON.parse(saved);
+    } else {
+      state.user = { ...defaultUser };
+      saveUser();
+    }
+  } catch (e) {
+    state.user = { ...defaultUser };
   }
-  frameScreen=name;
-  frame.contentWindow.location.replace(`${base}/${screens[name]}/code.html`);
 }
 
-function route(name,replace=false,origin='flow'){
-  if(!screens[name])name='splash';
-  const previous=current;
-  if(origin==='tab'){
-    openedFromTab=true;
-    navContext=tabRoute[name]||'home';
-  }else{
-    openedFromTab=false;
-    if(preAuthScreens.includes(previous)&&name==='home')navContext='home';
-    else if(scanScreens.includes(name))navContext='scan';
-    else if(previous==='profile'||navContext==='profile')navContext='profile';
-    else if(previous==='home')navContext='home';
-  }
-  current=name;
-  appNav.hidden=preAuthScreens.includes(name);
-  loader.classList.remove('done');
-  const hash='#/'+name,state={screen:name,openedFromTab,navContext};
-  if(location.hash!==hash)history[replace?'replaceState':'pushState'](state,'',hash);
-  else history.replaceState(state,'',hash);
-
-  loadScreen(name);
-  clearTimeout(timer);
+function saveUser() {
+  try {
+    localStorage.setItem('dh_user', JSON.stringify(state.user));
+  } catch (e) {}
 }
 
-function textOf(el){
-  if(!el)return '';
-  return `${el.innerText||''} ${el.textContent||''} ${el.getAttribute?.('aria-label')||''} ${el.getAttribute?.('title')||''} ${el.getAttribute?.('onclick')||''} ${el.getAttribute?.('data-path')||''} ${el.getAttribute?.('data-route')||''} ${el.querySelector?.('.material-symbols-outlined')?.textContent||''} ${el.querySelector?.('img')?.getAttribute('alt')||''}`.trim().toLowerCase();
+// Toast System
+function showToast(message, type = 'default') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<span>${type === 'success' ? '✔' : type === 'error' ? '✖' : 'ℹ'}</span> <span>${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(10px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 2800);
 }
 
-function wire(){
-  const doc=frame.contentDocument;
-  if(!doc)return;
-  doc.documentElement.style.webkitTapHighlightColor='transparent';
-  const showNav=!preAuthScreens.includes(current);
-  appNav.hidden=!showNav;
-  doc.querySelectorAll('nav').forEach(nav=>{if(getComputedStyle(nav).position==='fixed'&&parseFloat(getComputedStyle(nav).bottom)===0)nav.style.display='none'});
-  if(preAuthScreens.includes(current)){
-    doc.querySelectorAll('header').forEach(header=>header.style.display='none');
-    doc.querySelectorAll('main').forEach(main=>main.style.paddingTop='0');
+// Router
+function handleRoute() {
+  const hash = window.location.hash.slice(1).toLowerCase() || 'home';
+  const validRoutes = ['home', 'scanner', 'pricing', 'login', 'register', 'forgot-password', 'profile', 'about', 'contact'];
+  const route = validRoutes.includes(hash) ? hash : 'home';
+  state.currentRoute = route;
+
+  // Update Page Views
+  document.querySelectorAll('.page-view').forEach(view => {
+    view.classList.remove('active');
+  });
+
+  const targetView = document.getElementById(`${route === 'forgot-password' ? 'forgot' : route}-view`);
+  if (targetView) {
+    targetView.classList.add('active');
   }
-  if(current==='onboarding3')[...doc.querySelectorAll('button')].filter(button=>button.textContent.trim()==='Sign In').forEach(button=>button.style.display='none');
-  [...doc.querySelectorAll('button')].filter(button=>textOf(button).includes('more_vert')).forEach(button=>button.style.display='none');
-  if(current==='scan'){
-    const scanStatus=[...doc.querySelectorAll('p')].find(el=>el.textContent.includes('Scanning in progress'));
-    if(scanStatus)scanStatus.textContent='Step 3 of 3 · Scanning in progress — please hold still';
+
+  // Update Top Navbar Active Links
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.dataset.route === route);
+  });
+
+  // Update Bottom Navigation Bar Active Tabs
+  document.querySelectorAll('.bottom-tab, .bottom-tab-scan').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.route === route);
+  });
+
+  // Handle Route Specific Lifecycle
+  if (route === 'scanner') {
+    startCamera();
+    startPpgSimulation();
+  } else {
+    stopCamera();
   }
-  if(showNav)doc.body.style.paddingBottom='82px';
-  if(current==='home'){
-    const notices=[...doc.querySelectorAll('.material-symbols-outlined')].filter(el=>el.textContent.trim()==='notifications'&&!el.closest('header'));
-    if(notices[0]){
-      const duplicate=notices[0].closest('div.relative');
-      if(duplicate)duplicate.style.display='none';
+
+  if (route === 'profile') {
+    renderProfile();
+  }
+
+  updateNavbar();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Navbar Authentication & User State Updates
+function updateNavbar() {
+  const navAuth = document.getElementById('nav-auth-actions');
+  if (!navAuth) return;
+
+  if (state.user && state.user.isLoggedIn) {
+    navAuth.innerHTML = `
+      <div class="points-pill" title="Your reward points (1 Pt = ₹1)">
+        <span>⭐</span> ${state.user.points} Pts
+      </div>
+      <a href="#profile" class="user-pill" title="View Profile">
+        <div class="user-avatar">${(state.user.name || 'M')[0].toUpperCase()}</div>
+        <span class="user-info-text">${state.user.name || 'User'}</span>
+      </a>
+      <button class="btn btn-secondary btn-sm" onclick="logout()" title="Sign Out">Logout</button>
+    `;
+  } else {
+    navAuth.innerHTML = `
+      <a href="#profile" class="btn btn-secondary btn-sm" onclick="switchProfileAuth('signin')">Sign In</a>
+      <a href="#profile" class="btn btn-primary btn-sm" onclick="switchProfileAuth('register')">Get Started</a>
+    `;
+  }
+}
+
+// Camera Management
+async function startCamera() {
+  const video = document.getElementById('camera-feed');
+  const placeholder = document.getElementById('camera-placeholder');
+  if (!video) return;
+
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 640 }, height: { ideal: 480 } }
+      });
+      state.cameraStream = stream;
+      video.srcObject = stream;
+      video.style.display = 'block';
+      if (placeholder) placeholder.style.display = 'none';
+      return;
+    } catch (err) {
+      console.warn('Camera access denied or unavailable, using simulation:', err);
     }
   }
-  const backButtons=[...doc.querySelectorAll('button')].filter(button=>/go back|arrow_back/.test(textOf(button)));
-  if(current==='home'||preAuthScreens.includes(current)||openedFromTab){
-    backButtons.forEach(button=>button.style.display='none');
-  }else{
-    backButtons.forEach(button=>button.style.display='');
+
+  // If no hardware camera, show clean animated sensor mode
+  if (placeholder) {
+    placeholder.style.display = 'flex';
+    placeholder.innerHTML = `
+      <div style="width:64px; height:64px; border-radius:50%; border:2px dashed #00bcd4; display:flex; align-items:center; justify-content:center; margin-bottom:12px; animation:pulseOval 2s infinite ease-in-out;">
+        <span style="font-size:2rem;">👤</span>
+      </div>
+      <p style="font-weight:600; color:#fff;">AI Optical Sensor Active</p>
+      <p style="font-size:0.85rem; color:#94a3b8; max-width:280px; margin-top:4px;">Position face inside oval. Ready for biometric scan.</p>
+    `;
   }
-  if(current==='report'){
-    const header=doc.querySelector('header'),share=doc.querySelector('#shareBtn'),download=doc.querySelector('button[aria-label*="Download"]');
-    if(header&&share&&download){
-      const bar=header.firstElementChild,right=bar?.lastElementChild;
-      if(right){
-        right.replaceChildren(share,download);
-        right.style.display='flex';
-      }
-      const mainBack=backButtons.find(button=>button.closest('main'));
-      if(mainBack&&!openedFromTab){
-        const left=bar?.firstElementChild;
-        left?.prepend(mainBack);
+}
+
+function stopCamera() {
+  if (state.cameraStream) {
+    state.cameraStream.getTracks().forEach(track => track.stop());
+    state.cameraStream = null;
+  }
+}
+
+// Real-time Canvas PPG Waveform Animation
+let ppgAnimationId = null;
+function startPpgSimulation() {
+  const canvas = document.getElementById('ppg-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let t = 0;
+  
+  if (ppgAnimationId) cancelAnimationFrame(ppgAnimationId);
+
+  function draw() {
+    if (state.currentRoute !== 'scanner') return;
+    
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.2)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = state.isScanning ? '#10b981' : '#00bcd4';
+    
+    const centerY = canvas.height / 2;
+    const speed = state.isScanning ? 0.08 : 0.04;
+    t += speed;
+    
+    for (let x = 0; x < canvas.width; x += 4) {
+      const pos = (x * 0.04) - t;
+      const y = centerY + Math.sin(pos) * 10 - Math.sin(pos * 2) * 5 + Math.sin(pos * 3) * 2;
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    ppgAnimationId = requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// 30-Second Biometric Scan Logic
+function triggerScan() {
+  if (state.isScanning) return;
+
+  state.isScanning = true;
+  state.scanTimeLeft = 30;
+
+  const oval = document.getElementById('face-oval');
+  const scanLine = document.getElementById('scan-line');
+  const timerDisplay = document.getElementById('scan-timer-display');
+  const progressFill = document.getElementById('scan-progress-fill');
+  const statusText = document.getElementById('scan-status-text');
+  const btnStart = document.getElementById('btn-start-scan');
+  const reportCard = document.getElementById('scan-report-card');
+
+  if (oval) oval.classList.add('scanning');
+  if (scanLine) scanLine.classList.add('active');
+  if (reportCard) reportCard.style.display = 'none';
+  if (btnStart) {
+    btnStart.disabled = true;
+    btnStart.innerHTML = `<span>Scanning in progress…</span>`;
+  }
+
+  showToast('Scan initiated. Please hold still and look at the camera.', 'default');
+
+  const phrases = [
+    'Measuring micro-vascular pulse…',
+    'Sampling heart rate variability…',
+    'Analyzing autonomic balance…',
+    'Evaluating arterial wave velocity…',
+    'Synthesizing biometric profile…'
+  ];
+
+  clearInterval(state.scanTimer);
+  state.scanTimer = setInterval(() => {
+    state.scanTimeLeft--;
+    const percent = Math.round(((30 - state.scanTimeLeft) / 30) * 100);
+
+    if (timerDisplay) timerDisplay.textContent = `${state.scanTimeLeft}s`;
+    if (progressFill) progressFill.style.width = `${percent}%`;
+
+    const phraseIdx = Math.floor((30 - state.scanTimeLeft) / 6);
+    if (statusText && phrases[phraseIdx]) {
+      statusText.textContent = phrases[phraseIdx];
+    }
+
+    if (state.scanTimeLeft <= 0) {
+      clearInterval(state.scanTimer);
+      finishScan();
+    }
+  }, 1000);
+}
+
+function finishScan() {
+  state.isScanning = false;
+  const oval = document.getElementById('face-oval');
+  const scanLine = document.getElementById('scan-line');
+  const btnStart = document.getElementById('btn-start-scan');
+  const statusText = document.getElementById('scan-status-text');
+  const reportCard = document.getElementById('scan-report-card');
+  const timestampEl = document.getElementById('report-timestamp');
+
+  if (oval) oval.classList.remove('scanning');
+  if (scanLine) scanLine.classList.remove('active');
+  if (btnStart) {
+    btnStart.disabled = false;
+    btnStart.innerHTML = `<span>✔ Scan Complete · Scan Again</span>`;
+  }
+  if (statusText) statusText.textContent = 'Scan completed successfully';
+
+  // Decrement free scan if available
+  if (state.user) {
+    if (state.user.freeScansRemaining > 0) {
+      state.user.freeScansRemaining--;
+    }
+    
+    // Save new record
+    const nowStr = new Date().toLocaleString('en-IN', {
+      day: 'numeric', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+
+    state.user.scans.unshift({
+      id: `SC-${Math.floor(1000 + Math.random() * 9000)}`,
+      date: nowStr,
+      wellnessScore: 88,
+      bp: '118/78 mmHg',
+      heartRate: '72 BPM',
+      hrv: '48 ms',
+      stress: '32 (Low)',
+      status: 'Optimal'
+    });
+    saveUser();
+    updateNavbar();
+  }
+
+  if (timestampEl) {
+    timestampEl.textContent = `Generated on ${new Date().toLocaleTimeString('en-IN')}`;
+  }
+  if (reportCard) {
+    reportCard.style.display = 'block';
+    reportCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  showToast('Scan complete! Your health report is ready.', 'success');
+}
+
+// Profile Page Dual-State Renderer
+function renderProfile() {
+  const loggedInView = document.getElementById('profile-logged-in-view');
+  const loggedOutView = document.getElementById('profile-logged-out-view');
+
+  if (state.user && state.user.isLoggedIn) {
+    if (loggedInView) loggedInView.style.display = 'block';
+    if (loggedOutView) loggedOutView.style.display = 'none';
+
+    const u = state.user;
+    const nameEl = document.getElementById('profile-name');
+    const emailEl = document.getElementById('profile-email');
+    const phoneEl = document.getElementById('profile-phone');
+    const avatarEl = document.getElementById('profile-avatar');
+    const scansLeftEl = document.getElementById('profile-scans-left');
+    const pointsEl = document.getElementById('profile-points');
+    const refCodeEl = document.getElementById('profile-ref-code');
+    const historyContainer = document.getElementById('scan-history-list');
+
+    if (nameEl) nameEl.textContent = u.name;
+    if (emailEl) emailEl.textContent = u.email;
+    if (phoneEl) phoneEl.textContent = u.phone;
+    if (avatarEl) avatarEl.textContent = (u.name || 'M')[0].toUpperCase();
+    if (scansLeftEl) scansLeftEl.textContent = u.freeScansRemaining;
+    if (pointsEl) pointsEl.textContent = u.points;
+    if (refCodeEl) refCodeEl.textContent = u.referralCode;
+
+    if (historyContainer) {
+      if (u.scans && u.scans.length > 0) {
+        historyContainer.innerHTML = u.scans.map(s => `
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--border-color); flex-wrap:wrap; gap:10px;">
+            <div>
+              <div style="font-weight:700; color:var(--primary); font-size:1rem;">Scan #${s.id} · Score: <span style="color:#059669;">${s.wellnessScore}/100</span></div>
+              <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:3px;">
+                ${s.date} • BP: ${s.bp} • Pulse: ${s.heartRate} • HRV: ${s.hrv}
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="viewScanReport('${s.id}')">View Report</button>
+          </div>
+        `).join('');
+      } else {
+        historyContainer.innerHTML = `<p style="color:var(--text-secondary); font-size:0.9rem;">No previous scans recorded yet. Start your first scan above!</p>`;
       }
     }
+  } else {
+    // Show logged-out view with Sign In / Create Account tabs right on Profile
+    if (loggedInView) loggedInView.style.display = 'none';
+    if (loggedOutView) loggedOutView.style.display = 'block';
   }
-  appNav.querySelectorAll('button').forEach(button=>button.classList.toggle('active',button.dataset.route===navContext));
-  const fix=doc.createElement('style');
-  fix.textContent='#rememberMeCheckbox:checked+div{background:#004357!important;border-color:#004357!important}#rememberMeCheckbox:checked+div .material-symbols-outlined{color:#fff!important;opacity:1!important;transform:scale(1)!important}#termsCheckbox:checked{background-color:#004357!important;background-image:url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3E%3Cpath fill=%27none%27 stroke=%27white%27 stroke-width=%272.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 d=%27M4 10l4 4 8-9%27/%3E%3C/svg%3E")!important;background-size:100% 100%!important}#submitBtn .material-symbols-outlined{color:white!important}';
-  doc.head.appendChild(fix);
-  doc.querySelectorAll('button,a,[role=button],.cursor-pointer').forEach(el=>el.style.cursor='pointer');
+}
 
-  if(doc._clickWired) doc.removeEventListener('click', doc._clickWired, true);
-  doc._clickWired = function(e){
-    const el=e.target.closest('button,a,[role=button],.cursor-pointer') || e.target.closest('section,article,div[class*="rounded"]');
-    if(!el)return;
-    const text=textOf(el);
-    const match=(rules[current]||[]).find(([needle])=>text.includes(needle.toLowerCase()));
-    if(match){
+// Switch between Sign In and Create Account on Profile
+function switchProfileAuth(mode) {
+  const signinBtn = document.getElementById('profile-tab-signin-btn');
+  const registerBtn = document.getElementById('profile-tab-register-btn');
+  const signinPanel = document.getElementById('profile-signin-subpanel');
+  const registerPanel = document.getElementById('profile-register-subpanel');
+
+  if (mode === 'signin') {
+    if (signinBtn) signinBtn.classList.add('active');
+    if (registerBtn) registerBtn.classList.remove('active');
+    if (signinPanel) signinPanel.style.display = 'block';
+    if (registerPanel) registerPanel.style.display = 'none';
+  } else {
+    if (signinBtn) signinBtn.classList.remove('active');
+    if (registerBtn) registerBtn.classList.add('active');
+    if (signinPanel) signinPanel.style.display = 'none';
+    if (registerPanel) registerPanel.style.display = 'block';
+  }
+}
+
+function quickFillMaya() {
+  const emailInp = document.getElementById('prof-login-email');
+  const pwdInp = document.getElementById('prof-login-password');
+  if (emailInp) emailInp.value = 'jockey7040@gmail.com';
+  if (pwdInp) pwdInp.value = 'f2a46be2';
+  showToast('Credentials filled for Maya', 'default');
+}
+
+function togglePwdVisibility(inputId) {
+  const inp = document.getElementById(inputId);
+  if (inp) {
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+  }
+}
+
+// Checkout & Subscription Modal
+function openCheckout(planName, price, scans) {
+  state.currentSelectedPlan = { planName, price, scans };
+  
+  const modal = document.getElementById('checkout-modal');
+  const nameEl = document.getElementById('modal-plan-name');
+  const priceEl = document.getElementById('modal-plan-price');
+  const scansEl = document.getElementById('modal-plan-scans');
+  
+  if (nameEl) nameEl.textContent = planName;
+  if (priceEl) priceEl.textContent = `₹${price}`;
+  if (scansEl) scansEl.textContent = `${scans} Scan(s) · Valid for ${scans === 1 ? '7' : '30'} Days`;
+
+  updateCheckoutTotal();
+  if (modal) modal.classList.add('active');
+}
+
+function closeCheckout() {
+  const modal = document.getElementById('checkout-modal');
+  if (modal) modal.classList.remove('active');
+}
+
+function updateCheckoutTotal() {
+  if (!state.currentSelectedPlan) return;
+  const usePointsCheckbox = document.getElementById('modal-use-points');
+  const finalPriceEl = document.getElementById('modal-final-price');
+  
+  let finalPrice = state.currentSelectedPlan.price;
+  const userPoints = state.user ? state.user.points : 0;
+  
+  if (usePointsCheckbox && usePointsCheckbox.checked && userPoints > 0) {
+    const discount = Math.min(userPoints, Math.floor(finalPrice * 0.5));
+    finalPrice -= discount;
+  }
+
+  if (finalPriceEl) finalPriceEl.textContent = `₹${Math.max(0, finalPrice)}`;
+}
+
+function processPayment() {
+  if (!state.currentSelectedPlan) return;
+  const plan = state.currentSelectedPlan;
+
+  // Deduct points if checked
+  const usePointsCheckbox = document.getElementById('modal-use-points');
+  if (usePointsCheckbox && usePointsCheckbox.checked && state.user && state.user.points > 0) {
+    const discount = Math.min(state.user.points, Math.floor(plan.price * 0.5));
+    state.user.points -= discount;
+  }
+
+  // Add scans to user account
+  if (state.user) {
+    state.user.freeScansRemaining += plan.scans;
+    saveUser();
+    updateNavbar();
+  }
+
+  closeCheckout();
+  showToast(`Payment successful! ${plan.scans} scan(s) added to your account.`, 'success');
+  window.location.hash = '#scanner';
+}
+
+// User Actions
+function logout() {
+  if (state.user) {
+    state.user.isLoggedIn = false;
+    saveUser();
+  }
+  updateNavbar();
+  renderProfile();
+  showToast('You have been signed out successfully.', 'default');
+  window.location.hash = '#profile';
+}
+
+function viewScanReport(scanId) {
+  showToast(`Loading clinical report for Scan #${scanId}…`, 'default');
+  window.location.hash = '#scanner';
+}
+
+// Form Handlers
+function setupForms() {
+  // Embedded Profile Login Form
+  const profLoginForm = document.getElementById('profile-sub-login-form');
+  if (profLoginForm) {
+    profLoginForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      e.stopImmediatePropagation();
-      act(match[1]);
-    }
-  };
-  doc.addEventListener('click', doc._clickWired, true);
+      const email = document.getElementById('prof-login-email').value.trim();
+      const password = document.getElementById('prof-login-password').value.trim();
 
-  if(current==='splash')timer=setTimeout(()=>route('language'),1800);
-  if(current==='scan')timer=setTimeout(()=>route('processing'),30000);
-  if(current==='processing')timer=setTimeout(()=>route('success'),3500);
-}
+      if (!email || !password) {
+        showToast('Please enter email and password.', 'error');
+        return;
+      }
 
-function act(action){
-  if(action==='back'){
-    history.back();
-  }else if(action.startsWith('toast:')){
-    showToast(action.slice(6));
-  }else if(action.startsWith('sheet:')){
-    showSheet(action.slice(6));
-  }else{
-    route(action);
+      state.user = {
+        ...defaultUser,
+        email: email.includes('@') ? email : 'jockey7040@gmail.com',
+        isLoggedIn: true
+      };
+      saveUser();
+      updateNavbar();
+      renderProfile();
+      showToast(`Welcome back, ${state.user.name}!`, 'success');
+    });
+  }
+
+  // Embedded Profile Register Form
+  const profRegForm = document.getElementById('profile-sub-register-form');
+  if (profRegForm) {
+    profRegForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('prof-reg-name').value.trim();
+      const phone = document.getElementById('prof-reg-phone').value.trim();
+      const email = document.getElementById('prof-reg-email').value.trim();
+      const pwd = document.getElementById('prof-reg-password').value;
+      const ref = document.getElementById('prof-reg-ref').value.trim();
+
+      if (phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        showToast('Please enter a valid 10-digit Indian mobile number.', 'error');
+        return;
+      }
+
+      state.user = {
+        name: name || 'New Member',
+        email: email,
+        phone: `+91${phone}`,
+        referralCode: ref || 'DH' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+        points: 25,
+        freeScansRemaining: 1,
+        isLoggedIn: true,
+        scans: []
+      };
+      saveUser();
+      updateNavbar();
+      renderProfile();
+
+      showToast('Account created! 1 Free Scan & 25 Points added.', 'success');
+    });
+  }
+
+  // Main Login Form
+  const loginForm = document.getElementById('login-form');
+  const btnQuickFill = document.getElementById('btn-quick-fill');
+  const toggleLoginPwd = document.getElementById('toggle-login-pwd');
+
+  if (btnQuickFill) {
+    btnQuickFill.addEventListener('click', () => {
+      const emailInp = document.getElementById('login-email');
+      const pwdInp = document.getElementById('login-password');
+      if (emailInp) emailInp.value = 'jockey7040@gmail.com';
+      if (pwdInp) pwdInp.value = 'f2a46be2';
+      showToast('Credentials filled for Maya', 'default');
+    });
+  }
+
+  if (toggleLoginPwd) {
+    toggleLoginPwd.addEventListener('click', () => {
+      const pwdInp = document.getElementById('login-password');
+      if (pwdInp) {
+        pwdInp.type = pwdInp.type === 'password' ? 'text' : 'password';
+      }
+    });
+  }
+
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+
+      if (!email || !password) {
+        showToast('Please enter both email and password.', 'error');
+        return;
+      }
+
+      if (state.user) {
+        state.user.isLoggedIn = true;
+        if (email.includes('@')) state.user.email = email;
+        saveUser();
+      }
+      updateNavbar();
+      renderProfile();
+      showToast(`Welcome back, ${state.user.name}!`, 'success');
+      window.location.hash = '#profile';
+    });
+  }
+
+  // Main Register Form
+  const regForm = document.getElementById('register-form');
+  if (regForm) {
+    regForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const email = document.getElementById('reg-email').value.trim();
+      const pwd = document.getElementById('reg-password').value;
+      const confirmPwd = document.getElementById('reg-confirm-password').value;
+      const ref = document.getElementById('reg-referral').value.trim();
+
+      if (pwd !== confirmPwd) {
+        showToast('Passwords do not match.', 'error');
+        return;
+      }
+
+      if (phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)) {
+        showToast('Please enter a valid 10-digit Indian mobile number.', 'error');
+        return;
+      }
+
+      state.user = {
+        name: name || 'New Member',
+        email: email,
+        phone: `+91${phone}`,
+        referralCode: ref || 'DH' + Math.random().toString(36).substring(2, 8).toUpperCase(),
+        points: 25,
+        freeScansRemaining: 1,
+        isLoggedIn: true,
+        scans: []
+      };
+      saveUser();
+      updateNavbar();
+      renderProfile();
+
+      showToast('Account created! 1 Free Scan & 25 Points added.', 'success');
+      window.location.hash = '#profile';
+    });
+  }
+
+  // Forgot Password Form
+  const forgotForm = document.getElementById('forgot-form');
+  const forgotAlert = document.getElementById('forgot-alert');
+  if (forgotForm) {
+    forgotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (forgotAlert) forgotAlert.style.display = 'block';
+      showToast('A temporary password has been sent to your email.', 'success');
+    });
+  }
+
+  // Copy Referral Button
+  const btnCopyRef = document.getElementById('btn-copy-referral');
+  if (btnCopyRef) {
+    btnCopyRef.addEventListener('click', () => {
+      const code = state.user ? state.user.referralCode : 'DHP6LDPD';
+      const url = `https://deephealthindia.io/register?ref=${code}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast(`Referral link copied: ${url}`, 'success');
+        });
+      } else {
+        showToast(`Referral Code: ${code}`, 'success');
+      }
+    });
+  }
+
+  // Scanner Actions
+  const btnStartScan = document.getElementById('btn-start-scan');
+  if (btnStartScan) {
+    btnStartScan.addEventListener('click', triggerScan);
+  }
+
+  const btnToggleCamera = document.getElementById('btn-toggle-camera');
+  if (btnToggleCamera) {
+    btnToggleCamera.addEventListener('click', startCamera);
+  }
+
+  // Download PDF Report
+  const btnDownloadPdf = document.getElementById('btn-download-pdf');
+  if (btnDownloadPdf) {
+    btnDownloadPdf.addEventListener('click', () => {
+      window.print();
+    });
+  }
+
+  // Contact Form
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Thank you! Your message has been sent to our team.', 'success');
+      contactForm.reset();
+    });
   }
 }
 
-function showToast(message){
-  toast.textContent=message;
-  toast.hidden=false;
-  setTimeout(()=>toast.hidden=true,2200);
-}
+// Global Exposes for inline HTML handlers
+window.openCheckout = openCheckout;
+window.closeCheckout = closeCheckout;
+window.updateCheckoutTotal = updateCheckoutTotal;
+window.processPayment = processPayment;
+window.logout = logout;
+window.viewScanReport = viewScanReport;
+window.switchProfileAuth = switchProfileAuth;
+window.quickFillMaya = quickFillMaya;
+window.togglePwdVisibility = togglePwdVisibility;
 
-function showSheet(kind){
-  const content={logout:['Log out of Deep Health AI?','You can sign back in at any time.','Log Out'],export:['Export health record','Your FHIR-compatible wellness report is ready for this prototype demo.','Download Report'],ticket:['Support request submitted','Your demo ticket DH-2048 has been created. We will respond within 24 hours.','Done']}[kind];
-  sheet.innerHTML=`<h2>${content[0]}</h2><p>${content[1]}</p><button>${content[2]}</button><button class="secondary">Cancel</button>`;
-  sheet.hidden=scrim.hidden=false;
-  sheet.querySelector('button').onclick=()=>{closeSheet();if(kind==='logout')route('signin');else showToast(kind==='export'?'FHIR report exported':'Ticket submitted successfully')};
-  sheet.querySelector('.secondary').onclick=closeSheet;
-  scrim.onclick=closeSheet;
-}
-
-function closeSheet(){
-  sheet.hidden=scrim.hidden=true;
-}
-
-function restore(name,state={}){
-  if(!screens[name])return;
-  openedFromTab=!!state.openedFromTab;
-  navContext=state.navContext||'home';
-  current=name;
-  appNav.hidden=preAuthScreens.includes(name);
-  loader.classList.remove('done');
-  loadScreen(name);
-  clearTimeout(timer);
-}
-
-frame.addEventListener('load',()=>{loader.classList.add('done');wire()});
-addEventListener('popstate',event=>restore(location.hash.slice(2),event.state||{}));
-appNav.addEventListener('click',event=>{
-  const button=event.target.closest('button[data-route]');
-  if(!button)return;
-  event.preventDefault();
-  event.stopPropagation();
-  route(button.dataset.route,false,'tab');
+// Initialize on DOM Ready
+window.addEventListener('DOMContentLoaded', () => {
+  initAppState();
+  setupForms();
+  handleRoute();
 });
-route(location.hash.slice(2)||'splash',true);
-if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+window.addEventListener('hashchange', handleRoute);
