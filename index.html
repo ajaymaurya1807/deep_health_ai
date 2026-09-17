@@ -10,10 +10,11 @@
 </head>
 <body>
 
-  <!-- Clean Top App Bar (Displays Current Page Name) -->
+  <!-- Clean Top App Bar (Displays App Icon & Current Page Name) -->
   <header class="navbar">
-    <div class="container navbar-inner" style="justify-content: center; text-align: center;">
-      <h1 id="header-page-title" style="font-size: 1.25rem; font-weight: 800; color: var(--primary); font-family: var(--font-heading); letter-spacing: -0.01em;">Deep Health AI</h1>
+    <div class="container navbar-inner" style="justify-content: center; text-align: center; display: flex; align-items: center; gap: 10px;">
+      <img src="app-icon.png" alt="Deep Health AI" style="width: 28px; height: 28px; border-radius: 8px; object-fit: cover; box-shadow: 0 2px 8px rgba(0,0,0,0.12);" />
+      <h1 id="header-page-title" style="font-size: 1.25rem; font-weight: 800; color: var(--primary); font-family: var(--font-heading); letter-spacing: -0.01em; margin: 0;">Deep Health AI</h1>
     </div>
   </header>
 
@@ -391,21 +392,12 @@
             <p class="auth-subtitle">Sign in to your Deep Health AI account</p>
           </div>
 
-          <!-- Quick Test Auto-Fill helper -->
-          <div class="quick-fill-box">
-            <div>
-              <strong>Quick Test Account:</strong>
-              <div style="font-size:0.8rem; color:var(--text-secondary);">maya.demo@deephealthindia.io</div>
-            </div>
-            <button type="button" class="btn btn-sm btn-primary" id="btn-quick-fill">Auto Fill</button>
-          </div>
-
           <form id="login-form">
             <div class="form-group">
               <label class="form-label" for="login-email">Email or Mobile Number</label>
               <div class="input-with-icon">
                 <span class="input-icon">✉</span>
-                <input type="text" id="login-email" class="form-input" placeholder="name@example.com or +91..." required />
+                <input type="text" id="login-email" class="form-input" placeholder="name@example.com or +91..." value="maya.demo@deephealthindia.io" required />
               </div>
             </div>
 
@@ -413,7 +405,7 @@
               <label class="form-label" for="login-password">Password</label>
               <div class="input-with-icon">
                 <span class="input-icon">🔒</span>
-                <input type="password" id="login-password" class="form-input" placeholder="••••••••" required />
+                <input type="password" id="login-password" class="form-input" placeholder="••••••••" value="f2a46be2" required />
                 <button type="button" class="input-toggle-btn" id="toggle-login-pwd">👁</button>
               </div>
             </div>
@@ -550,7 +542,7 @@
         <!-- A. LOGGED-IN VIEW (Maya's Account Details) -->
         <div id="profile-logged-in-view">
           <!-- Profile Header -->
-          <div class="profile-header">
+          <div class="profile-header" style="margin-bottom: 20px;">
             <div class="profile-identity">
               <div class="profile-avatar-large" id="profile-avatar">M</div>
               <div>
@@ -563,44 +555,9 @@
                 </div>
               </div>
             </div>
-            <div style="display:flex; gap:10px;">
-              <a href="#scanner" class="btn btn-accent">Start Scan</a>
-              <button class="btn btn-secondary" onclick="logout()">Logout</button>
-            </div>
           </div>
 
-          <!-- Quick Stats Cards -->
-          <div class="stats-grid">
-            <div class="stat-box">
-              <div class="stat-box-val" id="profile-scans-left">1</div>
-              <div class="stat-box-label">Free Scans Available</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-box-val" id="profile-points">25</div>
-              <div class="stat-box-label">Reward Points (₹25 Value)</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-box-val" style="font-size:1.4rem;" id="profile-ref-code">DHP6LDPD</div>
-              <div class="stat-box-label">Your Referral Code</div>
-            </div>
-          </div>
-
-          <!-- Referral Link Share Banner -->
-          <div class="card" style="margin-bottom:24px; background:linear-gradient(135deg, #f0fdf4, #e8f3f7); border-color:#a7f3d0;">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-              <div>
-                <h3 style="font-size:1.25rem; color:var(--primary); margin-bottom:4px;">🎁 Refer & Earn 50 Points (₹50)</h3>
-                <p style="color:var(--text-secondary); font-size:0.9rem;">Give friends 25 welcome points + 1 free scan, and you get 50 points per referral!</p>
-              </div>
-              <div style="display:flex; gap:10px;">
-                <button class="btn btn-primary" id="btn-copy-referral">
-                  <span>Copy Referral Link</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Profile Actions Menu (Exact options: Plans, About Us, Contact Us, Logout) -->
+          <!-- Profile Actions Menu (Plans, Referral, About Us, Contact Us, Logout) -->
           <div class="card" style="padding:12px; margin-bottom:28px;">
             <a href="#pricing" class="profile-menu-item">
               <div class="profile-menu-left">
@@ -612,6 +569,17 @@
               </div>
               <span>→</span>
             </a>
+
+            <div class="profile-menu-item" style="cursor:pointer;" id="btn-copy-referral">
+              <div class="profile-menu-left">
+                <div class="profile-menu-icon">🎁</div>
+                <div>
+                  <div>Referral Program (Code: DHP6LDPD)</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted); font-weight:400;">Share link to earn reward points</div>
+                </div>
+              </div>
+              <span style="font-size:0.85rem; font-weight:600; color:var(--primary);">Copy Link</span>
+            </div>
 
             <a href="#about" class="profile-menu-item">
               <div class="profile-menu-left">
@@ -670,20 +638,12 @@
 
           <!-- 1. Embedded Sign In Form -->
           <div id="profile-signin-subpanel" class="card">
-            <div class="quick-fill-box">
-              <div>
-                <strong>Test Account:</strong>
-                <div style="font-size:0.8rem; color:var(--text-secondary);">Maya (maya.demo@deephealthindia.io)</div>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary" onclick="quickFillMaya()">Auto Fill</button>
-            </div>
-
             <form id="profile-sub-login-form">
               <div class="form-group">
                 <label class="form-label">Email or Mobile Number</label>
                 <div class="input-with-icon">
                   <span class="input-icon">✉</span>
-                  <input type="text" id="prof-login-email" class="form-input" placeholder="name@example.com or +91..." required />
+                  <input type="text" id="prof-login-email" class="form-input" placeholder="name@example.com or +91..." value="maya.demo@deephealthindia.io" required />
                 </div>
               </div>
 
@@ -691,7 +651,7 @@
                 <label class="form-label">Password</label>
                 <div class="input-with-icon">
                   <span class="input-icon">🔒</span>
-                  <input type="password" id="prof-login-password" class="form-input" placeholder="••••••••" required />
+                  <input type="password" id="prof-login-password" class="form-input" placeholder="••••••••" value="f2a46be2" required />
                   <button type="button" class="input-toggle-btn" onclick="togglePwdVisibility('prof-login-password')">👁</button>
                 </div>
               </div>
@@ -854,63 +814,6 @@
 
   <!-- Toast Notification System -->
   <div class="toast-container" id="toast-container"></div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="brand-logo" style="color:#fff;">
-            <div class="logo-badge" style="background:var(--secondary);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-            </div>
-            <span>Deep Health AI</span>
-          </div>
-          <p>
-            Affordable, accessible, and non-invasive AI health insights through facial scanning technology for every citizen.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#scanner">AI Scanner</a></li>
-            <li><a href="#pricing">Pricing Plans</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Account</h4>
-          <ul class="footer-links">
-            <li><a href="#login">Sign In</a></li>
-            <li><a href="#register">Create Account</a></li>
-            <li><a href="#profile">User Profile</a></li>
-            <li><a href="#forgot-password">Reset Password</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Security & Legal</h4>
-          <ul class="footer-links">
-            <li><a href="#about">HIPAA Compliance</a></li>
-            <li><a href="#about">Privacy Policy</a></li>
-            <li><a href="#about">Terms of Service</a></li>
-            <li><a href="#about">Refund Policy</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Deep Health AI India Limited. All rights reserved.</div>
-        <div style="font-size:0.75rem; color:#94a3b8; max-width:600px;">
-          Disclaimer: Deep Health AI is an intelligent wellness wellness tracking system. It does not provide medical diagnosis, prescription, or clinical treatment advice. Consult a licensed physician for medical concerns.
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <script src="app.js"></script>
 </body>

@@ -490,7 +490,7 @@ function processPayment() {
 
   closeCheckout();
   showToast(`Payment successful! ${plan.scans} scan(s) added to your account.`, 'success');
-  window.location.hash = '#scanner';
+  window.location.hash = '#home';
 }
 
 // User Actions
@@ -573,18 +573,18 @@ function setupForms() {
 
   // Main Login Form
   const loginForm = document.getElementById('login-form');
-  const btnQuickFill = document.getElementById('btn-quick-fill');
   const toggleLoginPwd = document.getElementById('toggle-login-pwd');
 
-  if (btnQuickFill) {
-    btnQuickFill.addEventListener('click', () => {
-      const emailInp = document.getElementById('login-email');
-      const pwdInp = document.getElementById('login-password');
-      if (emailInp) emailInp.value = 'maya.demo@deephealthindia.io';
-      if (pwdInp) pwdInp.value = 'f2a46be2';
-      showToast('Credentials filled for Maya', 'default');
-    });
-  }
+  // Pre-fill dummy login credentials
+  const emailInp = document.getElementById('login-email');
+  const pwdInp = document.getElementById('login-password');
+  if (emailInp && !emailInp.value) emailInp.value = 'maya.demo@deephealthindia.io';
+  if (pwdInp && !pwdInp.value) pwdInp.value = 'f2a46be2';
+
+  const profEmailInp = document.getElementById('prof-login-email');
+  const profPwdInp = document.getElementById('prof-login-password');
+  if (profEmailInp && !profEmailInp.value) profEmailInp.value = 'maya.demo@deephealthindia.io';
+  if (profPwdInp && !profPwdInp.value) profPwdInp.value = 'f2a46be2';
 
   if (toggleLoginPwd) {
     toggleLoginPwd.addEventListener('click', () => {
